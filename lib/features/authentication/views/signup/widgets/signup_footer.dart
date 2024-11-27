@@ -10,7 +10,7 @@ class SignupFooter extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(TEnglishTexts.signinQuastion),
-        TextButton(onPressed: (){}, child: Text(TEnglishTexts.register))
+        TextButton(onPressed: (){}, child: Text(TEnglishTexts.login))
       ],
     );
   }

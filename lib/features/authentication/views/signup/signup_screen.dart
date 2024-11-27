@@ -1,4 +1,3 @@
-import 'package:comprehensive_pharmacy_client_role/app.dart';
 import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/widgets/signup_button.dart';
@@ -6,7 +5,6 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/views
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/widgets/signup_form.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/widgets/signup_header.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_client_role/dependencies/otp_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signup_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/signin_screen.dart';
@@ -21,12 +22,12 @@ class ClientApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
-        initialRoute: AppRoutes.signup,
+        initialRoute: AppRoutes.otp,
         getPages: AppRoutes.routes,
         // translations: TAppTranslations(),
         // locale: const Locale('en'),
         // fallbackLocale: const Locale('en'),
-        initialBinding: SignupBinding(),
+        initialBinding: OtpBinding(),
         // home: const SigninScreen(),
       ),
     );

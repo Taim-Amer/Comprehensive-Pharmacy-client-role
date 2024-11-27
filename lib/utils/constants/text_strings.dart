@@ -23,6 +23,11 @@ class TArabicTexts {
   static String get confirmPassword => '';
   static String get location => '';
   static String get signinQuastion => '';
+  static String get otpTitle => '';
+  static String get otpSubTitle => '';
+  static String get otpQuastion => '';
+  static String get resend => '';
+  static String get verifyCode => '';
 
   // Notifications
   static String get notifications => 'الإشعارات';
@@ -79,6 +84,11 @@ class TEnglishTexts {
   static String get confirmPassword => 'Confirm password';
   static String get location => 'Location';
   static String get signinQuastion => 'Already have an account?';
+  static String get otpTitle => 'Verification code';
+  static String get otpSubTitle => 'We sent a 5 degit  verify code to this phone number +964-555-5666';
+  static String get otpQuastion => 'Havent got your verification code yet?';
+  static String get resend => 'Resend code in 0:15 Sec';
+  static String get verifyCode => 'Verify code';
 
   // Notifications
   static String get notifications => 'Notifications';
