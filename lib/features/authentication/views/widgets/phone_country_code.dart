@@ -1,6 +1,7 @@
 import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/signin_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/models/country_model.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/storage/cache_helper.dart';
@@ -8,6 +9,7 @@ import 'package:comprehensive_pharmacy_client_role/utils/validators/validation.d
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:measure_size_builder/measure_size_builder.dart';
 
 class PhoneCountryCode extends StatefulWidget {
@@ -35,8 +37,8 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
-            color: dark ? TColors.dark : const Color(0xffE8E8E8),
-            borderRadius: BorderRadius.circular(50),
+            color: dark ? TColors.dark : TColors.lightGrey,
+            borderRadius: BorderRadius.circular(8.r),
           ),
           child: GestureDetector(
             onTap: () {
@@ -52,17 +54,25 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                   orElse: () => countries.first,
                 );
                 return Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    10.horizontalSpace,
+                    const Icon(Iconsax.mobile, size: 20, color: Color(0xFF707070),),
                     8.horizontalSpace,
-                    Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey : const Color(0xFF353535), size: 28.h),
+                    Container(height: 20.h, width: 1, color: dark ? TColors.lightGrey : Colors.black),
+                    8.horizontalSpace,
+                    Image.asset(selectedCountry.svg!, height: 24.h, width: 24.w),
+                    8.horizontalSpace,
+                    Text('(${selectedCountry.code})'),
+                    8.horizontalSpace,
                     Expanded(
                       child: TextFormField(
                         validator: (value) => TValidator.validatePhoneNumber(value),
                         enableInteractiveSelection: false,
                         // controller: SigninController.instance.phoneController,
                         decoration: InputDecoration(
-                          hintText: '000_000_000',
-                          hintStyle: const TextStyle(color: Colors.grey),
+                          hintText: TEnglishTexts.phoneNumber,
+                          hintStyle: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF707070), fontSize: 14, fontWeight: FontWeight.w400),
                           contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
                           border: InputBorder.none,
                         ),
@@ -77,11 +87,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                       ),
                     ),
                     16.horizontalSpace,
-                    Container(height: 17.h, width: 1, color: dark ? TColors.lightGrey : Colors.black),
-                    8.horizontalSpace,
-                    Text('(${selectedCountry.code})'),
-                    8.horizontalSpace,
-                    Image.asset(selectedCountry.svg!, height: 24.h, width: 24.w),
+                    Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey : const Color(0xFF707070), size: 20.h),
                     8.horizontalSpace,
                   ],
                 );

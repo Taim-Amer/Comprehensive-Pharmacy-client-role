@@ -14,6 +14,7 @@ class TArabicTexts {
   static String get login => '';
   static String get signupQuastion => '';
   static String get register => '';
+  static String get phoneNumber => '';
 
   // Notifications
   static String get notifications => 'الإشعارات';
@@ -61,6 +62,7 @@ class TEnglishTexts {
   static String get login => 'Login';
   static String get signupQuastion => 'Dont have an account?';
   static String get register => 'Sign up';
+  static String get phoneNumber => 'Phone number';
 
   // Notifications
   static String get notifications => 'Notifications';
