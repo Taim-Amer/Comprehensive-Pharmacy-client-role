@@ -1,3 +1,5 @@
+import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin_screen.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -17,12 +19,12 @@ class AppRoutes {
 
   static List<GetPage> routes = [
 
-    // GetPage(
-    //   name: signin,
-    //   page: () => const SigninScreen(),
-    //   binding: SigninBinding(),
-    //   transition: Transition.rightToLeft
-    // ),
+    GetPage(
+      name: signin,
+      page: () => const SigninScreen(),
+      binding: SigninBinding(),
+      transition: Transition.fade
+    ),
     //
     // GetPage(
     //   name: otp,

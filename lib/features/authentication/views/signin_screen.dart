@@ -4,14 +4,10 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/views
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/widgets/signin_footer.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/widgets/signin_form.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/widgets/signin_header.dart';
-import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:iconsax/iconsax.dart';
 
 class SigninScreen extends StatelessWidget {
   const SigninScreen({super.key});

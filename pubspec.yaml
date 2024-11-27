@@ -83,7 +83,7 @@ flutter:
 #    - assets/logos/auth/
 #    - assets/icons/auth/
 #    - assets/images/shapes/
-#    - assets/icons/flags/
+    - assets/icons/flags/
 #    - assets/logos/home/
 #    - assets/logos/profile/
 #    - assets/icons/global/
