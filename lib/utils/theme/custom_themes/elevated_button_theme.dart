@@ -8,10 +8,10 @@ class TElevatedButtonTheme {
     style: ElevatedButton.styleFrom(
       elevation: 0,
       foregroundColor: Colors.white,
-      backgroundColor: TColors.buttonPrimary,
+      backgroundColor: TColors.primary,
       disabledForegroundColor: Colors.grey,
       disabledBackgroundColor: Colors.grey,
-      side: const BorderSide(color: TColors.buttonPrimary),
+      side: const BorderSide(color: TColors.primary),
       textStyle: const TextStyle(
         fontSize: 16,
         color: Colors.white,
@@ -19,7 +19,7 @@ class TElevatedButtonTheme {
         fontFamily: 'Almarai',
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(8),
       ),
     ),
   );
@@ -28,10 +28,10 @@ class TElevatedButtonTheme {
     style: ElevatedButton.styleFrom(
       elevation: 0,
       foregroundColor: Colors.white,
-      backgroundColor: TColors.buttonPrimary,
+      backgroundColor: TColors.primary,
       disabledForegroundColor: Colors.grey,
       disabledBackgroundColor: Colors.grey,
-      side: const BorderSide(color: TColors.buttonPrimary),
+      side: const BorderSide(color: TColors.primary),
       textStyle: const TextStyle(
         fontSize: 16,
         color: Colors.white,
@@ -39,7 +39,7 @@ class TElevatedButtonTheme {
         fontFamily: 'Almarai',
       ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(8),
       ),
     ),
   );

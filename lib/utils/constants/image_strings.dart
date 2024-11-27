@@ -5,7 +5,7 @@ class TImages {
   static const String lightAppLogo = "assets/logos/t-store-splash-logo-white.png";
 
   // Authentication
-  static const String login = "assets/logos/auth/noun-login.svg";
+  static const String login = "assets/images/Rectangle 5.svg";
   static const String lock = "assets/logos/auth/lock.svg";
   static const String mobile = "assets/icons/auth/bxs_mobile.svg";
   static const String loginShape = "assets/images/shapes/Group.svg";

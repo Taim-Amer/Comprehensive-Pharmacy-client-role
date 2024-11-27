@@ -32,6 +32,7 @@ class TAppTheme {
     inputDecorationTheme: TTextFieldTheme.lightInputDecorationTheme,
     radioTheme: TRadioTheme.lightRadioTheme,
     dividerColor: const Color(0xFFD5D5D5),
+    canvasColor: TColors.primary,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -52,5 +53,6 @@ class TAppTheme {
     inputDecorationTheme: TTextFieldTheme.darkInputDecorationTheme,
     radioTheme: TRadioTheme.darkRadioTheme,
     dividerColor: TColors.dark,
+    canvasColor: TColors.primary,
   );
 }

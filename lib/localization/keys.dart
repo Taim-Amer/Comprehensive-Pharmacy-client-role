@@ -90,4 +90,6 @@ class TranslationKey{
   static String get kNewAccountMessage => "newAccountMessage".tr;
   static String get kVerificationCodeMessage => "verificationCodeMessage".tr;
   static String get kNewDebtCreateMessage => "newDebtCreateMessage".tr;
+  static String get kLoginTitle => "loginTitle".tr;
+  static String get kLoginSubTitle => "loginSubTitle".tr;
 }

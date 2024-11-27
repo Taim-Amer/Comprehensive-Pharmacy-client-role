@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -20,12 +21,10 @@ class ClientApp extends StatelessWidget {
         // initialRoute: initialRoute,
         // getPages: AppRoutes.routes,
         // translations: TAppTranslations(),
-        // locale: Locale(language ?? 'en'),
-        // fallbackLocale: const Locale('en'),
+        locale: const Locale('en'),
+        fallbackLocale: const Locale('en'),
         // initialBinding: GeneralBindings(),
-        home: const Scaffold(
-          body: Center(child: Text("Taim")),
-        ),
+        home: const SigninScreen(),
       ),
     );
   }
