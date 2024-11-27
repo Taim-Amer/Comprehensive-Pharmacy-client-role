@@ -17,6 +17,12 @@ class TArabicTexts {
   static String get phoneNumber => '';
   static String get registerTitle => '';
   static String get registerSubTitle => '';
+  static String get userName => '';
+  static String get emailAddress => '';
+  static String get password => '';
+  static String get confirmPassword => '';
+  static String get location => '';
+  static String get signinQuastion => '';
 
   // Notifications
   static String get notifications => 'الإشعارات';
@@ -67,6 +73,12 @@ class TEnglishTexts {
   static String get phoneNumber => 'Phone number';
   static String get registerTitle => 'Signup';
   static String get registerSubTitle => 'Please provide the following information to create your account';
+  static String get userName => 'user name';
+  static String get emailAddress => 'Email address';
+  static String get password => 'Password';
+  static String get confirmPassword => 'Confirm password';
+  static String get location => 'Location';
+  static String get signinQuastion => 'Already have an account?';
 
   // Notifications
   static String get notifications => 'Notifications';

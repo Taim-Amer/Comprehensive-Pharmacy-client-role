@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
+import 'package:comprehensive_pharmacy_client_role/dependencies/signup_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/signin_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
@@ -20,12 +21,12 @@ class ClientApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
-        initialRoute: AppRoutes.signin,
+        initialRoute: AppRoutes.signup,
         getPages: AppRoutes.routes,
         // translations: TAppTranslations(),
         // locale: const Locale('en'),
         // fallbackLocale: const Locale('en'),
-        initialBinding: SigninBinding(),
+        initialBinding: SignupBinding(),
         // home: const SigninScreen(),
       ),
     );

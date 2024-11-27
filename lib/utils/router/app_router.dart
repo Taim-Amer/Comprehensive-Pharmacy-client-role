@@ -1,5 +1,7 @@
 import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
+import 'package:comprehensive_pharmacy_client_role/dependencies/signup_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/signin_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/signup_screen.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -25,21 +27,21 @@ class AppRoutes {
       binding: SigninBinding(),
       transition: Transition.fade
     ),
-    //
+
     // GetPage(
     //   name: otp,
     //   page: () => const OtpScreen(),
     //   binding: OtpBinding(),
     //   transition: Transition.rightToLeft
     // ),
-    //
-    // GetPage(
-    //   name: signup,
-    //   page: () => SignupScreen(),
-    //   binding: SignupBinding(),
-    //   transition: Transition.rightToLeft,
-    // ),
-    //
+
+    GetPage(
+      name: signup,
+      page: () => const SignupScreen(),
+      binding: SignupBinding(),
+      transition: Transition.fade
+    ),
+
     // GetPage(
     //   name: home,
     //   page: () => const HomeScreen(),

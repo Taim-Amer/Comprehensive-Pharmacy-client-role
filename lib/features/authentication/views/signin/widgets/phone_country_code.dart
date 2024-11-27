@@ -1,6 +1,7 @@
 import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/signin_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/models/country_model.dart';
@@ -87,8 +88,8 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                       ),
                     ),
                     16.horizontalSpace,
-                    Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey : const Color(0xFF707070), size: 20.h),
-                    8.horizontalSpace,
+                    Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey : const Color(0xFF707070), size: 22),
+                    10.horizontalSpace,
                   ],
                 );
               }),
@@ -119,6 +120,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
             },
           ),
         ),
+        isExpanded ? TSizes.spaceBtwInputField.verticalSpace : const SizedBox(),
       ],
     );
   }
