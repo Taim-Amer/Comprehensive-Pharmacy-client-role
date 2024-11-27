@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_client_role/dependencies/forget_password_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/otp_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signup_binding.dart';
@@ -23,13 +24,13 @@ class ClientApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
-        // initialRoute: AppRoutes.otp,
-        // getPages: AppRoutes.routes,
+        initialRoute: AppRoutes.phoneVerify,
+        getPages: AppRoutes.routes,
         // translations: TAppTranslations(),
         // locale: const Locale('en'),
         // fallbackLocale: const Locale('en'),
-        initialBinding: OtpBinding(),
-        home: const VerifyCodeScreen(),
+        initialBinding: ForgetPasswordBinding(),
+        // home: const VerifyCodeScreen(),
         // home: const SigninScreen(),
       ),
     );
