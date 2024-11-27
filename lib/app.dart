@@ -1,5 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/signin_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/theme/theme.dart';

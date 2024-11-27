@@ -1,9 +1,9 @@
 import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/views/widgets/signin_button.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/views/widgets/signin_footer.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/views/widgets/signin_form.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/views/widgets/signin_header.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/signin_button.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/signin_footer.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/signin_form.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/signin_header.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
