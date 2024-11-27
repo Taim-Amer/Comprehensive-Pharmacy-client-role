@@ -1,7 +1,7 @@
 import 'package:comprehensive_pharmacy_client_role/dependencies/otp_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signup_binding.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/otp_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/otp_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/signin_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/signup_screen.dart';
 import 'package:get/get.dart';

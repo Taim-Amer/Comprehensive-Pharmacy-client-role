@@ -28,6 +28,16 @@ class TArabicTexts {
   static String get otpQuastion => '';
   static String get resend => '';
   static String get verifyCode => '';
+  static String get forgetPasswordSubTitle => '';
+  static String get checkPhone => '';
+  static String get checkPhoneSubTitle => '';
+  static String get checkPhoneQuastion => '';
+  static String get setNewPasswordTitle => '';
+  static String get setNewPasswordSubTitle => '';
+  static String get updatePassword => '';
+  static String get resetSuccess => '';
+  static String get resetSuccessSubTitle => '';
+
 
   // Notifications
   static String get notifications => 'الإشعارات';
@@ -89,6 +99,15 @@ class TEnglishTexts {
   static String get otpQuastion => 'Havent got your verification code yet?';
   static String get resend => 'Resend code in 0:15 Sec';
   static String get verifyCode => 'Verify code';
+  static String get forgetPasswordSubTitle => 'Enter your phone number to get verification code to reset your password';
+  static String get checkPhone => 'Check your Phone';
+  static String get checkPhoneSubTitle => 'We sent a 5 degit  verify code to this phone number +964-555-5666';
+  static String get checkPhoneQuastion => 'Havent got your verification code yet?';
+  static String get setNewPasswordTitle => 'Set a new password';
+  static String get setNewPasswordSubTitle => 'Create a new password.Ensure it differs form the previous one';
+  static String get updatePassword => 'Update password';
+  static String get resetSuccess => 'Password reset successful!';
+  static String get resetSuccessSubTitle => 'Your new password is ready to use. Log in and regain access to your account seamlessly!';
 
   // Notifications
   static String get notifications => 'Notifications';
