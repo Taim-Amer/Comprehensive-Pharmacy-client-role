@@ -24,7 +24,7 @@ class ClientApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
-        initialRoute: AppRoutes.phoneVerify,
+        initialRoute: AppRoutes.setPassword,
         getPages: AppRoutes.routes,
         // translations: TAppTranslations(),
         // locale: const Locale('en'),
