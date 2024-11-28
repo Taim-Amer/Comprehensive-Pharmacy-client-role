@@ -1,18 +1,11 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/tabbar.dart';
-import 'package:comprehensive_pharmacy_client_role/common/widgets/chips/choice_chip.dart';
-import 'package:comprehensive_pharmacy_client_role/common/widgets/chips/filter_chip.dart';
-import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/empty_order_form.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_drawer.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/order_status_chip.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/orders_empty_body.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/orders_header.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -38,9 +31,9 @@ class OrderScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const OrdersHeader(),
+                  (TSizes.defaultSpace * 2).verticalSpace,
                   TTabBar(
-                    tabs: List.generate(
-                        4,
+                    tabs: List.generate(4,
                         (index) => OrderStatusChip(
                               index: index,
                               tabController: tabController,

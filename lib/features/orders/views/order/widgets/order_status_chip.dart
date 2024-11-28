@@ -42,13 +42,16 @@ class _OrderStatusChipState extends State<OrderStatusChip> {
 
     return TRoundedContainer(
       width: 89.w,
-      height: 28.h,
+      // height: 28.h,
       radius: 6.r,
       backgroundColor: isSelected ? TColors.buttonPrimary : const Color(0xFFF5F5F5),
       borderColor: isSelected ? TColors.buttonPrimary : const Color(0xFFF5F5F5),
       showBorder: true,
-      child: Center(
-        child: Text(widget.text, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 12, fontWeight: FontWeight.w500, color: isSelected ? Colors.white : const Color(0xFF383838)),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Text(widget.text, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 12, fontWeight: FontWeight.w500, color: isSelected ? Colors.white : const Color(0xFF383838)),
+          ),
         ),
       ),
     );
