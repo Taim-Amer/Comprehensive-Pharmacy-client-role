@@ -10,6 +10,7 @@ class TImages {
   static const String mobile = "assets/icons/auth/bxs_mobile.svg";
   static const String loginShape = "assets/images/shapes/Group.svg";
   static const String logout = "assets/logos/auth/Group.svg";
+  static const String passwordConfirmed = "assets/images/Done.svg";
 
   // Flags
   static const String jordan = "assets/icons/flags/jordan.png";

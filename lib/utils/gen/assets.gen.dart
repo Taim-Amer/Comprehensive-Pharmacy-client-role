@@ -19,11 +19,14 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/Done.svg
+  String get done => 'assets/images/Done.svg';
+
   /// File path: assets/images/Rectangle 5.svg
   String get rectangle5 => 'assets/images/Rectangle 5.svg';
 
   /// List of all assets
-  List<String> get values => [rectangle5];
+  List<String> get values => [done, rectangle5];
 }
 
 class $AssetsIconsFlagsGen {
