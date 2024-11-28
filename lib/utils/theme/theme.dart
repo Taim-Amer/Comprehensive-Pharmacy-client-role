@@ -3,6 +3,7 @@ import 'package:comprehensive_pharmacy_client_role/utils/theme/custom_themes/app
 import 'package:comprehensive_pharmacy_client_role/utils/theme/custom_themes/bottom_sheet_theme.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/theme/custom_themes/checkbox_theme.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/theme/custom_themes/chip_theme.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/theme/custom_themes/drawer_theme.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/theme/custom_themes/elevated_button_theme.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/theme/custom_themes/outlined_button_theme.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/theme/custom_themes/radio_theme.dart';
@@ -31,8 +32,9 @@ class TAppTheme {
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
     inputDecorationTheme: TTextFieldTheme.lightInputDecorationTheme,
     radioTheme: TRadioTheme.lightRadioTheme,
-    dividerColor: const Color(0xFFD5D5D5),
+    dividerColor: const Color(0xFFF3F3F3).withOpacity(.3),
     canvasColor: TColors.primary,
+    drawerTheme: TDrawerTheme.lightDrawerTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -54,5 +56,6 @@ class TAppTheme {
     radioTheme: TRadioTheme.darkRadioTheme,
     dividerColor: TColors.dark,
     canvasColor: TColors.primary,
+    drawerTheme: TDrawerTheme.darkDrawerTheme,
   );
 }

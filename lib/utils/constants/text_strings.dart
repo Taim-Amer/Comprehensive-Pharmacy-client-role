@@ -134,7 +134,7 @@ class TEnglishTexts {
   static String get previousOrders => 'See your previous orders';
   static String get emptyOrders => 'Your Order list is empty !';
   static String get emptyOrdersSubTitle => 'Looks like you havent added any thing to your order list.';
-  static String get createOrder => 'Create order';
+  static String get createOrder => 'Create Order';
   static String get home => 'Home';
   static String get languages => 'Language';
   static String get privacy => 'Privacy policy';

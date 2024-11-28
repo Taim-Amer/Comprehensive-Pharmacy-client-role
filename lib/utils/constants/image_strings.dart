@@ -12,6 +12,10 @@ class TImages {
   static const String logout = "assets/logos/auth/Group.svg";
   static const String passwordConfirmed = "assets/images/Done.svg";
 
+  // Orders
+  static const String emptyOrders = 'assets/images/clipboard-close.svg';
+  static const String myOrdersIcon = 'assets/icons/clipboard-tick.svg';
+
   // Flags
   static const String jordan = "assets/icons/flags/jordan.png";
   static const String lebanon = "assets/icons/flags/lebanon.png";
