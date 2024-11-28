@@ -38,6 +38,26 @@ class TArabicTexts {
   static String get resetSuccess => '';
   static String get resetSuccessSubTitle => '';
 
+  // Orders
+  static String get myOrders => '';
+  static String get previousOrders => '';
+  static String get emptyOrders => '';
+  static String get emptyOrdersSubTitle => '';
+  static String get createOrder => '';
+  static String get home => '';
+  static String get languages => '';
+  static String get privacy => '';
+  static String get signOut => '';
+  static String get completed => '';
+  static String get pending => '';
+  static String get canceled => '';
+  static String get rejected => '';
+  static String get orderID => '';
+  static String get pharmacyName => '';
+  static String get orderDate => '';
+  static String get orderDetails => '';
+  static String get prescriptionPhoto => '';
+
 
   // Notifications
   static String get notifications => 'الإشعارات';
@@ -108,6 +128,26 @@ class TEnglishTexts {
   static String get updatePassword => 'Update password';
   static String get resetSuccess => 'Password reset successful!';
   static String get resetSuccessSubTitle => 'Your new password is ready to use. Log in and regain access to your account seamlessly!';
+
+  // Orders
+  static String get myOrders => 'My orders';
+  static String get previousOrders => 'See your previous orders';
+  static String get emptyOrders => 'Your Order list is empty !';
+  static String get emptyOrdersSubTitle => 'Looks like you havent added any thing to your order list.';
+  static String get createOrder => 'Create order';
+  static String get home => 'Home';
+  static String get languages => 'Language';
+  static String get privacy => 'Privacy policy';
+  static String get signOut => 'Sign out';
+  static String get completed => 'Completed';
+  static String get pending => 'Pending';
+  static String get canceled => 'Canceled';
+  static String get rejected => 'Rejected';
+  static String get orderID => 'Order ID : #2345213';
+  static String get pharmacyName => 'Pharmacy name';
+  static String get orderDate => 'Order date';
+  static String get orderDetails => 'Order Details';
+  static String get prescriptionPhoto => 'Prescription photo';
 
   // Notifications
   static String get notifications => 'Notifications';
