@@ -32,7 +32,7 @@ class ClientApp extends StatelessWidget {
         // locale: const Locale('en'),
         // fallbackLocale: const Locale('en'),
         // initialBinding: ForgetPasswordBinding(),
-        home: const OrderScreen(),
+        home: OrderScreen(),
       ),
     );
   }

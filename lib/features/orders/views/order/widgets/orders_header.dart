@@ -13,17 +13,22 @@ class OrdersHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
-    return Row(
+    return Column(
       children: [
-        SvgPicture.asset(TImages.myOrdersIcon, color: dark ? TColors.light : const Color(0xFF383838),),
-        TSizes.xs.horizontalSpace,
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        TSizes.md.verticalSpace,
+        Row(
           children: [
-            Text(TEnglishTexts.myOrders, style: Theme.of(context).textTheme.bodyLarge),
-            Text(TEnglishTexts.previousOrders, style: Theme.of(context).textTheme.labelLarge),
+            SvgPicture.asset(TImages.myOrdersIcon, color: dark ? TColors.light : const Color(0xFF383838),),
+            TSizes.xs.horizontalSpace,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(TEnglishTexts.myOrders, style: Theme.of(context).textTheme.bodyLarge),
+                Text(TEnglishTexts.previousOrders, style: Theme.of(context).textTheme.labelLarge),
+              ],
+            )
           ],
-        )
+        ),
       ],
     );
   }
