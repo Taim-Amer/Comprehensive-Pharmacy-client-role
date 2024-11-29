@@ -46,8 +46,8 @@ class _OrderStatusChipState extends State<OrderStatusChip> {
       width: 89.w,
       // height: 28.h,
       radius: 6.r,
-      backgroundColor: isSelected ? TColors.buttonPrimary : const Color(0xFFF5F5F5),
-      borderColor: isSelected ? TColors.buttonPrimary : const Color(0xFFF5F5F5),
+      backgroundColor: isSelected ? TColors.primary : const Color(0xFFF5F5F5),
+      borderColor: isSelected ? TColors.primary : const Color(0xFFF5F5F5),
       showBorder: true,
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: Padding(

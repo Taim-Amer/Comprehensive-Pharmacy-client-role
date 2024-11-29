@@ -29,7 +29,7 @@ class OrderItem extends StatelessWidget {
               children: [
                 Text(TEnglishTexts.orderID, style: Theme.of(context).textTheme.titleLarge),
                 TRoundedContainer(
-                  backgroundColor: const Color(0xFFD9F5F0),
+                  backgroundColor: TColors.primary.withOpacity(.2),
                   radius: 100.r,
                   height: 30.h,
                   padding: const EdgeInsets.all(8),

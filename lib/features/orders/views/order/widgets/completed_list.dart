@@ -7,7 +7,8 @@ class CompletedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 5,
+      itemCount: 10,
+      physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
       itemBuilder: (context, index) => const OrderItem(),
     );
   }

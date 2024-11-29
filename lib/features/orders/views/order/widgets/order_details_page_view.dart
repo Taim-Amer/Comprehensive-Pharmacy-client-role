@@ -16,7 +16,7 @@ class OrderDetailsPageView extends StatelessWidget {
     return SizedBox(
       height: 280.h,
       child: PageView.builder(
-        itemCount: 3,
+        itemCount: 5,
         scrollDirection: Axis.horizontal,
         controller: OrdersController.instance.pageController,
         itemBuilder: (context, index) => Transform.scale(
