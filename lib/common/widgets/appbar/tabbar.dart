@@ -27,6 +27,8 @@ class TTabBar extends StatelessWidget implements PreferredSizeWidget {
           unselectedLabelColor: TColors.darkGrey,
           tabAlignment: TabAlignment.start,
           dividerColor: Colors.transparent,
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
+          splashFactory: NoSplash.splashFactory,
         ),
       ),
     );

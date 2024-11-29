@@ -1,15 +1,13 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/tabbar.dart';
-import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/completed_list.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_drawer.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/order_floating_action_button.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/order_status_chip.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/orders_header.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -26,6 +24,7 @@ class OrderScreen extends StatelessWidget {
         builder: (BuildContext context) {
           final tabController = DefaultTabController.of(context);
           return Scaffold(
+            floatingActionButton: const OrderFloatingActionButton(),
             drawer: const GeneralDrawer(),
             appBar: const TAppBar(
               title: GeneralAppbar(),
@@ -35,7 +34,6 @@ class OrderScreen extends StatelessWidget {
                 SliverAppBar(
                   pinned: true,
                   floating: true,
-                  backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white,
                   expandedHeight: 150.h,
                   automaticallyImplyLeading: false,
                   flexibleSpace: Padding(
@@ -51,12 +49,12 @@ class OrderScreen extends StatelessWidget {
                   ),
                 )
               ],
-              body: TabBarView(
+              body: const TabBarView(
                 children: [
-                  ListView.builder(
-                    itemCount: 5,
-                    itemBuilder: (context, index) => ,
-                  ),
+                  CompletedList(),
+                  CompletedList(),
+                  CompletedList(),
+                  CompletedList(),
                 ],
               ),
             ),

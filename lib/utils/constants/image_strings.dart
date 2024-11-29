@@ -15,6 +15,7 @@ class TImages {
   // Orders
   static const String emptyOrders = 'assets/images/clipboard-close.svg';
   static const String myOrdersIcon = 'assets/icons/clipboard-tick.svg';
+  static const String camera = 'assets/images/f7_camera-fill.svg';
 
   // Flags
   static const String jordan = "assets/icons/flags/jordan.png";

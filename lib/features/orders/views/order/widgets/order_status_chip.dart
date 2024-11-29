@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -39,6 +40,7 @@ class _OrderStatusChipState extends State<OrderStatusChip> {
   @override
   Widget build(BuildContext context) {
     final isSelected = widget.tabController.index == widget.index;
+    final dark = THelperFunctions.isDarkMode(context);
 
     return TRoundedContainer(
       width: 89.w,
@@ -47,6 +49,7 @@ class _OrderStatusChipState extends State<OrderStatusChip> {
       backgroundColor: isSelected ? TColors.buttonPrimary : const Color(0xFFF5F5F5),
       borderColor: isSelected ? TColors.buttonPrimary : const Color(0xFFF5F5F5),
       showBorder: true,
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
