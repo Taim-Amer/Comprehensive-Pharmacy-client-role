@@ -24,7 +24,7 @@ dependencies:
 
   #  url_launcher: ^6.2.6
   connectivity_plus: ^6.1.0
-  smooth_page_indicator: ^1.1.0
+  smooth_page_indicator: ^1.2.0+3
   go_router: ^14.3.0
   flutter_gen: ^5.8.0
   flutter_screenutil: ^5.9.3
@@ -78,16 +78,8 @@ flutter:
 
   assets:
     - assets/images/
-#    - assets/images/animations/
-#    - assets/images/user/
-#    - assets/logos/auth/
-#    - assets/icons/auth/
-#    - assets/images/shapes/
     - assets/icons/flags/
     - assets/icons/
-#    - assets/logos/home/
-#    - assets/logos/profile/
-#    - assets/icons/global/
 
   #----------------- LOCAL FONTS -----------------#
 

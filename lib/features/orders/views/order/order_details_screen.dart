@@ -1,6 +1,7 @@
 import 'package:comprehensive_pharmacy_client_role/app.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
@@ -10,6 +11,8 @@ import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_function
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
   const OrderDetailsScreen({super.key});
@@ -17,6 +20,7 @@ class OrderDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
+    var c = Get.put(OrdersController());
     return Scaffold(
       appBar: TAppBar(
         showBackArrow: true,
@@ -29,7 +33,8 @@ class OrderDetailsScreen extends StatelessWidget {
             child: PageView.builder(
               itemCount: 3,
               scrollDirection: Axis.horizontal,
-              controller: PageController(viewportFraction: 0.8),
+              // controller: PageController(viewportFraction: 0.8),
+              controller: OrdersController.instance.pageController,
               // padEnds: false,
               itemBuilder: (context, index) => Transform.scale(
                 scale: 1.0,
@@ -53,16 +58,15 @@ class OrderDetailsScreen extends StatelessWidget {
             ),
           ),
           TSizes.spaceBtwSections.verticalSpace,
-        Positioned(
-      bottom: TDeviceUtils.getBottomNavigationBarHeight() + 25,
-      left: TSizes.defaultSpace,
-      child: SmoothPageIndicator(
-        count: 3,
-        controller: controller.pageController,
-        onDotClicked: controller.dotNavigationClick,
-        effect: ExpandingDotsEffect(activeDotColor: dark ? TColors.light : TColors.dark, dotHeight: 6),
-      ),
-    )
+          SmoothPageIndicator(
+            count: 3,
+            controller: OrdersController.instance.pageController,
+            onDotClicked: OrdersController.instance.dotNavigationClick,
+            effect: ExpandingDotsEffect(
+                activeDotColor: dark ? TColors.light : TColors.dark,
+                dotHeight: 6,
+            ),
+          ),
           TSizes.spaceBtwSections.verticalSpace,
         ],
       ),
