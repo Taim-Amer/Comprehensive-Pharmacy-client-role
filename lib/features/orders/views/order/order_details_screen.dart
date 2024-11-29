@@ -33,9 +33,7 @@ class OrderDetailsScreen extends StatelessWidget {
             child: PageView.builder(
               itemCount: 3,
               scrollDirection: Axis.horizontal,
-              // controller: PageController(viewportFraction: 0.8),
               controller: OrdersController.instance.pageController,
-              // padEnds: false,
               itemBuilder: (context, index) => Transform.scale(
                 scale: 1.0,
                 child: Padding(
@@ -57,17 +55,45 @@ class OrderDetailsScreen extends StatelessWidget {
               ),
             ),
           ),
-          TSizes.spaceBtwSections.verticalSpace,
+          TSizes.spaceBtwItems.verticalSpace,
           SmoothPageIndicator(
             count: 3,
             controller: OrdersController.instance.pageController,
             onDotClicked: OrdersController.instance.dotNavigationClick,
             effect: ExpandingDotsEffect(
-                activeDotColor: dark ? TColors.light : TColors.dark,
-                dotHeight: 6,
+                activeDotColor: TColors.primary,
+                dotColor: TColors.borderPrimary,
+                dotWidth: 12.w,
+                dotHeight: 7.h,
             ),
           ),
           TSizes.spaceBtwSections.verticalSpace,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(TEnglishTexts.orderID, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 20, fontWeight: FontWeight.w500)),
+                    TRoundedContainer(
+                      backgroundColor: const Color(0xFFD9F5F0),
+                      radius: 100.r,
+                      height: 30.h,
+                      padding: const EdgeInsets.all(8),
+                      child: Center(child: Text(TEnglishTexts.completed, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.primary, fontSize: 10, fontWeight: FontWeight.w500))),
+                    )
+                  ],
+                ),
+                Text("Tue , 10 Sept 12:20 PM", style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 16)),
+                TSizes.spaceBtwSections.verticalSpace,
+                Text(TEnglishTexts.pharmacyName, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 20, fontWeight: FontWeight.w500)),
+                Text("Ultramedica", style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 16)),
+              ],
+            ),
+          )
         ],
       ),
     );
