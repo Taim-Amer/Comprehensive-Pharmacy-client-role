@@ -11,21 +11,18 @@ class GeneralAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: TSizes.md.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          GestureDetector(
-            onTap: () {
-              Scaffold.of(context).openDrawer();
-            },
-            child: Icon(Iconsax.more, color: dark ? TColors.light : const Color(0xFF383838)),
-          ),
-          Text('Client App', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: dark ? TColors.light : const Color(0xFF383838))),
-          Icon(Iconsax.notification, color: dark ? TColors.light : const Color(0xFF383838)),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        GestureDetector(
+          onTap: () {
+            Scaffold.of(context).openDrawer();
+          },
+          child: Icon(Iconsax.more, color: dark ? TColors.light : const Color(0xFF383838)),
+        ),
+        Text('Client App', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: dark ? TColors.light : const Color(0xFF383838))),
+        Icon(Iconsax.notification, color: dark ? TColors.light : const Color(0xFF383838)),
+      ],
     );
   }
 }
