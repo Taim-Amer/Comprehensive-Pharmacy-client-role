@@ -5,6 +5,7 @@ import 'package:comprehensive_pharmacy_client_role/dependencies/signup_binding.d
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/forget_password/password_confirmed_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/forget_password/verify_code_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/signin_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/home_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/order_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/order_details_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
@@ -33,7 +34,7 @@ class ClientApp extends StatelessWidget {
         // locale: const Locale('en'),
         // fallbackLocale: const Locale('en'),
         // initialBinding: ForgetPasswordBinding(),
-        home: OrderScreen(),
+        home: HomeScreen(),
       ),
     );
   }

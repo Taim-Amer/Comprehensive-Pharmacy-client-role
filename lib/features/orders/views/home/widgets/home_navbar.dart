@@ -1,0 +1,24 @@
+import 'package:comprehensive_pharmacy_client_role/app.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class HomeNavbar extends StatelessWidget {
+  const HomeNavbar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      child: SizedBox(
+        width: double.infinity,
+        height: 50.h,
+        child: ElevatedButton(
+          onPressed: (){},
+          child: Text(TEnglishTexts.createYourOrder),
+        ),
+      ),
+    );
+  }
+}

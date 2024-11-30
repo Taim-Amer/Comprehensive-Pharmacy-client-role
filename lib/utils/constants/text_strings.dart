@@ -58,6 +58,14 @@ class TArabicTexts {
   static String get orderDetails => '';
   static String get prescriptionPhoto => '';
 
+  // Home
+  static String get homeTitle => '';
+  static String get homeSubTitle => '';
+  static String get uploadFile => '';
+  static String get supportedFiles => '';
+  static String get browse => '';
+  static String get writeNote => '';
+  static String get createYourOrder => '';
 
   // Notifications
   static String get notifications => 'الإشعارات';
@@ -148,6 +156,15 @@ class TEnglishTexts {
   static String get orderDate => 'Order date';
   static String get orderDetails => 'Order Details';
   static String get prescriptionPhoto => 'Prescription photo';
+
+  // Home
+  static String get homeTitle => 'Upload your prescription';
+  static String get homeSubTitle => 'Create order by uploading your prescription. Leaving notes is optional';
+  static String get uploadFile => 'Upload your image or file';
+  static String get supportedFiles => 'Supported formatted : JPEG Or PDF';
+  static String get browse => 'Browse';
+  static String get writeNote => 'Leave a note (optional)...';
+  static String get createYourOrder => 'Create your order';
 
   // Notifications
   static String get notifications => 'Notifications';

@@ -12,6 +12,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/Upload icon.svg
+  String get uploadIcon => 'assets/icons/Upload icon.svg';
+
   /// File path: assets/icons/clipboard-tick.svg
   String get clipboardTick => 'assets/icons/clipboard-tick.svg';
 
@@ -19,7 +22,7 @@ class $AssetsIconsGen {
   $AssetsIconsFlagsGen get flags => const $AssetsIconsFlagsGen();
 
   /// List of all assets
-  List<String> get values => [clipboardTick];
+  List<String> get values => [uploadIcon, clipboardTick];
 }
 
 class $AssetsImagesGen {

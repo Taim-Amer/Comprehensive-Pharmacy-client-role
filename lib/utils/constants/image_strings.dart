@@ -17,15 +17,15 @@ class TImages {
   static const String myOrdersIcon = 'assets/icons/clipboard-tick.svg';
   static const String camera = 'assets/images/f7_camera-fill.svg';
 
+  // Home
+  static const String uploadIcon = 'assets/icons/Upload icon.svg';
+
   // Flags
   static const String jordan = "assets/icons/flags/jordan.png";
   static const String lebanon = "assets/icons/flags/lebanon.png";
   static const String egypt = "assets/icons/flags/egypt.png";
   static const String saudi = "assets/icons/flags/saudi_arabia.png";
   static const String qatar = "assets/icons/flags/qatar.png";
-
-  //Home
-  static const String money = "assets/logos/home/money.svg";
 
   // Social Logos
   static const String google = "assets/logos/google-icon.png";
