@@ -63,6 +63,10 @@ dependencies:
   firebase_messaging: ^15.1.5
   flutter_local_notifications: ^18.0.1
 
+  # Files
+  image_picker: ^1.1.2
+  file_picker: ^8.1.4
+
 
 #----------------- ./ PACKAGES END -----------------#
 

@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/dotted_container.dart';
+import 'package:comprehensive_pharmacy_client_role/services/file_services.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
@@ -28,7 +29,7 @@ class UploadFilesContainer extends StatelessWidget {
           TSizes.md.verticalSpace,
           SizedBox(
             child: ElevatedButton(
-              onPressed: (){},
+              onPressed: () => TFileServices.pickMultipleFiles(),
               child: Text(TEnglishTexts.browse),
             ),
           )

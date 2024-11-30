@@ -1,33 +1,23 @@
 import 'package:comprehensive_pharmacy_client_role/app.dart';
 import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
-import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/dotted_container.dart';
-import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/add_notation_textfield.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/home_header.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/home_navbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/upload_files_container.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_drawer.dart';
-import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
-      floatingActionButton: const HomeNavbar(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      bottomNavigationBar: const HomeNavbar(),
       drawer: const GeneralDrawer(),
       appBar: const TAppBar(
         title: GeneralAppbar(),
@@ -42,22 +32,7 @@ class HomeScreen extends StatelessWidget {
               TSizes.spaceBtwSections.verticalSpace,
               const UploadFilesContainer(),
               TSizes.spaceBtwItems.verticalSpace,
-              TRoundedContainer(
-                width: double.infinity,
-                height: 165.h,
-                backgroundColor: dark ? TColors.dark : TColors.lightGrey,
-                showBorder: dark ? true : false,
-                child: TextFormField(
-                  cursorColor: TColors.primary,
-                  enableInteractiveSelection: false,
-                  maxLines: 7,
-                  // textAlign: TextAlign.right,
-                  decoration: InputDecoration(
-                    hintText: TEnglishTexts.writeNote,
-                    border: const OutlineInputBorder(),
-                  ),
-                ),
-              ),
+              const AddNotationTextfield(),
             ],
           ),
         ),
