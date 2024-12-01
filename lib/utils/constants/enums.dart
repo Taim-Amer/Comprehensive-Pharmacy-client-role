@@ -6,4 +6,4 @@ enum PaymentMethods {paypal, googlePay, applePay, masterCard, creditCard, paysta
 
 enum RequestState { begin, loading, onError, noData, success }
 
-enum ToastState { success, error, warning }
+enum AlertState { success, error, warning }

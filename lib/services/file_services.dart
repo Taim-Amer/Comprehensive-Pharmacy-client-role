@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 class TFileServices{
   TFileServices._();
 
+  static final ValueNotifier<List<File>> selectedFiles = ValueNotifier([]);
+
   static void pickFile() async{
     String fileText = '';
     FilePickerResult? result = await FilePicker.platform.pickFiles(
@@ -24,16 +26,16 @@ class TFileServices{
     fileText = file.path;
   }
 
-  static void pickMultipleFiles() async{
-    String fileText = '';
+  static Future<void> pickMultipleFiles() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['jpg', 'jpeg', 'pdf'],
       allowMultiple: true,
     );
-    if(result != null){
-      List<File> files = result.paths.map((path) => File(path!)).toList();
-      fileText = files.toString();
+
+    if (result != null) {
+      List<File> files = result.paths.whereType<String>().map((path) => File(path)).toList();
+      selectedFiles.value = files;
     }
   }
 

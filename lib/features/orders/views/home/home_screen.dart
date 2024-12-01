@@ -1,7 +1,6 @@
-import 'package:comprehensive_pharmacy_client_role/app.dart';
-import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/add_notation_textfield.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/files_list.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/home_header.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/home_navbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/upload_files_container.dart';
@@ -24,7 +23,7 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: TSpacingStyle.paddingWithAppBarHeight,
+          padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -33,6 +32,8 @@ class HomeScreen extends StatelessWidget {
               const UploadFilesContainer(),
               TSizes.spaceBtwItems.verticalSpace,
               const AddNotationTextfield(),
+              TSizes.spaceBtwItems.verticalSpace,
+              const FilesList()
             ],
           ),
         ),

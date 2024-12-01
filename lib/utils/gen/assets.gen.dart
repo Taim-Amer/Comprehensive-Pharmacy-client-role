@@ -18,11 +18,14 @@ class $AssetsIconsGen {
   /// File path: assets/icons/clipboard-tick.svg
   String get clipboardTick => 'assets/icons/clipboard-tick.svg';
 
+  /// File path: assets/icons/edit.svg
+  String get edit => 'assets/icons/edit.svg';
+
   /// Directory path: assets/icons/flags
   $AssetsIconsFlagsGen get flags => const $AssetsIconsFlagsGen();
 
   /// List of all assets
-  List<String> get values => [uploadIcon, clipboardTick];
+  List<String> get values => [uploadIcon, clipboardTick, edit];
 }
 
 class $AssetsImagesGen {

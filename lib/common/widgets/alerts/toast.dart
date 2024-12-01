@@ -3,7 +3,7 @@ import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-void showToast(String txt, ToastState toastState) => Fluttertoast.showToast(
+void showToast(String txt, AlertState toastState) => Fluttertoast.showToast(
     msg: txt,
     toastLength: Toast.LENGTH_SHORT,
     gravity: ToastGravity.SNACKBAR,
@@ -13,16 +13,16 @@ void showToast(String txt, ToastState toastState) => Fluttertoast.showToast(
     fontSize: 16.0,
 );
 
-Color chooseToastColor(ToastState state) {
+Color chooseToastColor(AlertState state) {
   Color color;
   switch (state) {
-    case ToastState.success:
+    case AlertState.success:
       color = TColors.greenColor;
       break;
-    case ToastState.error:
+    case AlertState.error:
       color = TColors.redColor;
       break;
-    case ToastState.warning:
+    case AlertState.warning:
       color = TColors.yellowColor;
       break;
   }

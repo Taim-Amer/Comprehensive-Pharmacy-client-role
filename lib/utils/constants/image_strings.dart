@@ -19,6 +19,7 @@ class TImages {
 
   // Home
   static const String uploadIcon = 'assets/icons/Upload icon.svg';
+  static const String edit = 'assets/icons/edit.svg';
 
   // Flags
   static const String jordan = "assets/icons/flags/jordan.png";
