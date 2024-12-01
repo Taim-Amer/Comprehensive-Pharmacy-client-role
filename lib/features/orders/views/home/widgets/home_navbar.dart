@@ -18,16 +18,17 @@ class HomeNavbar extends StatelessWidget {
         child: Obx(() {
           bool isEnabled = HomeController.instance.isCreateButtonEnabled.value;
           return ElevatedButton(
-            onPressed: isEnabled ? () {
-              print("Button Pressed");
-            }
-                : null,
+            onPressed: isEnabled ? () {} : null,
             style: ElevatedButton.styleFrom(
               backgroundColor: isEnabled
                   ? Theme.of(context).primaryColor
                   : Theme.of(context).primaryColor.withOpacity(0.5),
-              disabledBackgroundColor:
-              Theme.of(context).primaryColor.withOpacity(0.5),
+              side: BorderSide(
+                color: isEnabled
+                    ? Theme.of(context).primaryColor
+                    : Theme.of(context).primaryColor.withOpacity(0.5),
+              ),
+              disabledBackgroundColor: Theme.of(context).primaryColor.withOpacity(0.5),
             ),
             child: Text(
               TEnglishTexts.createYourOrder,

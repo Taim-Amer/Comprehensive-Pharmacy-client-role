@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/loaders/linear_percent_indicator.dart';
+import 'package:comprehensive_pharmacy_client_role/services/file_services.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -13,21 +14,25 @@ class FileItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
-    return TRoundedContainer(
-      height: 40.h,
-      backgroundColor: dark ? TColors.dark : TColors.light,
-      radius: 4,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            // SizedBox(),
-            Text(fileName),
-            const TLinearPercentIndicator()
-          ],
+    return ValueListenableBuilder(
+      valueListenable: TFileServices.isSelected,
+      builder: (context, isSelected, child) => isSelected ? TRoundedContainer(
+        height: 40.h,
+        backgroundColor: dark ? TColors.dark : TColors.light,
+        radius: 4,
+        showBorder: isSelected == true ? true : false,
+        borderColor: TColors.primary,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(fileName, overflow: TextOverflow.ellipsis),
+              TLinearPercentIndicator(fileName: fileName),
+            ],
+          ),
         ),
-      ),
+      ) : const SizedBox(),
     );
   }
 }

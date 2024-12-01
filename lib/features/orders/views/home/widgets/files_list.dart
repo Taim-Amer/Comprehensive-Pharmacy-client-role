@@ -21,20 +21,21 @@ class FilesList extends StatelessWidget {
             HomeController.instance.isCreateButtonEnabled.value = true;
           }
         });
-
         if (files.isEmpty) {
           return const Center(child: Text('No files selected.'));
         }
-
-        return SizedBox(
-          height: 200.h,
-          child: ListView.separated(
-            itemCount: files.length,
-            itemBuilder: (context, index) {
-              return FileItem(fileName: files[index].path.split('/').last);
-            },
-            separatorBuilder: (context, _) => TSizes.spaceBtwItems.verticalSpace,
-          ),
+        return ValueListenableBuilder(
+          valueListenable: TFileServices.isSelected,
+          builder: (context, selected, child) => selected ? SizedBox(
+            height: 200.h,
+            child: ListView.separated(
+              itemCount: files.length,
+              itemBuilder: (context, index) {
+                return FileItem(fileName: files[index].path.split('/').last);
+              },
+              separatorBuilder: (context, _) => TSizes.spaceBtwItems.verticalSpace,
+            ),
+          ) : const SizedBox(),
         );
       },
     );

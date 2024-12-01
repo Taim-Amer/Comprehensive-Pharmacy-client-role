@@ -24,8 +24,11 @@ class $AssetsIconsGen {
   /// Directory path: assets/icons/flags
   $AssetsIconsFlagsGen get flags => const $AssetsIconsFlagsGen();
 
+  /// File path: assets/icons/trash.svg
+  String get trash => 'assets/icons/trash.svg';
+
   /// List of all assets
-  List<String> get values => [uploadIcon, clipboardTick, edit];
+  List<String> get values => [uploadIcon, clipboardTick, edit, trash];
 }
 
 class $AssetsImagesGen {
