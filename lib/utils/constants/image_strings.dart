@@ -21,6 +21,7 @@ class TImages {
   static const String uploadIcon = 'assets/icons/Upload icon.svg';
   static const String edit = 'assets/icons/edit.svg';
   static const String trash = 'assets/icons/trash.svg';
+  static const String searchLoading = 'assets/images/Group 11.svg';
 
   // Flags
   static const String jordan = "assets/icons/flags/jordan.png";

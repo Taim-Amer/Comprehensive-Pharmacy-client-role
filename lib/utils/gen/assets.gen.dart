@@ -37,6 +37,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/Done.svg
   String get done => 'assets/images/Done.svg';
 
+  /// File path: assets/images/Group 11.svg
+  String get group11 => 'assets/images/Group 11.svg';
+
   /// File path: assets/images/Rectangle 5.svg
   String get rectangle5 => 'assets/images/Rectangle 5.svg';
 
@@ -47,7 +50,8 @@ class $AssetsImagesGen {
   String get f7CameraFill => 'assets/images/f7_camera-fill.svg';
 
   /// List of all assets
-  List<String> get values => [done, rectangle5, clipboardClose, f7CameraFill];
+  List<String> get values =>
+      [done, group11, rectangle5, clipboardClose, f7CameraFill];
 }
 
 class $AssetsIconsFlagsGen {

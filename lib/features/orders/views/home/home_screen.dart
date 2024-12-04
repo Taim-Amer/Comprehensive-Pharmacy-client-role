@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put<HomeController>(HomeController());
     return Scaffold(
-      bottomNavigationBar: HomeNavbar(),
+      bottomNavigationBar: const HomeNavbar(),
       drawer: const GeneralDrawer(),
       appBar: const TAppBar(
         title: GeneralAppbar(),

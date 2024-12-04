@@ -66,6 +66,9 @@ class TArabicTexts {
   static String get browse => '';
   static String get writeNote => '';
   static String get createYourOrder => '';
+  static String get searchingTitle => '';
+  static String get searchingSubTitle => '';
+  static String get cancelOrder => '';
 
   // Notifications
   static String get notifications => 'الإشعارات';
@@ -165,6 +168,9 @@ class TEnglishTexts {
   static String get browse => 'Browse';
   static String get writeNote => 'Leave a note (optional)...';
   static String get createYourOrder => 'Create your order';
+  static String get searchingTitle => 'Your order is waiting to be accepted...';
+  static String get searchingSubTitle => 'Sometimes it will take time so please be patient';
+  static String get cancelOrder => 'Cancel order';
 
   // Notifications
   static String get notifications => 'Notifications';
