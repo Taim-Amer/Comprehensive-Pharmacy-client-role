@@ -70,8 +70,26 @@ class TArabicTexts {
   static String get searchingSubTitle => '';
   static String get cancelOrder => '';
 
+  // settings
+  static String get dataEdit => '';
+  static String get languageSelect => '';
+  static String get profile => '';
+  static String get save => '';
+
   // Notifications
   static String get notifications => 'الإشعارات';
+  static String get notificationsEmptyTitle => '';
+  static String get notificationsEmptySubTitle => '';
+
+  // Order status
+  static String get processingTitle => '';
+  static String get processingSubTitle => '';
+  static String get onWaySubTitle => '';
+  static String get onWayTitle => '';
+  static String get deliveredTitle => '';
+  static String get deliveredSubTitle => '';
+  static String get confirmDelivery => '';
+
 
   // Settings
   static String get settings => 'الإعدادات';
@@ -172,8 +190,25 @@ class TEnglishTexts {
   static String get searchingSubTitle => 'Sometimes it will take time so please be patient';
   static String get cancelOrder => 'Cancel order';
 
+  // settings
+  static String get dataEdit => 'Edit your personal information and location';
+  static String get languageSelect => 'Select the language you prefer';
+  static String get profile => 'Profile';
+  static String get save => 'Save';
+
   // Notifications
   static String get notifications => 'Notifications';
+  static String get notificationsEmptyTitle => 'No notifications !';
+  static String get notificationsEmptySubTitle => 'Your notifications list is empty';
+
+  // Order status
+  static String get processingTitle => 'Processing';
+  static String get processingSubTitle => 'Your order is being processed by the pharmacist';
+  static String get onWaySubTitle => 'Your order is being delivered by our team';
+  static String get onWayTitle => 'On the way';
+  static String get deliveredTitle => 'Delivered';
+  static String get deliveredSubTitle => 'Your order has been delivered, get well soon';
+  static String get confirmDelivery => 'Confirm delivery';
 
   // Settings
   static String get settings => 'Settings';
