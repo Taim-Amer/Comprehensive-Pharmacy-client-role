@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DashedDivider extends StatelessWidget {
   const DashedDivider({super.key});
@@ -8,13 +9,7 @@ class DashedDivider extends StatelessWidget {
     return CustomPaint(
       painter: DashedLinePainter(),
       child: SizedBox(
-        height: 40,
-        child: Row(
-          children: [
-            const SizedBox(width: 15),
-            Container(width: 2), // Spacer for alignment
-          ],
-        ),
+        height: 107.h,
       ),
     );
   }
@@ -28,7 +23,7 @@ class DashedLinePainter extends CustomPainter {
       ..strokeWidth = 2;
 
     double dashWidth = 4;
-    double dashSpace = 4;
+    double dashSpace = 8;
     double startY = 0;
 
     while (startY < size.height) {
