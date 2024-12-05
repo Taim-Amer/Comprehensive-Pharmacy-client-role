@@ -1,4 +1,3 @@
-import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_drawer.dart';
@@ -17,21 +16,16 @@ class NotificationsScreen extends StatelessWidget {
     return Scaffold(
       appBar: const TAppBar(title: GeneralAppbar()),
       drawer: const GeneralDrawer(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: TSpacingStyle.paddingWithAppBarHeight,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SvgPicture.asset(TImages.notificationEmpty),
-              TSizes.spaceBtwSections.verticalSpace,
-              Text(TEnglishTexts.notificationsEmptyTitle, style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),
-              TSizes.spaceBtwItems.verticalSpace,
-              Text(TEnglishTexts.notificationsEmptySubTitle, style: Theme.of(context).textTheme.labelLarge, textAlign: TextAlign.center,),
-
-            ],
-          ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(TImages.notificationEmpty),
+            TSizes.spaceBtwSections.verticalSpace,
+            Text(TEnglishTexts.notificationsEmptyTitle, style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),
+            TSizes.spaceBtwItems.verticalSpace,
+            Text(TEnglishTexts.notificationsEmptySubTitle, style: Theme.of(context).textTheme.labelLarge, textAlign: TextAlign.center,),
+          ],
         ),
       ),
     );

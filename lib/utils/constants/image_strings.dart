@@ -16,6 +16,10 @@ class TImages {
   static const String emptyOrders = 'assets/images/clipboard-close.svg';
   static const String myOrdersIcon = 'assets/icons/clipboard-tick.svg';
   static const String camera = 'assets/images/f7_camera-fill.svg';
+  static const String orderStatus = 'assets/images/Frame 39428.svg';
+  static const String delivery = 'assets/icons/box-tick.svg';
+  static const String processing = 'assets/icons/box-time.svg';
+  static const String onTheWay = 'assets/icons/truck-fast.svg';
 
   // Home
   static const String uploadIcon = 'assets/icons/Upload icon.svg';

@@ -15,6 +15,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Upload icon.svg
   String get uploadIcon => 'assets/icons/Upload icon.svg';
 
+  /// File path: assets/icons/box-tick.svg
+  String get boxTick => 'assets/icons/box-tick.svg';
+
+  /// File path: assets/icons/box-time.svg
+  String get boxTime => 'assets/icons/box-time.svg';
+
   /// File path: assets/icons/clipboard-tick.svg
   String get clipboardTick => 'assets/icons/clipboard-tick.svg';
 
@@ -27,8 +33,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/trash.svg
   String get trash => 'assets/icons/trash.svg';
 
+  /// File path: assets/icons/truck-fast.svg
+  String get truckFast => 'assets/icons/truck-fast.svg';
+
   /// List of all assets
-  List<String> get values => [uploadIcon, clipboardTick, edit, trash];
+  List<String> get values =>
+      [uploadIcon, boxTick, boxTime, clipboardTick, edit, trash, truckFast];
 }
 
 class $AssetsImagesGen {
@@ -36,6 +46,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/Done.svg
   String get done => 'assets/images/Done.svg';
+
+  /// File path: assets/images/Frame 39428.svg
+  String get frame39428 => 'assets/images/Frame 39428.svg';
 
   /// File path: assets/images/Group 11.svg
   String get group11 => 'assets/images/Group 11.svg';
@@ -53,8 +66,15 @@ class $AssetsImagesGen {
   String get f7CameraFill => 'assets/images/f7_camera-fill.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [done, group11, group39446, rectangle5, clipboardClose, f7CameraFill];
+  List<String> get values => [
+        done,
+        frame39428,
+        group11,
+        group39446,
+        rectangle5,
+        clipboardClose,
+        f7CameraFill
+      ];
 }
 
 class $AssetsIconsFlagsGen {
