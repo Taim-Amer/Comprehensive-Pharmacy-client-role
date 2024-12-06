@@ -2,18 +2,30 @@
 import 'package:flutter/material.dart';
 
 class TRadioButton extends StatelessWidget {
-  TRadioButton({super.key, required this.enumValue, required this.enumGroup, required this.onChanged});
+  TRadioButton({
+    super.key,
+    required this.enumValue,
+    required this.valueNotifier,
+  });
 
-  Enum enumValue;
-  Enum? enumGroup;
-  ValueChanged<Enum?>? onChanged;
+  final Enum enumValue;
+  final ValueNotifier<Enum?> valueNotifier;
 
   @override
   Widget build(BuildContext context) {
-    return Radio<Enum>(
-      value: enumValue,
-      groupValue: enumGroup,
-      onChanged: onChanged
+    return ValueListenableBuilder<Enum?>(
+      valueListenable: valueNotifier,
+      builder: (context, selectedValue, child) {
+        return Radio<Enum>(
+          value: enumValue,
+          groupValue: selectedValue,
+          onChanged: (Enum? newValue) {
+            if (newValue != null) {
+              valueNotifier.value = newValue;
+            }
+          },
+        );
+      },
     );
   }
 }

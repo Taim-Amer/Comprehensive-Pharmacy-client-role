@@ -9,7 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SelectLanguagesContainer extends StatelessWidget {
-  const SelectLanguagesContainer({super.key});
+  SelectLanguagesContainer({super.key});
+
+  final ValueNotifier<Language?> selectedLanguageNotifier = ValueNotifier<Language?>(Language.english);
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +24,19 @@ class SelectLanguagesContainer extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          LanguageRadioTile(language: Language.english, languageName: TEnglishTexts.english),
-          LanguageRadioTile(language: Language.arabic, languageName: TEnglishTexts.arabic),
+          LanguageRadioTile(
+            language: Language.english,
+            languageName: TEnglishTexts.english,
+            valueNotifier: selectedLanguageNotifier,
+          ),
+          LanguageRadioTile(
+            language: Language.arabic,
+            languageName: TEnglishTexts.arabic,
+            valueNotifier: selectedLanguageNotifier,
+          ),
         ],
       ),
     );
   }
 }
+

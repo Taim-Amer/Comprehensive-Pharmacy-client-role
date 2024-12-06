@@ -5,7 +5,6 @@ import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/w
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/order_status_navbar.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

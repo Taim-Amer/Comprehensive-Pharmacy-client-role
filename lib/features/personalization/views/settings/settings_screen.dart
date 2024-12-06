@@ -1,11 +1,8 @@
-import 'package:comprehensive_pharmacy_client_role/app.dart';
 import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
-import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_client_role/features/personalization/views/settings/widgets/select_languages_container.dart';
 import 'package:comprehensive_pharmacy_client_role/features/personalization/views/settings/widgets/settings_appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/personalization/views/settings/widgets/settings_save_button.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
         padding: TSpacingStyle.paddingWithAppBarHeight,
         child: Column(
           children: [
-            const SelectLanguagesContainer(),
+            SelectLanguagesContainer(),
             TSizes.spaceBtwSections.verticalSpace,
             const SettingsSaveButton()
           ],
