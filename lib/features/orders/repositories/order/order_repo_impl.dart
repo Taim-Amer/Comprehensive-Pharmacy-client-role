@@ -7,76 +7,62 @@ import 'package:comprehensive_pharmacy_client_role/features/orders/models/show_o
 import 'package:comprehensive_pharmacy_client_role/features/orders/repositories/order/order_repo.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/api/dio_helper.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/api_constants.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart' as ins;
 import 'package:dio/dio.dart';
 
 class OrderRepoImpl implements OrderRepo{
-  static OrderRepoImpl get instance => Get.find();
+  static OrderRepoImpl get instance => ins.Get.find();
 
   @override
-  Future<AllOrdersModel> getMyOrders() {
+  Future<AllOrdersModel> getMyOrders() async{
     final dioHelper = TDioHelper();
-    return dioHelper.get(TApiConstants.showMyOrders, queryParameters: {
+    return await dioHelper.get(TApiConstants.showMyOrders, queryParameters: {
 
     }).then((response) => AllOrdersModel.fromJson(response));
   }
 
   @override
-  Future<OrderStatusModel> orderStatus() {
+  Future<OrderStatusModel> orderStatus({required int orderID}) async{
     final dioHelper = TDioHelper();
-    return dioHelper.get(TApiConstants.orderStatus, queryParameters: {
-      
+    return await dioHelper.get(TApiConstants.orderStatus, queryParameters: {
+      'order_id' : orderID
     }).then((response) => OrderStatusModel.fromJson(response));
   }
 
   @override
-  Future<ShowOrderModel> showOrder() {
+  Future<ShowOrderModel> showOrder({required int orderID}) async{
     final dioHelper = TDioHelper();
-    return dioHelper.get(TApiConstants.showOrder, queryParameters: {
-      
+    return await dioHelper.get(TApiConstants.showOrder, queryParameters: {
+      'order_id' : orderID
     }).then((response) => ShowOrderModel.fromJson(response));
   }
 
   @override
-  Future<CancelOrderModel> cancelOrder() {
+  Future<CancelOrderModel> cancelOrder({required int orderID}) async{
     final dioHelper = TDioHelper();
-    return dioHelper.patch(TApiConstants.cancel, {
-      
+    return await dioHelper.patch(TApiConstants.cancel, {
+      'order_id' : orderID
     }).then((response) => CancelOrderModel.fromJson(response));
   }
 
   @override
-  Future<CreateOrderModel> createOrder({
-    required int pharmacistID,
-    String? description,
-    required List<File> filesList,
-  }) async {
+  Future<CreateOrderModel> createOrder({required int pharmacistID, String? description, required List<File> filesList,}) async {
     final dioHelper = TDioHelper();
-
-    // إنشاء FormData مع معلمة فارغة
     final formData = FormData();
 
-    // إضافة الملفات إلى FormData باستخدام await
     for (var file in filesList) {
       final multipartFile = await MultipartFile.fromFile(
         file.path,
-        filename: file.path.split('/').last, // اسم الملف
+        filename: file.path.split('/').last,
       );
       formData.files.add(MapEntry('files', multipartFile));
     }
 
-    // إضافة البيانات الأخرى إلى FormData
     formData.fields.addAll([
-      MapEntry('pharmacistID', pharmacistID.toString()),
+      MapEntry('pharmacist_id', pharmacistID.toString()),
       if (description != null) MapEntry('description', description),
     ]);
-
-    // إرسال الطلب باستخدام dioHelper
-    try {
-      final response = await dioHelper.post(TApiConstants.create, formData);
-      return CreateOrderModel.fromJson(response);
-    } catch (e) {
-      throw Exception('Failed to create order: $e');
-    }
+    
+    return await dioHelper.post(TApiConstants.create, formData).then((response) => CreateOrderModel.fromJson(response));
   }
 }

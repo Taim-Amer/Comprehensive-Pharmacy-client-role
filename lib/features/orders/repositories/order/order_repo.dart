@@ -8,8 +8,8 @@ import 'package:comprehensive_pharmacy_client_role/features/orders/models/show_o
 
 abstract class OrderRepo{
   Future<CreateOrderModel> createOrder({required int pharmacistID, String? description, required List<File> filesList});
-  Future<ShowOrderModel> showOrder();
+  Future<ShowOrderModel> showOrder({required int orderID});
   Future<AllOrdersModel> getMyOrders();
-  Future<OrderStatusModel> orderStatus();
-  Future<CancelOrderModel> cancelOrder();
+  Future<OrderStatusModel> orderStatus({required int orderID});
+  Future<CancelOrderModel> cancelOrder({required int orderID});
 }
