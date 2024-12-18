@@ -13,4 +13,6 @@ class TApiConstants {
   static const String forgetVerify = 'otp/password/verify';
 
   static const String forgetReset = 'resetPassword';
+
+  static const String signin = 'login';
 }

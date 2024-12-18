@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:comprehensive_pharmacy_client_role/features/authentication/models/code_verification_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/models/resend_otp_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/models/signup_model.dart';
