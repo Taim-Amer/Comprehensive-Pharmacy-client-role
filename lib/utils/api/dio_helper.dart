@@ -33,9 +33,9 @@ class TDioHelper {
   }
 
 
-  Future<Map<String, dynamic>> post(String endPoint, Map<String, dynamic> data, {String lang = 'en', String? token}) async {
+  Future<Map<String, dynamic>> post(String endPoint, dynamic data, {String lang = 'en', String? token}) async {
     dio.options.headers = {
-      'Content-Type': 'application/json',
+      'Content-Type': data is FormData ? 'multipart/form-data' : 'application/json',
       'lang': lang,
       'Authorization': token != null ? 'Bearer $token' : '',
     };
