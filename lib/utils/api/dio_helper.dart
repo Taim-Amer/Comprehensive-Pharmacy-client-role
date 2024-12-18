@@ -21,17 +21,6 @@ class TDioHelper {
     dio.interceptors.add(PrettyDioLogger(requestBody: true, error: true, requestHeader: true));
   }
 
-  // Future<Map<String, dynamic>> get(String endPoint, {String lang = 'en', String? token}) async {
-  //   dio.options.headers = {
-  //     'Content-Type': 'application/json',
-  //     'lang': lang,
-  //     'Authorization': token != null ? 'Bearer $token' : '',
-  //   };
-  //
-  //   final response = await dio.get(endPoint);
-  //   return _handleResponse(response);
-  // }
-
   Future<Map<String, dynamic>> get(String endPoint, {String lang = 'en', String? token, Map<String, dynamic>? queryParameters}) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
@@ -63,6 +52,17 @@ class TDioHelper {
     };
 
     final response = await dio.put(endPoint, data: data);
+    return _handleResponse(response);
+  }
+
+  Future<Map<String, dynamic>> patch(String endPoint, Map<String, dynamic> data, {String lang = 'en', String? token}) async {
+    dio.options.headers = {
+      'Content-Type': 'application/json',
+      'lang': lang,
+      'Authorization': token != null ? 'Bearer $token' : '',
+    };
+
+    final response = await dio.patch(endPoint, data: data);
     return _handleResponse(response);
   }
 

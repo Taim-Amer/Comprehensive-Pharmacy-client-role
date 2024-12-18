@@ -23,4 +23,6 @@ class TApiConstants {
   static const String showMyOrders = '';
 
   static const String orderStatus = '';
+
+  static const String cancel = '';
 }
