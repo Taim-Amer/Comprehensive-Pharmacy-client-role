@@ -15,4 +15,12 @@ class TApiConstants {
   static const String forgetReset = 'resetPassword';
 
   static const String signin = 'login';
+
+  static const String create = 'orders';
+
+  static const String showOrder = '';
+
+  static const String showMyOrders = '';
+
+  static const String orderStatus = '';
 }
