@@ -12,16 +12,17 @@ import 'package:get/get.dart' as ins;
 import 'package:dio/dio.dart';
 
 class OrderRepoImpl implements OrderRepo{
-  static OrderRepoImpl get instance => ins.Get.find();
+  static OrderRepoImpl get instance => ins.Get.find<OrderRepoImpl>();
 
   String? token = TCacheHelper.getData(key: 'token');
 
   @override
-  Future<AllOrdersModel> getMyOrders() async{
+  Future<AllOrdersModel> getMyOrders({required String status}) async{
     final dioHelper = TDioHelper();
     return await dioHelper.get(
       TApiConstants.showMyOrders,
       token: token,
+      queryParameters: {'status' : status}
     ).then((response) => AllOrdersModel.fromJson(response));
   }
 

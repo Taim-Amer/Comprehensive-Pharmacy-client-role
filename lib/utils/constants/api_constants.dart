@@ -18,11 +18,11 @@ class TApiConstants {
 
   static const String create = 'orders';
 
-  static const String showOrder = '';
+  static const String showOrder = 'order/show';
 
-  static const String showMyOrders = '';
+  static const String showMyOrders = 'orders';
 
-  static const String orderStatus = '';
+  static const String orderStatus = 'order/progress';
 
-  static const String cancel = '';
+  static const String cancel = 'order/cancel';
 }

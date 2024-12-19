@@ -1,5 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/home_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/add_notation_textfield.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/files_list.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/home_header.dart';
@@ -17,7 +17,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put<HomeController>(HomeController());
     return Scaffold(
       bottomNavigationBar: const HomeNavbar(),
       drawer: const GeneralDrawer(),

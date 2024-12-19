@@ -1,4 +1,4 @@
-import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/home_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class HomeNavbar extends StatelessWidget {
         width: double.infinity,
         height: 50.h,
         child: Obx(() {
-          bool isEnabled = HomeController.instance.isCreateButtonEnabled.value;
+          bool isEnabled = OrdersController.instance.isCreateButtonEnabled.value;
           return ElevatedButton(
             onPressed: isEnabled ? () {} : null,
             style: ElevatedButton.styleFrom(

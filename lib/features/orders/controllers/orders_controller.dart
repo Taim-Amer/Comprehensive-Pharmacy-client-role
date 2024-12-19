@@ -7,6 +7,7 @@ class OrdersController extends GetxController {
 
   final pageController = PageController(viewportFraction: .8);
   Rx<int> currentPageIndex = 0.obs;
+  var isCreateButtonEnabled = false.obs;
 
   var selectedChips = <bool>[true, false, false, false].obs;
   var orderStatusChipList = <String>[
