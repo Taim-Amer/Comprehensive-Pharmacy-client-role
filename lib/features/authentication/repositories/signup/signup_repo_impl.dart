@@ -46,7 +46,7 @@ class SignupRepoImpl implements SignupRepo {
     final dioHelper = TDioHelper();
     return dioHelper.post(TApiConstants.verify, {
       'phone' : phone,
-      'otp' : otp
+      'otp' : otp,
     }).then((response) => CodeVerificationModel.fromJson(response));
   }
 }

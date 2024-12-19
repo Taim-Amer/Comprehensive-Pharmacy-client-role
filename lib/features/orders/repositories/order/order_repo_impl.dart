@@ -48,7 +48,7 @@ class OrderRepoImpl implements OrderRepo{
   @override
   Future<CancelOrderModel> cancelOrder({required int orderID}) async{
     final dioHelper = TDioHelper();
-    return await dioHelper.patch(
+    return await dioHelper.post(
       TApiConstants.cancel,
       {'order_id': orderID},
       token: token,

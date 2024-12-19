@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/dependencies/forget_password_binding.dart';
+import 'package:comprehensive_pharmacy_client_role/dependencies/order_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/otp_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signup_binding.dart';
@@ -8,6 +9,7 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/views
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/otp_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/signin_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/signup_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/order_screen.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -17,16 +19,7 @@ class AppRoutes {
   static const phoneVerify = '/phoneVerify';
   static const verifyCode = '/verifyCode';
   static const setPassword = '/setPassword';
-  static const passwordConfirmed = '/passwordConfirmed';
-  static const profile = '/profile';
-  static const profileEdit = '/profileEdit';
-  static const debtSchedule = '/debtSchedule';
-  static const addPayment = '/addPayment';
-  static const addDebt = '/addDebt';
-  static const clientProfile = '/clientProfile';
-  static const notations = '/notations';
-  static const settings = '/settings';
-  static const notification = '/notification';
+  static const order = '/order';
 
   static List<GetPage> routes = [
 
@@ -72,75 +65,11 @@ class AppRoutes {
         transition: Transition.fade
     ),
 
-    // GetPage(
-    //   name: home,
-    //   page: () => const HomeScreen(),
-    //   binding: HomeBinding(),
-    //   transition: Transition.rightToLeft
-    // ),
-    //
-    // GetPage(
-    //   name: profile,
-    //   page: () => const ProfileScreen(),
-    //   transition: Transition.rightToLeft,
-    //   binding: ProfileBinding(),
-    // ),
-    //
-    // GetPage(
-    //   name: profileEdit,
-    //   page: () => const ProfileEditScreen(),
-    //   binding: ProfileBinding(),
-    //   transition: Transition.rightToLeft
-    // ),
-    //
-    // GetPage(
-    //   name: debtSchedule,
-    //   page: () => const DebtScheduleScreen(),
-    //   binding: DebtScheduleBinding(),
-    //   transition: Transition.rightToLeft,
-    // ),
-    //
-    // GetPage(
-    //   name: addPayment,
-    //   page: () => const PayAdditionScreen(),
-    //   binding: AdditionBinding(),
-    //   transition: Transition.rightToLeft
-    // ),
-    //
-    // GetPage(
-    //     name: addDebt,
-    //     page: () => const DebtAdditionScreen(),
-    //     binding: AdditionBinding(),
-    //     transition: Transition.rightToLeft
-    // ),
-    //
-    // GetPage(
-    //     name: clientProfile,
-    //     page: () => const ClientProfileScreen(),
-    //     binding: ClientProfileBinding(),
-    //     transition: Transition.rightToLeft
-    // ),
-    //
-    // GetPage(
-    //     name: notations,
-    //     page: () => const NotationsScreen(),
-    //     binding: NotationsBinding(),
-    //     transition: Transition.rightToLeft
-    // ),
-    //
-    // GetPage(
-    //     name: settings,
-    //     page: () => const SettingsScreen(),
-    //     binding: SettingsBinding(),
-    //     transition: Transition.rightToLeft
-    // ),
-    //
-    // GetPage(
-    //     name: notification,
-    //     page: () => const NotificationsScreen(),
-    //     binding: NotificationBinding(),
-    //     transition: Transition.rightToLeft
-    // ),
-
+    GetPage(
+      name: order,
+      page: () => const OrderScreen(),
+      binding: OrderBinding(),
+      transition: Transition.fade
+    ),
   ];
 }
