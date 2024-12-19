@@ -7,7 +7,7 @@ import 'package:comprehensive_pharmacy_client_role/utils/constants/api_constants
 import 'package:get/get.dart';
 
 class SignupRepoImpl implements SignupRepo {
-  static SignupRepoImpl get instance => Get.find();
+  static SignupRepoImpl get instance => Get.find<SignupRepoImpl>();
 
   @override
   Future<SignupModel> signup({

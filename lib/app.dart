@@ -1,4 +1,4 @@
-import 'package:comprehensive_pharmacy_client_role/features/personalization/views/settings/settings_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/map_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/theme/theme.dart';
@@ -25,7 +25,7 @@ class ClientApp extends StatelessWidget {
         // locale: const Locale('en'),
         // fallbackLocale: const Locale('en'),
         // initialBinding: ForgetPasswordBinding(),
-        home: const SettingsScreen(),
+        home: MapScreen(),
       ),
     );
   }

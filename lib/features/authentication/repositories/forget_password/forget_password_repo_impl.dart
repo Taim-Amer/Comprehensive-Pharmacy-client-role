@@ -7,7 +7,7 @@ import 'package:comprehensive_pharmacy_client_role/utils/constants/api_constants
 import 'package:get/get.dart';
 
 class ForgetPasswordRepoImpl implements ForgetPasswordRepo{
-  static ForgetPasswordRepoImpl get instance => Get.find();
+  static ForgetPasswordRepoImpl get instance => Get.find<ForgetPasswordRepoImpl>();
 
   @override
   Future<ForgetPasswordModel> forgetPassword({required String phone}) {

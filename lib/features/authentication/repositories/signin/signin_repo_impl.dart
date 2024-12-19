@@ -5,7 +5,7 @@ import 'package:comprehensive_pharmacy_client_role/utils/constants/api_constants
 import 'package:get/get.dart';
 
 class SigninRepoImpl implements SigninRepo{
-  static SigninRepoImpl get instance => Get.find();
+  static SigninRepoImpl get instance => Get.find<SigninRepoImpl>();
 
   @override
   Future<SigninModel> signin({required String phone, required String password, required String fcmToken}) {

@@ -3,6 +3,11 @@
         android:label="comprehensive_pharmacy_client_role"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AlzaSyoxxBNYuqay31u-Kgr5Vbvjp9C5FRsdK_S"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
