@@ -1,4 +1,11 @@
+import 'package:comprehensive_pharmacy_client_role/common/widgets/alerts/snackbar.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/models/all_orders_model.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/models/show_order_model.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/repositories/order/order_repo_impl.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +15,12 @@ class OrdersController extends GetxController {
   final pageController = PageController(viewportFraction: .8);
   Rx<int> currentPageIndex = 0.obs;
   var isCreateButtonEnabled = false.obs;
+
+  final myOrdersModel = AllOrdersModel().obs;
+  final showOrderModel = ShowOrderModel().obs;
+
+  Rx<RequestState> getMyOrdersApiStatus = RequestState.begin.obs;
+  Rx<RequestState> showOrderApiStatus = RequestState.begin.obs;
 
   var selectedChips = <bool>[true, false, false, false].obs;
   var orderStatusChipList = <String>[
@@ -26,5 +39,37 @@ class OrdersController extends GetxController {
   void dotNavigationClick(index) {
     currentPageIndex.value = index;
     pageController.jumpTo(index);
+  }
+
+  Future<void> getMyOrders({required String status}) async{
+    THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.loading);
+    await OrderRepoImpl.instance.getMyOrders(status: status).then((response){
+      if(response.status == true){
+        THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.success);
+        myOrdersModel.value = response;
+      } else{
+        THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.error);
+      }
+    }).catchError((error){
+      THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
+
+  Future<void> showOrder({required int orderID}) async{
+    THelperFunctions.updateApiStatus(target: showOrderApiStatus, value: RequestState.loading);
+    await OrderRepoImpl.instance.showOrder(orderID: orderID).then((response){
+      if(response.status == true){
+        THelperFunctions.updateApiStatus(target: showOrderApiStatus, value: RequestState.success);
+        showOrderModel.value = response;
+      } else{
+        THelperFunctions.updateApiStatus(target: showOrderApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.warning);
+      }
+    }).catchError((error){
+      THelperFunctions.updateApiStatus(target: showOrderApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
   }
 }
