@@ -1,68 +1,84 @@
+import 'package:comprehensive_pharmacy_client_role/services/location_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 
 class MapScreen extends StatefulWidget {
+  const MapScreen({super.key});
+
   @override
-  _MapScreenState createState() => _MapScreenState();
+  State<MapScreen> createState() => _CustomGoogleMapState();
 }
 
-class _MapScreenState extends State<MapScreen> {
-  late GoogleMapController _mapController;
+class _CustomGoogleMapState extends State<MapScreen> {
+  late CameraPosition initialCameraPostion;
 
-  // الموقع الافتراضي عند فتح الخريطة
-  final LatLng _initialPosition = LatLng(37.7749, -122.4194); // سان فرانسيسكو كمثال
-
-  // تحديث الموقع بناءً على اختيار المستخدم
-  LatLng? _selectedPosition;
-
-  void _onMapCreated(GoogleMapController controller) {
-    _mapController = controller;
+  late LocationService locationService;
+  @override
+  void initState() {
+    initialCameraPostion = const CameraPosition(
+        zoom: 17, target: LatLng(31.187084851056554, 29.928110526889437));
+    locationService = LocationService();
+    updateMyLocation();
+    super.initState();
   }
 
-  void _onTap(LatLng position) {
-    setState(() {
-      _selectedPosition = position;
-    });
-  }
+  GoogleMapController? googleMapController;
 
+  Set<Marker> markers = {};
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('اختر موقعك'),
-      ),
-      body: Stack(
-        children: [
-          GoogleMap(
-            onMapCreated: _onMapCreated,
-            initialCameraPosition: CameraPosition(
-              target: _initialPosition,
-              zoom: 10.0,
-            ),
-            onTap: _onTap, // استجابة للنقر على الخريطة
-            markers: _selectedPosition != null
-                ? {
-              Marker(
-                markerId: MarkerId('selected-location'),
-                position: _selectedPosition!,
-              ),
-            }
-                : {},
-          ),
-          if (_selectedPosition != null)
-            Positioned(
-              bottom: 20,
-              left: 20,
-              child: ElevatedButton(
-                onPressed: () {
-                  // تنفيذ أي إجراء مثل حفظ الموقع
-                  print('الموقع المحدد: $_selectedPosition');
-                },
-                child: Text('تأكيد الموقع'),
-              ),
-            ),
-        ],
-      ),
+    return GoogleMap(
+      markers: markers,
+      zoomControlsEnabled: false,
+      onMapCreated: (controller) {
+        googleMapController = controller;
+        initMapStyle();
+      },
+      initialCameraPosition: initialCameraPostion,
     );
   }
+
+  void initMapStyle() async {
+    var nightMapStyle = await DefaultAssetBundle.of(context)
+        .loadString('assets/map_syles/night_map_style.json');
+
+    googleMapController!.setMapStyle(nightMapStyle);
+  }
+
+  void updateMyLocation() async {
+    await locationService.checkAndRequestLocationService();
+    var hasPermission =
+    await locationService.checkAndRequestLocationPermission();
+    if (hasPermission) {
+      locationService.getRealTimeLocationData((locationData) {
+        setMyLocationMarker(locationData);
+        setMyCameraPosition(locationData);
+      });
+    } else {}
+  }
+
+  void setMyCameraPosition(LocationData locationData) {
+    var camerPosition = CameraPosition(
+        target: LatLng(locationData.latitude!, locationData.longitude!),
+        zoom: 15);
+
+    googleMapController
+        ?.animateCamera(CameraUpdate.newCameraPosition(camerPosition));
+  }
+
+  void setMyLocationMarker(LocationData locationData) {
+    var myLocationMarker = Marker(
+        markerId: const MarkerId('my_location_marker'),
+        position: LatLng(locationData.latitude!, locationData.longitude!));
+
+    markers.add(myLocationMarker);
+    setState(() {});
+  }
 }
+
+
+// inquire about location service
+// request permission
+// get location
+// display

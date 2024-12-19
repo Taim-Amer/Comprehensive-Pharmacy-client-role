@@ -57,6 +57,7 @@ dependencies:
   # Api
   dio: ^5.7.0
   pretty_dio_logger: ^1.4.0
+  location: ^7.0.1
 
   # Google Services
   firebase_core: ^3.8.0
