@@ -1,5 +1,7 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/alerts/snackbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/models/all_orders_model.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/models/cancel_order_model.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/models/order_status_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/models/show_order_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/repositories/order/order_repo_impl.dart';
 import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
@@ -18,9 +20,12 @@ class OrdersController extends GetxController {
 
   final myOrdersModel = AllOrdersModel().obs;
   final showOrderModel = ShowOrderModel().obs;
+  final orderStatusModel = OrderStatusModel().obs;
 
   Rx<RequestState> getMyOrdersApiStatus = RequestState.begin.obs;
   Rx<RequestState> showOrderApiStatus = RequestState.begin.obs;
+  Rx<RequestState> orderStatusApiStatus = RequestState.begin.obs;
+  Rx<RequestState> cancelOrderApiStatus = RequestState.begin.obs;
 
   var selectedChips = <bool>[true, false, false, false].obs;
   var orderStatusChipList = <String>[
@@ -69,6 +74,37 @@ class OrdersController extends GetxController {
       }
     }).catchError((error){
       THelperFunctions.updateApiStatus(target: showOrderApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
+
+  Future<void> orderStatus({required int orderID}) async{
+    THelperFunctions.updateApiStatus(target: orderStatusApiStatus, value: RequestState.loading);
+    await OrderRepoImpl.instance.orderStatus(orderID: orderID).then((response){
+      if(response.status == true){
+        THelperFunctions.updateApiStatus(target: orderStatusApiStatus, value: RequestState.success);
+        orderStatusModel.value = response;
+      } else{
+        THelperFunctions.updateApiStatus(target: orderStatusApiStatus, value: RequestState.error);
+        showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+      }
+    }).catchError((error){
+      THelperFunctions.updateApiStatus(target: orderStatusApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
+
+  Future<void> cancelOrder({required int orderID}) async{
+    THelperFunctions.updateApiStatus(target: cancelOrderApiStatus, value: RequestState.loading);
+    await OrderRepoImpl.instance.cancelOrder(orderID: orderID).then((response){
+      if(response.status = true){
+        THelperFunctions.updateApiStatus(target: cancelOrderApiStatus, value: RequestState.success);
+      } else{
+        THelperFunctions.updateApiStatus(target: cancelOrderApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.warning);
+      }
+    }).catchError((error){
+      THelperFunctions.updateApiStatus(target: cancelOrderApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });
   }
