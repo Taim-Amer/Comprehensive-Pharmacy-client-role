@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/alerts/snackbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/repositories/forget_password/forget_password_repo_impl.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
@@ -11,8 +12,12 @@ class ForgetPasswordController extends GetxController{
   static ForgetPasswordController get instance => Get.find();
 
   final phoneController = TextEditingController();
+  final otpController = TextEditingController();
+  final newPasswordController = TextEditingController();
+  final newPasswordConfirmController = TextEditingController();
 
   Rx<RequestState> forgetPasswordApiStatus = RequestState.begin.obs;
+  Rx<RequestState> forgetVerifyApiStatus = RequestState.begin.obs;
 
   Future<void> forgetPassword() async{
     THelperFunctions.updateApiStatus(target: forgetPasswordApiStatus, value: RequestState.loading);
@@ -25,6 +30,28 @@ class ForgetPasswordController extends GetxController{
         showSnackBar(response.message ?? '', AlertState.error);
         THelperFunctions.updateApiStatus(target: forgetPasswordApiStatus, value: RequestState.error);
       }
+    }).catchError((error){
+      THelperFunctions.updateApiStatus(target: forgetPasswordApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
+
+  Future<void> forgetVerify() async{
+    THelperFunctions.updateApiStatus(target: forgetVerifyApiStatus, value: RequestState.loading);
+    await ForgetPasswordRepoImpl.instance.passwordVerify(
+      phone: TCacheHelper.getData(key: 'phone'),
+      otp: otpController.text.trim(),
+    ).then((response) {
+      if(response.status == true){
+        THelperFunctions.updateApiStatus(target: forgetVerifyApiStatus, value: RequestState.success);
+        Get.toNamed(AppRoutes.setPassword);
+      } else{
+        THelperFunctions.updateApiStatus(target: forgetVerifyApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.error);
+      }
+    }).catchError((error){
+      THelperFunctions.updateApiStatus(target: forgetVerifyApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });
   }
 }
