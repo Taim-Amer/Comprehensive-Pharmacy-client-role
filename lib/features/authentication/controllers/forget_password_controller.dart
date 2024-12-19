@@ -18,6 +18,7 @@ class ForgetPasswordController extends GetxController{
 
   Rx<RequestState> forgetPasswordApiStatus = RequestState.begin.obs;
   Rx<RequestState> forgetVerifyApiStatus = RequestState.begin.obs;
+  Rx<RequestState> newPasswordApiStatus = RequestState.begin.obs;
 
   Future<void> forgetPassword() async{
     THelperFunctions.updateApiStatus(target: forgetPasswordApiStatus, value: RequestState.loading);
@@ -51,6 +52,26 @@ class ForgetPasswordController extends GetxController{
       }
     }).catchError((error){
       THelperFunctions.updateApiStatus(target: forgetVerifyApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
+
+  Future<void> newPassword() async{
+    THelperFunctions.updateApiStatus(target: newPasswordApiStatus, value: RequestState.loading);
+    await ForgetPasswordRepoImpl.instance.newPassword(
+      phone: TCacheHelper.getData(key: 'phone'), 
+      password: newPasswordController.text.trim(),
+      passwordConfirm: newPasswordController.text.trim(),
+    ).then((response) {
+      if(response.status == true){
+        THelperFunctions.updateApiStatus(target: newPasswordApiStatus, value: RequestState.success);
+        Get.offAllNamed(AppRoutes.passwordConfirm);
+      } else{
+        THelperFunctions.updateApiStatus(target: newPasswordApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.error);
+      }
+    }).catchError((error){
+      THelperFunctions.updateApiStatus(target: newPasswordApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });
   }

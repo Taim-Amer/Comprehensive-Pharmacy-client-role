@@ -4,6 +4,7 @@ import 'package:comprehensive_pharmacy_client_role/dependencies/otp_binding.dart
 import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signup_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/forget_password/new_password_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/views/forget_password/password_confirmed_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/forget_password/phone_verify_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/forget_password/verify_code_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/otp_screen.dart';
@@ -20,6 +21,7 @@ class AppRoutes {
   static const verifyCode = '/verifyCode';
   static const setPassword = '/setPassword';
   static const order = '/order';
+  static const passwordConfirm = '/passwordConfirm';
 
   static List<GetPage> routes = [
 
@@ -70,6 +72,12 @@ class AppRoutes {
       page: () => const OrderScreen(),
       binding: OrderBinding(),
       transition: Transition.fade
+    ),
+
+    GetPage(
+        name: passwordConfirm,
+        page: () => const PasswordConfirmedScreen(),
+        transition: Transition.fade
     ),
   ];
 }
