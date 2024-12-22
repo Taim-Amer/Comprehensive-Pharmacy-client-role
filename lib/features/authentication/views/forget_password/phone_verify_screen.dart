@@ -6,8 +6,8 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/views
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/forget_password/widgets/phone_verify_header.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/phone_country_code.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter/material.dart';
 
 class PhoneVerifyScreen extends StatelessWidget {
   const PhoneVerifyScreen({super.key});
@@ -19,14 +19,17 @@ class PhoneVerifyScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,
-          child: Column(
-            children: [
-              const PhoneVerifyHeader(),
-              TSizes.spaceBtwSections.verticalSpace,
-              PhoneCountryCode(controller: ForgetPasswordController()),
-              TSizes.spaceBtwItems.verticalSpace,
-              const PhoneVerifyButton()
-            ],
+          child: Form(
+            key: ForgetPasswordController.instance.phoneVerifyFormKey,
+            child: Column(
+              children: [
+                const PhoneVerifyHeader(),
+                TSizes.spaceBtwSections.verticalSpace,
+                PhoneCountryCode(controller: ForgetPasswordController.instance),
+                TSizes.spaceBtwItems.verticalSpace,
+                const PhoneVerifyButton(),
+              ],
+            ),
           ),
         ),
       ),

@@ -15,7 +15,7 @@ class SigninForm extends StatelessWidget {
       key: SigninController.instance.signinFormKey,
       child: Column(
         children: [
-          PhoneCountryCode(controller: SigninController(),),
+          PhoneCountryCode(controller: SigninController.instance),
           TextFormField(
             controller: SigninController.instance.passwordController,
             validator: (value) => TValidator.validatePassword(value),

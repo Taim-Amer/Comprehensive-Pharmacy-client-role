@@ -22,8 +22,16 @@ class ForgetPasswordController extends GetxController{
   Rx<RequestState> forgetVerifyApiStatus = RequestState.begin.obs;
   Rx<RequestState> newPasswordApiStatus = RequestState.begin.obs;
 
+  GlobalKey<FormState> phoneVerifyFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> passwordFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> confirmPasswordFormKey = GlobalKey<FormState>();
+
   Future<void> forgetPassword() async{
     THelperFunctions.updateApiStatus(target: forgetPasswordApiStatus, value: RequestState.loading);
+    if(!phoneVerifyFormKey.currentState!.validate()){
+      THelperFunctions.updateApiStatus(target: forgetPasswordApiStatus, value: RequestState.begin);
+      return;
+    }
     await ForgetPasswordRepoImpl.instance.forgetPassword(phone: phoneController.text.trim()).then((response){
       if(response.status == true){
         TCacheHelper.saveData(key: 'phone', value: phoneController.text.trim());

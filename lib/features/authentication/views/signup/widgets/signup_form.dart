@@ -28,7 +28,7 @@ class SignupForm extends StatelessWidget {
             ),
           ),
           TSizes.spaceBtwInputField.verticalSpace,
-          PhoneCountryCode(controller: SignupController()),
+          PhoneCountryCode(controller: SignupController.instance),
           // TSizes.spaceBtwInputField.verticalSpace,
           TextFormField(
             controller: SignupController.instance.emailController,
