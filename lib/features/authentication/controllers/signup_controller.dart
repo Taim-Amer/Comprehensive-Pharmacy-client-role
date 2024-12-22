@@ -12,6 +12,7 @@ class SignupController extends GetxController{
   static SignupController get instance => Get.find();
 
   RxString countryCode = "+963".obs;
+
   Rx<RequestState> signupApiStatus = RequestState.begin.obs;
   Rx<RequestState> verifyApiStatus = RequestState.begin.obs;
 

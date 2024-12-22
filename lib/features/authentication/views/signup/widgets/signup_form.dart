@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/signup_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/phone_country_code.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
@@ -22,7 +23,7 @@ class SignupForm extends StatelessWidget {
           ),
         ),
         TSizes.spaceBtwInputField.verticalSpace,
-        const PhoneCountryCode(),
+        PhoneCountryCode(controller: SignupController()),
         // TSizes.spaceBtwInputField.verticalSpace,
         TextFormField(
           enableInteractiveSelection: false,

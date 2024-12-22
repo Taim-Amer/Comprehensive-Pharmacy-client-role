@@ -18,8 +18,15 @@ class SigninController extends GetxController{
 
   Rx<RequestState> signinApiStatus = RequestState.begin.obs;
 
+  GlobalKey<FormState> signinFormKey = GlobalKey<FormState>();
+
   Future<void> signin() async{
     THelperFunctions.updateApiStatus(target: signinApiStatus, value: RequestState.loading);
+    if(!signinFormKey.currentState!.validate()){
+      THelperFunctions.updateApiStatus(target: signinApiStatus, value: RequestState.begin);
+      return;
+    }
+
     await SigninRepoImpl.instance.signin(
       phone: phoneController.text.trim(),
       password: passwordController.text.trim(),

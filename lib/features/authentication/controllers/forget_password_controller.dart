@@ -11,6 +11,8 @@ import 'package:get/get.dart';
 class ForgetPasswordController extends GetxController{
   static ForgetPasswordController get instance => Get.find();
 
+  RxString countryCode = "+963".obs;
+
   final phoneController = TextEditingController();
   final otpController = TextEditingController();
   final newPasswordController = TextEditingController();

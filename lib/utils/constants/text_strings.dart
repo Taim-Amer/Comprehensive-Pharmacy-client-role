@@ -222,7 +222,7 @@ class TEnglishTexts {
   static String get close => 'Close';
 
   // Validation
-  static String get phoneValidation => 'Phone number is required';
+  static String get phoneValidation => 'Phone required';
   static String get emptyValidation => 'You must enter';
   static String get emailValidation => 'The Email is Required';
   static String get emailInvalid => "The Email Address is Invalid";

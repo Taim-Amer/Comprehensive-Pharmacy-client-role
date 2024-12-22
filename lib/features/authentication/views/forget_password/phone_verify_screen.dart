@@ -1,6 +1,7 @@
 import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/buttons/back_icon.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/forget_password_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/forget_password/widgets/phone_verify_button.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/forget_password/widgets/phone_verify_header.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/phone_country_code.dart';
@@ -22,7 +23,7 @@ class PhoneVerifyScreen extends StatelessWidget {
             children: [
               const PhoneVerifyHeader(),
               TSizes.spaceBtwSections.verticalSpace,
-              const PhoneCountryCode(),
+              PhoneCountryCode(controller: ForgetPasswordController()),
               TSizes.spaceBtwItems.verticalSpace,
               const PhoneVerifyButton()
             ],
