@@ -27,6 +27,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/edit.svg
   String get edit => 'assets/icons/edit.svg';
 
+  /// File path: assets/icons/f7_camera-fill.svg
+  String get f7CameraFill => 'assets/icons/f7_camera-fill.svg';
+
   /// Directory path: assets/icons/flags
   $AssetsIconsFlagsGen get flags => const $AssetsIconsFlagsGen();
 
@@ -37,8 +40,16 @@ class $AssetsIconsGen {
   String get truckFast => 'assets/icons/truck-fast.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [uploadIcon, boxTick, boxTime, clipboardTick, edit, trash, truckFast];
+  List<String> get values => [
+        uploadIcon,
+        boxTick,
+        boxTime,
+        clipboardTick,
+        edit,
+        f7CameraFill,
+        trash,
+        truckFast
+      ];
 }
 
 class $AssetsImagesGen {
@@ -65,16 +76,31 @@ class $AssetsImagesGen {
   /// File path: assets/images/f7_camera-fill.svg
   String get f7CameraFill => 'assets/images/f7_camera-fill.svg';
 
+  /// File path: assets/images/icons8-marker-50.png
+  AssetGenImage get icons8Marker50 =>
+      const AssetGenImage('assets/images/icons8-marker-50.png');
+
   /// List of all assets
-  List<String> get values => [
+  List<dynamic> get values => [
         done,
         frame39428,
         group11,
         group39446,
         rectangle5,
         clipboardClose,
-        f7CameraFill
+        f7CameraFill,
+        icons8Marker50
       ];
+}
+
+class $AssetsMapSylesGen {
+  const $AssetsMapSylesGen();
+
+  /// File path: assets/map_syles/night_map_style.json
+  String get nightMapStyle => 'assets/map_syles/night_map_style.json';
+
+  /// List of all assets
+  List<String> get values => [nightMapStyle];
 }
 
 class $AssetsIconsFlagsGen {
@@ -110,6 +136,7 @@ class Assets {
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsMapSylesGen mapSyles = $AssetsMapSylesGen();
 }
 
 class AssetGenImage {

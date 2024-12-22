@@ -1,6 +1,7 @@
+import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
+import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/map_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,13 +20,13 @@ class ClientApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
-        // initialRoute: AppRoutes.setPassword,
+        initialRoute: AppRoutes.signin,
         getPages: AppRoutes.routes,
         // translations: TAppTranslations(),
         // locale: const Locale('en'),
         // fallbackLocale: const Locale('en'),
-        // initialBinding: ForgetPasswordBinding(),
-        home: MapScreen(),
+        initialBinding: SigninBinding(),
+        // home: const MapScreen(),
       ),
     );
   }

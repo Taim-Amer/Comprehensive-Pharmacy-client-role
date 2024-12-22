@@ -70,7 +70,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                       child: TextFormField(
                         validator: (value) => TValidator.validatePhoneNumber(value),
                         enableInteractiveSelection: false,
-                        // controller: SigninController.instance.phoneController,
+                        controller: SigninController.instance.phoneController,
                         decoration: InputDecoration(
                           hintText: TEnglishTexts.phoneNumber,
                           hintStyle: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF707070), fontSize: 14, fontWeight: FontWeight.w400),
@@ -80,10 +80,10 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                         cursorColor: TColors.buttonPrimary,
                         keyboardType: TextInputType.phone,
                         onChanged: (value) {
-                          // if (!value.startsWith(selectedCountry.code!)) {
-                          //   SigninController.instance.phoneController.text = selectedCountry.code! + value;
-                          //   SigninController.instance.phoneController.selection = TextSelection.fromPosition(TextPosition(offset: SignInController.instance.phoneController.text.length));
-                          // }
+                          if (!value.startsWith(selectedCountry.code!)) {
+                            SigninController.instance.phoneController.text = selectedCountry.code! + value;
+                            SigninController.instance.phoneController.selection = TextSelection.fromPosition(TextPosition(offset: SigninController.instance.phoneController.text.length));
+                          }
                         },
                       ),
                     ),
@@ -127,7 +127,6 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
 
   Widget countryCodeItemBuilder(int index) {
     return GestureDetector(
-      // overlayColor: WidgetStateProperty.all(Colors.transparent),
       onTap: () {
         setState(() {
           isExpanded = !isExpanded;

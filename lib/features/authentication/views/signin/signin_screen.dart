@@ -6,8 +6,10 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/views
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/signin_header.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class SigninScreen extends StatelessWidget {
   const SigninScreen({super.key});
@@ -29,7 +31,10 @@ class SigninScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  TextButton(onPressed: (){}, child: Text(TEnglishTexts.forgetPassword))
+                  TextButton(
+                    onPressed: () => Get.toNamed(AppRoutes.phoneVerify),
+                    child: Text(TEnglishTexts.forgetPassword),
+                  )
                 ],
               ),
               TSizes.spaceBtwSections.verticalSpace,
