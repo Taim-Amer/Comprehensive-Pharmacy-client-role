@@ -137,7 +137,7 @@ class TEnglishTexts {
   static String get phoneNumber => 'Phone number';
   static String get registerTitle => 'Signup';
   static String get registerSubTitle => 'Please provide the following information to create your account';
-  static String get userName => 'user name';
+  static String get userName => 'username';
   static String get emailAddress => 'Email address';
   static String get password => 'Password';
   static String get confirmPassword => 'Confirm password';

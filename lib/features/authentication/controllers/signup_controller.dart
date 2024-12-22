@@ -44,7 +44,7 @@ class SignupController extends GetxController{
     ).then((response) {
       if(response.status == true){
         TCacheHelper.saveData(key: 'phone', value: response.data!.phone);
-        Get.toNamed(AppRoutes.otp);
+        Get.offAllNamed(AppRoutes.otp);
         showSnackBar(response.message ?? "", AlertState.success);
         THelperFunctions.updateApiStatus(target: signupApiStatus, value: RequestState.success);
       } else{
