@@ -146,7 +146,7 @@ class TEnglishTexts {
   static String get otpTitle => 'Verification code';
   static String get otpSubTitle => 'We sent a 5 degit  verify code to this phone number +964-555-5666';
   static String get otpQuastion => 'Havent got your verification code yet?';
-  static String get resend => 'Resend code in 0:15 Sec';
+  static String get resend => 'Resend code';
   static String get verifyCode => 'Verify code';
   static String get forgetPasswordSubTitle => 'Enter your phone number to get verification code to reset your password';
   static String get checkPhone => 'Check your Phone';

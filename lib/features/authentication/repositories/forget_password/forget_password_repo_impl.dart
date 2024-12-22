@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_client_role/features/authentication/models/forget_password_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/models/forget_verify_model.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/models/resend_otp_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/models/reset_password_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/repositories/forget_password/forget_password_repo.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/api/dio_helper.dart';
@@ -34,5 +35,13 @@ class ForgetPasswordRepoImpl implements ForgetPasswordRepo{
       'phone' : phone,
       'otp' : otp,
     }).then((response) => ForgetVerifyModel.fromJson(response));
+  }
+
+  @override
+  Future<ResendOtpModel> resendOtp({required String phone}) {
+    final dioHelper = TDioHelper();
+    return dioHelper.post(TApiConstants.resend, {
+      'phone' : phone
+    }).then((response) => ResendOtpModel.fromJson(response));
   }
 }

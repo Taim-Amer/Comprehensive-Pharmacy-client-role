@@ -1,3 +1,6 @@
+import 'package:comprehensive_pharmacy_client_role/common/widgets/loaders/loading_widget.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/forget_password_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,10 +10,13 @@ class UpdatePasswordButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return ForgetPasswordController.instance.newPasswordApiStatus.value == RequestState.loading ? const Center(child: LoadingWidget()) : SizedBox(
       width: double.infinity,
       height: 50.h,
-      child: ElevatedButton(onPressed: (){}, child: Text(TEnglishTexts.updatePassword)),
+      child: ElevatedButton(
+        onPressed: () => ForgetPasswordController.instance.newPassword(),
+        child: Text(TEnglishTexts.updatePassword),
+      ),
     );
   }
 }

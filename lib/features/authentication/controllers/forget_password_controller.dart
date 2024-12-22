@@ -24,7 +24,6 @@ class ForgetPasswordController extends GetxController{
 
   GlobalKey<FormState> phoneVerifyFormKey = GlobalKey<FormState>();
   GlobalKey<FormState> passwordFormKey = GlobalKey<FormState>();
-  GlobalKey<FormState> confirmPasswordFormKey = GlobalKey<FormState>();
 
   Future<void> forgetPassword() async{
     THelperFunctions.updateApiStatus(target: forgetPasswordApiStatus, value: RequestState.loading);
@@ -68,6 +67,10 @@ class ForgetPasswordController extends GetxController{
 
   Future<void> newPassword() async{
     THelperFunctions.updateApiStatus(target: newPasswordApiStatus, value: RequestState.loading);
+    if(!passwordFormKey.currentState!.validate()){
+      THelperFunctions.updateApiStatus(target: newPasswordApiStatus, value: RequestState.begin);
+      return;
+    }
     await ForgetPasswordRepoImpl.instance.newPassword(
       phone: TCacheHelper.getData(key: 'phone'), 
       password: newPasswordController.text.trim(),
@@ -83,6 +86,14 @@ class ForgetPasswordController extends GetxController{
     }).catchError((error){
       THelperFunctions.updateApiStatus(target: newPasswordApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
+
+  Future<void> resend() async{
+    await ForgetPasswordRepoImpl.instance.resendOtp(phone: TCacheHelper.getData(key: 'phone')).then((response){
+      if(response.status == true){
+        showSnackBar(response.message ?? "", AlertState.success);
+      }
     });
   }
 }
