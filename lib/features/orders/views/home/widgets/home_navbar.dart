@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/order_status_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class HomeNavbar extends StatelessWidget {
         child: Obx(() {
           bool isEnabled = OrdersController.instance.isCreateButtonEnabled.value;
           return ElevatedButton(
-            onPressed: isEnabled ? () {} : null,
+            onPressed: isEnabled ? () => Get.to(OrderStatusScreen()) : null,
             style: ElevatedButton.styleFrom(
               backgroundColor: isEnabled
                   ? Theme.of(context).primaryColor

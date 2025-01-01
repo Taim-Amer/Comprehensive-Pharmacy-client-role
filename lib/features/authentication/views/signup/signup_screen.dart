@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
+import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/otp_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/widgets/signup_button.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/widgets/signup_footer.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/widgets/signup_form.dart';
@@ -7,6 +8,8 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/views
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -14,7 +17,14 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TAppBar(),
+      appBar: TAppBar(
+        actions: [
+          // IconButton(
+          //   onPressed: () => Get.to(const OtpScreen()),
+          //   icon: const Icon(Icons.arrow_forward_ios_rounded),
+          // )
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,

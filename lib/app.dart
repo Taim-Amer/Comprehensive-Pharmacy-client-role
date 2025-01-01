@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/order_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/localization/translations.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
@@ -20,13 +21,13 @@ class ClientApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
-        initialRoute: AppRoutes.signin,
-        getPages: AppRoutes.routes,
-        translations: TAppTranslations(),
-        locale: const Locale('en'),
+        // initialRoute: AppRoutes.signin,
+        // getPages: AppRoutes.routes,
+        // translations: TAppTranslations(),
+        // locale: const Locale('en'),
         // fallbackLocale: const Locale('en'),
-        initialBinding: SigninBinding(),
-        // home: const MapScreen(),
+        // initialBinding: SigninBinding(),
+        home: const OrderScreen(),
       ),
     );
   }

@@ -1,6 +1,8 @@
+import 'package:comprehensive_pharmacy_client_role/features/notifications/views/notifications_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class GeneralAppbar extends StatelessWidget {
@@ -19,7 +21,10 @@ class GeneralAppbar extends StatelessWidget {
           child: Icon(Icons.more_vert, color: dark ? TColors.light : const Color(0xFF383838)),
         ),
         Text('Client App', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: dark ? TColors.light : const Color(0xFF383838))),
-        Icon(Iconsax.notification, color: dark ? TColors.light : const Color(0xFF383838)),
+        IconButton(
+          onPressed: () => Get.to(const NotificationsScreen()),
+          icon: Icon(Iconsax.notification, color: dark ? TColors.light : const Color(0xFF383838)),
+        )
       ],
     );
   }

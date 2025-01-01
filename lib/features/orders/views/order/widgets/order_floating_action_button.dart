@@ -1,4 +1,6 @@
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class OrderFloatingActionButton extends StatelessWidget {
   const OrderFloatingActionButton({super.key});
@@ -6,7 +8,7 @@ class OrderFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: (){},
+      onPressed: () => Get.to(HomeScreen()),
       child: const Icon(Icons.add, size: 30,),
     );
   }

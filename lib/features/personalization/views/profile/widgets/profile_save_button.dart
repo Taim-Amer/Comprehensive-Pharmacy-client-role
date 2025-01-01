@@ -1,6 +1,8 @@
+import 'package:comprehensive_pharmacy_client_role/features/personalization/views/settings/settings_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class ProfileSaveButton extends StatelessWidget {
   const ProfileSaveButton({super.key});
@@ -11,7 +13,7 @@ class ProfileSaveButton extends StatelessWidget {
       width: double.infinity,
       height: 50.h,
       child: ElevatedButton(
-        onPressed: (){},
+        onPressed: () => Get.to(SettingsScreen()),
         child: Text(TEnglishTexts.save),
       ),
     );

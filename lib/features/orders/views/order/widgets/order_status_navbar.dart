@@ -1,7 +1,9 @@
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/searching_pharmacy_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class OrderStatusNavbar extends StatelessWidget {
   const OrderStatusNavbar({super.key});
@@ -13,7 +15,9 @@ class OrderStatusNavbar extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         height: 50.h,
-        child: ElevatedButton(onPressed: (){}, child: Text(TEnglishTexts.confirmDelivery)),
+        child: ElevatedButton(
+          onPressed: () => Get.to(const SearchingPharmacyScreen()),
+          child: Text(TEnglishTexts.confirmDelivery),),
       ),
     );
   }
