@@ -17,7 +17,7 @@ class OrderStatusNavbar extends StatelessWidget {
         height: 50.h,
         child: ElevatedButton(
           onPressed: () => Get.to(const SearchingPharmacyScreen()),
-          child: Text(TEnglishTexts.confirmDelivery),),
+          child: Text(TEnglishTexts.confirmDelivery)),
       ),
     );
   }

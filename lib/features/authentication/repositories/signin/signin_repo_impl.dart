@@ -8,12 +8,12 @@ class SigninRepoImpl implements SigninRepo{
   static SigninRepoImpl get instance => Get.find<SigninRepoImpl>();
 
   @override
-  Future<SigninModel> signin({required String phone, required String password, required String fcmToken}) {
+  Future<SigninModel> signin({required String phone, required String password}) {
     final dioHelper = TDioHelper();
     return dioHelper.post(TApiConstants.signin, {
       'phone' : phone,
       'password' : password,
-      'fcmToken' : fcmToken,
+      // 'fcmToken' : fcmToken,
     }).then((response) => SigninModel.fromJson(response));
   }
 }

@@ -23,7 +23,7 @@ class TDrawerHeader extends StatelessWidget {
           backgroundColor: TColors.primary,
           width: 38.w,
           height: 38.h,
-          onPressed: () => Get.to(ProfileScreen()),
+          onPressed: () => Get.to(const ProfileScreen()),
         ),
         TSizes.sm.horizontalSpace,
         TRoundedContainer(

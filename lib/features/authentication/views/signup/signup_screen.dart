@@ -17,14 +17,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TAppBar(
-        actions: [
-          // IconButton(
-          //   onPressed: () => Get.to(const OtpScreen()),
-          //   icon: const Icon(Icons.arrow_forward_ios_rounded),
-          // )
-        ],
-      ),
+      appBar: const TAppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,

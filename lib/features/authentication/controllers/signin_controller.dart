@@ -30,7 +30,7 @@ class SigninController extends GetxController{
     await SigninRepoImpl.instance.signin(
       phone: phoneController.text.trim(),
       password: passwordController.text.trim(),
-      fcmToken: "fcmToken",
+      // fcmToken: "fcmToken",
     ).then((response) {
       if(response.status == true){
         THelperFunctions.updateApiStatus(target: signinApiStatus, value: RequestState.success);

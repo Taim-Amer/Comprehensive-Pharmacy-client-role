@@ -8,7 +8,7 @@ class OrderFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () => Get.to(HomeScreen()),
+      onPressed: () => Get.to(const HomeScreen()),
       child: const Icon(Icons.add, size: 30,),
     );
   }

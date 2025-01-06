@@ -72,7 +72,7 @@ class _PhoneCountryCodeState<T extends GetxController> extends State<PhoneCountr
                     8.horizontalSpace,
                     Expanded(
                       child: TextFormField(
-                        validator: (value) => TValidator.validatePhoneNumber(value),
+                        // validator: (value) => TValidator.validatePhoneNumber(value),
                         enableInteractiveSelection: false,
                         controller: (widget.controller as dynamic).phoneController,
                         decoration: InputDecoration(
