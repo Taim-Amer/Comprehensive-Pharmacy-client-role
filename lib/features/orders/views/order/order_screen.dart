@@ -17,7 +17,7 @@ class OrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(OrdersController());
+    // Get.put(OrdersController());
     return DefaultTabController(
       length: 4,
       child: Builder(

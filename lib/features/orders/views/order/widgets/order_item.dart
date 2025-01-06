@@ -8,7 +8,40 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({super.key});
+  const OrderItem({super.key, required this.orderID, required this.pharmacyName, required this.orderDate, required this.orderStatus});
+
+  final String orderID;
+  final String pharmacyName;
+  final String orderDate;
+  final String orderStatus;
+
+  Color getContainerColor(){
+    Color color = TColors.primary.withOpacity(.2);
+    if(orderStatus == "completed"){
+      color = TColors.primary.withOpacity(.2);
+    } else if(orderStatus == "pending"){
+      color = const Color(0xFFFAEBB0);
+    } else if(orderStatus == "canceled"){
+      color = const Color(0xFFF5F5F5);
+    } else if(orderStatus == "rejected"){
+      color = const Color(0xFFFFD1D1);
+    }
+    return color;
+  }
+
+  Color getTextColor(){
+    Color color = TColors.primary.withOpacity(.2);
+    if(orderStatus == "completed"){
+      color = TColors.primary;
+    } else if(orderStatus == "pending"){
+      color = const Color(0xFFEEBF00);
+    } else if(orderStatus == "canceled"){
+      color = const Color(0xFF383838);
+    } else if(orderStatus == "rejected"){
+      color = const Color(0xFFFF6B6B);
+    }
+    return color;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +63,13 @@ class OrderItem extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(TEnglishTexts.orderID, style: Theme.of(context).textTheme.titleLarge),
+                  Text("${TEnglishTexts.orderID}$orderID", style: Theme.of(context).textTheme.titleLarge),
                   TRoundedContainer(
-                    backgroundColor: TColors.primary.withOpacity(.2),
+                    backgroundColor: getContainerColor(),
                     radius: 100.r,
                     height: 30.h,
                     padding: const EdgeInsets.all(8),
-                    child: Center(child: Text(TEnglishTexts.completed, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: TColors.primary, fontSize: 10, fontWeight: FontWeight.w500))),
+                    child: Center(child: Text(orderStatus, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: getTextColor(), fontSize: 10, fontWeight: FontWeight.w500))),
                   )
                 ],
               ),
@@ -48,7 +81,7 @@ class OrderItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(TEnglishTexts.pharmacyName, style: Theme.of(context).textTheme.labelMedium),
-                      Text("Ultramedica", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 12)),
+                      Text(pharmacyName.toString(), style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 12)),
                     ],
                   ),
                   TRoundedContainer(
@@ -59,7 +92,7 @@ class OrderItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(TEnglishTexts.orderDate, style: Theme.of(context).textTheme.labelMedium),
-                      Text("Tue , 10 Sept 12:20 PM", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 12)),
+                      Text(orderDate.toString(), style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 12)),
                     ],
                   ),
                 ],

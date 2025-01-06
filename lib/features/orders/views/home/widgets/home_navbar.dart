@@ -19,7 +19,7 @@ class HomeNavbar extends StatelessWidget {
         child: Obx(() {
           bool isEnabled = OrdersController.instance.isCreateButtonEnabled.value;
           return ElevatedButton(
-            onPressed: isEnabled ? () => Get.to(const OrderStatusScreen()) : null,
+            onPressed: isEnabled ? () => OrdersController.instance.createOrder() : null,
             style: ElevatedButton.styleFrom(
               backgroundColor: isEnabled
                   ? Theme.of(context).primaryColor

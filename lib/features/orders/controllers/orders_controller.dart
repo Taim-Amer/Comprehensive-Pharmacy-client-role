@@ -1,9 +1,11 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/alerts/snackbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/models/all_orders_model.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/models/create_order_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/models/order_status_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/models/show_order_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/repositories/order/order_repo_impl.dart';
 import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
+import 'package:comprehensive_pharmacy_client_role/services/file_services.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
@@ -20,11 +22,15 @@ class OrdersController extends GetxController {
   final myOrdersModel = AllOrdersModel().obs;
   final showOrderModel = ShowOrderModel().obs;
   final orderStatusModel = OrderStatusModel().obs;
+  final createOrderModel = CreateOrderModel().obs;
+
+  final orderDescriptionController = TextEditingController();
 
   Rx<RequestState> getMyOrdersApiStatus = RequestState.begin.obs;
   Rx<RequestState> showOrderApiStatus = RequestState.begin.obs;
   Rx<RequestState> orderStatusApiStatus = RequestState.begin.obs;
   Rx<RequestState> cancelOrderApiStatus = RequestState.begin.obs;
+  Rx<RequestState> createOrderApiStatus = RequestState.begin.obs;
 
   var selectedChips = <bool>[true, false, false, false].obs;
   var orderStatusChipList = <String>[
@@ -104,6 +110,25 @@ class OrdersController extends GetxController {
       }
     }).catchError((error){
       THelperFunctions.updateApiStatus(target: cancelOrderApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
+
+  Future<void> createOrder() async{
+    THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.loading);
+    await OrderRepoImpl.instance.createOrder(
+      pharmacistID: 2,
+      filesList: TFileServices.selectedFiles.value,
+      description: orderDescriptionController.text.toString(),
+    ).then((response) {
+      if(response.status == true){
+        THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.success);
+      } else{
+        THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.warning);
+      }
+    }).catchError((error){
+      THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });
   }

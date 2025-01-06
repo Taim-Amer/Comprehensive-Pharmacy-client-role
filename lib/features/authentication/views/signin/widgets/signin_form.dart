@@ -18,7 +18,7 @@ class SigninForm extends StatelessWidget {
           PhoneCountryCode(controller: SigninController.instance),
           TextFormField(
             controller: SigninController.instance.passwordController,
-            validator: (value) => TValidator.validatePassword(value),
+            // validator: (value) => TValidator.validatePassword(value),
             enableInteractiveSelection: false,
             cursorColor: TColors.primary,
             decoration: InputDecoration(

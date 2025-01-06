@@ -172,7 +172,7 @@ class TEnglishTexts {
   static String get pending => 'Pending';
   static String get canceled => 'Canceled';
   static String get rejected => 'Rejected';
-  static String get orderID => 'Order ID : #2345213';
+  static String get orderID => 'Order ID : ';
   static String get pharmacyName => 'Pharmacy name';
   static String get orderDate => 'Order date';
   static String get orderDetails => 'Order Details';

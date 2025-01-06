@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/order_item.dart';
 import 'package:flutter/material.dart';
 
@@ -6,10 +7,16 @@ class CompletedList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var orderItem = OrdersController.instance.myOrdersModel.value.data?.data;
     return ListView.builder(
-      itemCount: 10,
+      itemCount: orderItem?.length ?? 0,
       physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-      itemBuilder: (context, index) => const OrderItem(),
+      itemBuilder: (context, index) => OrderItem(
+        orderID: orderItem[index].,
+        pharmacyName: pharmacyName,
+        orderDate: orderDate,
+        orderStatus: orderStatus,
+      ),
     );
   }
 }

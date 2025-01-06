@@ -10,6 +10,7 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/views
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/otp_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/signin_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/signup_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/home_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/order_screen.dart';
 import 'package:get/get.dart';
 
@@ -22,6 +23,7 @@ class AppRoutes {
   static const setPassword = '/setPassword';
   static const order = '/order';
   static const passwordConfirm = '/passwordConfirm';
+  static const home = '/home';
 
   static List<GetPage> routes = [
 
@@ -78,6 +80,13 @@ class AppRoutes {
         name: passwordConfirm,
         page: () => const PasswordConfirmedScreen(),
         transition: Transition.fade
+    ),
+
+    GetPage(
+        name: home,
+        page: () => const HomeScreen(),
+        transition: Transition.fade,
+        binding: OrderBinding()
     ),
   ];
 }
