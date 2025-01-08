@@ -27,10 +27,10 @@ class Data {
   String? email;
   String? phone;
   String? role;
-  String? lat;
-  String? lng;
+  double? lat;
+  double? lng;
   bool? isVerified;
-  Null? fcmToken;
+  String? fcmToken;
   String? updatedAt;
   String? createdAt;
   int? id;
@@ -53,8 +53,8 @@ class Data {
     email = json['email'];
     phone = json['phone'];
     role = json['role'];
-    lat = json['lat'];
-    lng = json['lng'];
+    lat = json['lat'] != null ? double.tryParse(json['lat'].toString()) : null;
+    lng = json['lng'] != null ? double.tryParse(json['lng'].toString()) : null;
     isVerified = json['is_verified'];
     fcmToken = json['fcm_token'];
     updatedAt = json['updated_at'];

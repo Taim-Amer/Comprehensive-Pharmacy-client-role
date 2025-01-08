@@ -3,6 +3,7 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/repos
 import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/logging/logger.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/storage/cache_helper.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,7 +24,7 @@ class SignupController extends GetxController{
   final otpController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
   Future<void> signup() async{
     THelperFunctions.updateApiStatus(target: signupApiStatus, value: RequestState.loading);
@@ -44,14 +45,15 @@ class SignupController extends GetxController{
     ).then((response) {
       if(response.status == true){
         TCacheHelper.saveData(key: 'phone', value: response.data!.phone);
-        Get.offAllNamed(AppRoutes.otp);
         showSnackBar(response.message ?? "", AlertState.success);
         THelperFunctions.updateApiStatus(target: signupApiStatus, value: RequestState.success);
+        Get.offAllNamed(AppRoutes.otp);
       } else{
         showSnackBar(response.message ?? "", AlertState.error);
         THelperFunctions.updateApiStatus(target: signupApiStatus, value: RequestState.error);
       }
     }).catchError((error){
+      TLoggerHelper.info(error.toString());
       THelperFunctions.updateApiStatus(target: signupApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });

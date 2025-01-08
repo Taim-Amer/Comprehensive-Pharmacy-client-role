@@ -11,12 +11,13 @@ class CompletedList extends StatelessWidget {
     return ListView.builder(
       itemCount: orderItem?.length ?? 0,
       physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-      itemBuilder: (context, index) => OrderItem(
-        orderID: orderItem[index].,
-        pharmacyName: pharmacyName,
-        orderDate: orderDate,
-        orderStatus: orderStatus,
-      ),
+      // itemBuilder: (context, index) => OrderItem(
+      //   orderID: orderItem[index].,
+      //   pharmacyName: pharmacyName,
+      //   orderDate: orderDate,
+      //   orderStatus: orderStatus,
+      // ),
+      itemBuilder: (context, index) => const SizedBox(),
     );
   }
 }

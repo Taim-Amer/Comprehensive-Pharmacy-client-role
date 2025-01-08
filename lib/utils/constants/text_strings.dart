@@ -133,7 +133,7 @@ class TEnglishTexts {
   static String get forgetPassword => 'Forget password?';
   static String get login => 'Login';
   static String get signupQuastion => 'Dont have an account?';
-  static String get register => 'Sign up';
+  static String get register => 'Signup';
   static String get phoneNumber => 'Phone number';
   static String get registerTitle => 'Signup';
   static String get registerSubTitle => 'Please provide the following information to create your account';
