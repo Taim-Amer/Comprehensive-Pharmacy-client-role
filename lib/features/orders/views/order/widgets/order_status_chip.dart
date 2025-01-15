@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -8,11 +9,12 @@ class OrderStatusChip extends StatefulWidget {
   final int index;
   final TabController tabController;
   final String text;
+  final VoidCallback onTap;
 
   const OrderStatusChip({
     super.key,
     required this.index,
-    required this.tabController, required this.text,
+    required this.tabController, required this.text, required this.onTap,
   });
 
   @override
@@ -42,18 +44,21 @@ class _OrderStatusChipState extends State<OrderStatusChip> {
     final isSelected = widget.tabController.index == widget.index;
     final dark = THelperFunctions.isDarkMode(context);
 
-    return TRoundedContainer(
-      width: 89.w,
-      // height: 28.h,
-      radius: 6.r,
-      backgroundColor: isSelected ? TColors.primary : const Color(0xFFF5F5F5),
-      borderColor: isSelected ? TColors.primary : const Color(0xFFF5F5F5),
-      showBorder: true,
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: Text(widget.text, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 12, fontWeight: FontWeight.w500, color: isSelected ? Colors.white : const Color(0xFF383838)),
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: TRoundedContainer(
+        width: 89.w,
+        // height: 28.h,
+        radius: 6.r,
+        backgroundColor: isSelected ? TColors.primary : const Color(0xFFF5F5F5),
+        borderColor: isSelected ? TColors.primary : const Color(0xFFF5F5F5),
+        showBorder: true,
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Text(widget.text, style: Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 12, fontWeight: FontWeight.w500, color: isSelected ? Colors.white : const Color(0xFF383838)),
+            ),
           ),
         ),
       ),

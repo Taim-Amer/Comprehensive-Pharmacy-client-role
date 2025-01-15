@@ -25,15 +25,14 @@ class OrderScreen extends StatelessWidget {
         builder: (BuildContext context) {
           final tabController = DefaultTabController.of(context);
           return Scaffold(
-            floatingActionButton: const OrderFloatingActionButton(),
+            floatingActionButton: Obx(() => OrdersController.instance.getMyOrdersApiStatus.value == RequestState.noData ? const SizedBox() : const OrderFloatingActionButton()),
             drawer: const GeneralDrawer(),
             appBar: const TAppBar(
               title: GeneralAppbar(),
             ),
             body: Obx(() => OrdersController.instance.getMyOrdersApiStatus.value == RequestState.noData ? const Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
-              child: EmptyOrderForm(),
-            ) : NestedScrollView(
+              padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+              child: EmptyOrderForm()) : NestedScrollView(
               headerSliverBuilder: (_, innerBoxIsScrolled) => [
                 SliverAppBar(
                   pinned: true,
@@ -49,6 +48,7 @@ class OrderScreen extends StatelessWidget {
                       index: index,
                       tabController: tabController,
                       text: OrdersController.instance.orderStatusChipList[index],
+                      onTap: () => OrdersController.instance.getMyOrders(status: OrdersController.instance.orderStatusChipList[index]),
                     )),
                   ),
                 )

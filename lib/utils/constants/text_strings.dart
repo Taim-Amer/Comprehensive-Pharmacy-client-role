@@ -168,10 +168,10 @@ class TEnglishTexts {
   static String get languages => 'Language';
   static String get privacy => 'Privacy policy';
   static String get signOut => 'Sign out';
-  static String get completed => 'Completed';
-  static String get pending => 'Pending';
-  static String get canceled => 'Canceled';
-  static String get rejected => 'Rejected';
+  static String get completed => 'completed';
+  static String get pending => 'pending';
+  static String get canceled => 'canceled';
+  static String get rejected => 'rejected';
   static String get orderID => 'Order ID : ';
   static String get pharmacyName => 'Pharmacy name';
   static String get orderDate => 'Order date';
