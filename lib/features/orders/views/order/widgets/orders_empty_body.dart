@@ -2,9 +2,11 @@ import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class OrdersEmptyBody extends StatelessWidget {
   const OrdersEmptyBody({super.key});
@@ -29,7 +31,7 @@ class OrdersEmptyBody extends StatelessWidget {
           width: double.infinity,
           height: 50.h,
           child: ElevatedButton(
-            onPressed: (){},
+            onPressed: () => Get.toNamed(AppRoutes.home),
             child: Text(TEnglishTexts.createOrder),
           ),
         )

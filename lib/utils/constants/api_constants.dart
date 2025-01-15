@@ -25,4 +25,6 @@ class TApiConstants {
   static const String orderStatus = 'order/progress';
 
   static const String cancel = 'order/cancel';
+
+  static const String getPharmacies = 'pharmacies';
 }
