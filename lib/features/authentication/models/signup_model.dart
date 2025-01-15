@@ -1,28 +1,28 @@
 class SignupModel {
   bool? status;
   String? message;
-  Data? data;
+  User? user;
 
-  SignupModel({this.status, this.message, this.data});
+  SignupModel({this.status, this.message, this.user});
 
   SignupModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    user = json['user'] != null ? User.fromJson(json['user']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['status'] = status;
     data['message'] = message;
-    if (this.data != null) {
-      data['data'] = this.data!.toJson();
+    if (user != null) {
+      data['user'] = user!.toJson();
     }
     return data;
   }
 }
 
-class Data {
+class User {
   String? name;
   String? email;
   String? phone;
@@ -35,7 +35,7 @@ class Data {
   String? createdAt;
   int? id;
 
-  Data(
+  User(
       {this.name,
         this.email,
         this.phone,
@@ -48,13 +48,13 @@ class Data {
         this.createdAt,
         this.id});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  User.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     email = json['email'];
     phone = json['phone'];
     role = json['role'];
-    lat = json['lat'] != null ? double.tryParse(json['lat'].toString()) : null;
-    lng = json['lng'] != null ? double.tryParse(json['lng'].toString()) : null;
+    lat = json['lat'];
+    lng = json['lng'];
     isVerified = json['is_verified'];
     fcmToken = json['fcm_token'];
     updatedAt = json['updated_at'];

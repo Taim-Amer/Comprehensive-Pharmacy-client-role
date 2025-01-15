@@ -18,7 +18,9 @@ class BackIcon extends StatelessWidget {
       size: TSizes.iconSm,
       backgroundColor: Colors.transparent,
       color: dark ? TColors.lightGrey : const Color(0xFF383838),
-      onPressed: function ?? () => Get.back(),
+      onPressed: function ?? () {
+        print("=========================================");
+      },
     );
   }
 }

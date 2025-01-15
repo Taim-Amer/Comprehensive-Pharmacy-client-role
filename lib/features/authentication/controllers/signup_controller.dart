@@ -1,5 +1,4 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/alerts/snackbar.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/otp_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/repositories/signup/signup_repo_impl.dart';
 import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
@@ -40,12 +39,13 @@ class SignupController extends GetxController{
       lat: 30.7333,
       lng: 30.7333,
       fcmToken: "fcmToken",
-    ).then((response) {
+    ).then((response) async{
       if(response.status == true){
-        TCacheHelper.saveData(key: 'phone', value: response.data?.phone ?? '');
+        await TCacheHelper.saveData(key: 'phone', value: response.user?.phone.toString() ?? '');
+        print(TCacheHelper.saveData(key: 'phone', value: response.user?.phone.toString() ?? ''));
         showSnackBar(response.message ?? "", AlertState.success);
         THelperFunctions.updateApiStatus(target: signupApiStatus, value: RequestState.success);
-        Get.offAllNamed(AppRoutes.otp);
+        Get.toNamed(AppRoutes.otp);
       } else{
         showSnackBar(response.message ?? "", AlertState.error);
         THelperFunctions.updateApiStatus(target: signupApiStatus, value: RequestState.error);

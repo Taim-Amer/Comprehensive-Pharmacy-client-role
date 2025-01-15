@@ -3,6 +3,7 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/repos
 import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/logging/logger.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/storage/cache_helper.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class OtpController extends GetxController{
         THelperFunctions.updateApiStatus(target: verifyApiStatus, value: RequestState.error);
       }
     }).catchError((error){
+      TLoggerHelper.error(error.toString());
       THelperFunctions.updateApiStatus(target: verifyApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });
