@@ -31,7 +31,7 @@ class OrdersEmptyBody extends StatelessWidget {
           width: double.infinity,
           height: 50.h,
           child: ElevatedButton(
-            onPressed: () => Get.toNamed(AppRoutes.home),
+            onPressed: () => Get.toNamed(AppRoutes.pharmacy),
             child: Text(TEnglishTexts.createOrder),
           ),
         )

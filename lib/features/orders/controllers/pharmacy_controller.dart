@@ -11,6 +11,12 @@ class PharmacyController extends GetxController{
 
   final getPharmaciesModel = PharmaciesModel().obs;
 
+  @override
+  void onReady() async{
+    await getPharmacies();
+    super.onReady();
+  }
+
   Future<void> getPharmacies() async {
     THelperFunctions.updateApiStatus(target: getPharmaciesApiStatus, value: RequestState.loading);
     await PharmacyRepoImpl.instance.getPharmacies().then((response){

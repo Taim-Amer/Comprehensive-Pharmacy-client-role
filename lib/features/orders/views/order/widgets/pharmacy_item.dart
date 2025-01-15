@@ -4,18 +4,29 @@ import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconsax/iconsax.dart';
 
 class PharmacyItem extends StatelessWidget {
-  const PharmacyItem({super.key, required this.pharmacyStatus});
+  const PharmacyItem({super.key, required this.pharmacyStatus, required this.pharmacyName, required this.distance});
 
-  final String pharmacyStatus;
+  final int pharmacyStatus;
+  final String pharmacyName;
+  final int distance;
+
+  String getText(){
+    String name = 'open';
+    if(pharmacyStatus == 1){
+      name = 'open';
+    }else if(pharmacyStatus == 0){
+      name = 'closed';
+    }
+    return name;
+  }
 
   Color getTextColor(){
     Color color = TColors.primary.withOpacity(.2);
-    if(pharmacyStatus == "Open"){
+    if(getText() == "open"){
       color = TColors.primary;
-    } else if(pharmacyStatus == "Closed"){
+    } else if(getText() == "closed"){
       color = const Color(0xFFFF6B6B);
     }
     return color;
@@ -37,8 +48,8 @@ class PharmacyItem extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Pharmacy name", style: Theme.of(context).textTheme.labelLarge?.copyWith(color: dark ? TColors.softGrey : Colors.black)),
-                  Text("2.0 KM", style: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF707070), fontSize: 10, fontWeight: FontWeight.w400)),
+                  Text(pharmacyName.toString(), style: Theme.of(context).textTheme.labelLarge?.copyWith(color: dark ? TColors.softGrey : Colors.black)),
+                  Text("${distance.toString()} KM", style: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF707070), fontSize: 10, fontWeight: FontWeight.w400)),
                 ],
               ),
               TSizes.md.horizontalSpace,
@@ -47,7 +58,7 @@ class PharmacyItem extends StatelessWidget {
                 radius: 100.r,
                 height: 30.h,
                 padding: const EdgeInsets.all(8),
-                child: Center(child: Text(pharmacyStatus, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: getTextColor(), fontSize: 10, fontWeight: FontWeight.w500))),
+                child: Center(child: Text(getText().toString(), style: Theme.of(context).textTheme.labelMedium?.copyWith(color: getTextColor(), fontSize: 10, fontWeight: FontWeight.w500))),
               ),
             ],
           ),

@@ -23,13 +23,13 @@ class ClientApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
-        // initialRoute: initialRoute,
+        initialRoute: initialRoute,
         getPages: AppRoutes.routes,
         translations: TAppTranslations(),
         locale: const Locale('en'),
         fallbackLocale: const Locale('en'),
-        // initialBinding: GeneralBindings(),
-        home: const PharmaciesScreen(),
+        initialBinding: GeneralBindings(),
+        // home: const PharmaciesScreen(),
       ),
     );
   }

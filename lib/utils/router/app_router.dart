@@ -1,6 +1,7 @@
 import 'package:comprehensive_pharmacy_client_role/dependencies/forget_password_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/order_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/otp_binding.dart';
+import 'package:comprehensive_pharmacy_client_role/dependencies/pharmacy_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signin_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/dependencies/signup_binding.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/forget_password/new_password_screen.dart';
@@ -12,6 +13,7 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/views
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/signup_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/home_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/order_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/pharmacies_screen.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -24,6 +26,7 @@ class AppRoutes {
   static const order = '/order';
   static const passwordConfirm = '/passwordConfirm';
   static const home = '/home';
+  static const pharmacy = '/pharmacy';
 
   static List<GetPage> routes = [
 
@@ -87,6 +90,13 @@ class AppRoutes {
         page: () => const HomeScreen(),
         transition: Transition.fade,
         binding: OrderBinding()
+    ),
+
+    GetPage(
+        name: pharmacy,
+        page: () => const PharmaciesScreen(),
+        transition: Transition.rightToLeft,
+        binding: PharmacyBinding()
     ),
   ];
 }
