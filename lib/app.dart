@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/dependencies/general_bindings.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/pharmacies_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/localization/translations.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
@@ -22,13 +23,13 @@ class ClientApp extends StatelessWidget {
         themeMode: ThemeMode.system,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
-        initialRoute: initialRoute,
+        // initialRoute: initialRoute,
         getPages: AppRoutes.routes,
         translations: TAppTranslations(),
         locale: const Locale('en'),
         fallbackLocale: const Locale('en'),
-        initialBinding: GeneralBindings(),
-        // home: const (),
+        // initialBinding: GeneralBindings(),
+        home: const PharmaciesScreen(),
       ),
     );
   }
