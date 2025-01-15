@@ -20,7 +20,7 @@ class OrderItem extends StatelessWidget {
     if(orderStatus == "completed"){
       color = TColors.primary.withOpacity(.2);
     } else if(orderStatus == "pending"){
-      color = const Color(0xFFFAEBB0);
+      color = const Color(0xFFFAEBB0).withOpacity(.2);
     } else if(orderStatus == "canceled"){
       color = const Color(0xFFF5F5F5);
     } else if(orderStatus == "rejected"){

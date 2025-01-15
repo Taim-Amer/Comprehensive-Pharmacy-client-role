@@ -17,12 +17,12 @@ class OrderRepoImpl implements OrderRepo{
   String? token = TCacheHelper.getData(key: 'token');
 
   @override
-  Future<AllOrdersModel> getMyOrders({required String status}) async{
+  Future<AllOrdersModel> getMyOrders(String? status) async{
     final dioHelper = TDioHelper();
     return await dioHelper.get(
       TApiConstants.showMyOrders,
       token: token,
-      queryParameters: {'status' : status}
+      queryParameters: status != null ? {'status' : status} : {}
     ).then((response) => AllOrdersModel.fromJson(response));
   }
 
@@ -57,27 +57,29 @@ class OrderRepoImpl implements OrderRepo{
   }
 
   @override
-  Future<CreateOrderModel> createOrder({required int pharmacistID, String? description, required List<File> filesList,}) async {
+  Future<CreateOrderModel> createOrder({
+    required int pharmacistID,
+    String? description,
+    required List<File> filesList,
+  }) async {
     final dioHelper = TDioHelper();
     final formData = FormData();
-
-    for (var file in filesList) {
-      final multipartFile = await MultipartFile.fromFile(
-        file.path,
-        filename: file.path.split('/').last,
-      );
-      formData.files.add(MapEntry('files', multipartFile));
-    }
 
     formData.fields.addAll([
       MapEntry('pharmacist_id', pharmacistID.toString()),
       if (description != null) MapEntry('description', description),
     ]);
-    
-    return await dioHelper.post(
-      TApiConstants.create,
-      formData,
-      token: token,
+
+    for (int i = 0; i < filesList.length; i++) {
+      final multipartFile = await MultipartFile.fromFile(
+        filesList[i].path,
+        filename: filesList[i].path.split('/').last,
+      );
+      formData.files.add(MapEntry('files[$i]', multipartFile));
+    }
+
+    return await dioHelper.post(TApiConstants.create, formData, token: token,
     ).then((response) => CreateOrderModel.fromJson(response));
   }
+
 }

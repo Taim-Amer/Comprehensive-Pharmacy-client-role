@@ -10,5 +10,5 @@ abstract class OrderRepo{
   Future<ShowOrderModel> showOrder({required int orderID});
   Future<OrderStatusModel> orderStatus({required int orderID});
   Future<CancelOrderModel> cancelOrder({required int orderID});
-  Future<AllOrdersModel> getMyOrders({required String status});
+  Future<AllOrdersModel> getMyOrders(String? status);
 }

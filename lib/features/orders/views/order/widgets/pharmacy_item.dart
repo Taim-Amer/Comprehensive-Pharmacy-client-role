@@ -2,15 +2,19 @@ import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/storage/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class PharmacyItem extends StatelessWidget {
-  const PharmacyItem({super.key, required this.pharmacyStatus, required this.pharmacyName, required this.distance});
+  const PharmacyItem({super.key, required this.pharmacyStatus, required this.pharmacyName, required this.distance, required this.pharmacistID});
 
   final int pharmacyStatus;
   final String pharmacyName;
   final int distance;
+  final int pharmacistID;
 
   String getText(){
     String name = 'open';
@@ -62,7 +66,16 @@ class PharmacyItem extends StatelessWidget {
               ),
             ],
           ),
-          IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward_ios_rounded, size: 20, color: dark ? TColors.softGrey : const Color(0xFF383838),)),
+          IconButton(
+              onPressed: () async{
+                await TCacheHelper.saveData(key: 'pharmacist_id', value: pharmacistID);
+                Get.toNamed(AppRoutes.home);
+              },
+              icon: Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 20,
+                color: dark ? TColors.softGrey : const Color(0xFF383838),
+              )),
         ],
       ),
     );

@@ -9,6 +9,7 @@ import 'package:comprehensive_pharmacy_client_role/services/file_services.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/storage/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,7 +43,7 @@ class OrdersController extends GetxController {
 
   @override
   void onReady() async{
-    await getMyOrders(status: 'canceled');
+    await getMyOrders();
     super.onReady();
   }
 
@@ -59,9 +60,9 @@ class OrdersController extends GetxController {
     pageController.jumpTo(index);
   }
 
-  Future<void> getMyOrders({required String status}) async{
+  Future<void> getMyOrders({String? status}) async{
     THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.loading);
-    await OrderRepoImpl.instance.getMyOrders(status: status).then((response){
+    await OrderRepoImpl.instance.getMyOrders(status).then((response){
       if(response.status == true){
         THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.success);
         myOrdersModel.value = response;
@@ -128,12 +129,13 @@ class OrdersController extends GetxController {
   Future<void> createOrder() async{
     THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.loading);
     await OrderRepoImpl.instance.createOrder(
-      pharmacistID: 2,
+      pharmacistID: TCacheHelper.getData(key: 'pharmacist_id'),
       filesList: TFileServices.selectedFiles.value,
       description: orderDescriptionController.text.toString(),
     ).then((response) {
       if(response.status == true){
         THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.success);
+        showSnackBar(response.message ?? '', AlertState.success);
       } else{
         THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);

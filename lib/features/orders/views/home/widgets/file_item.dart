@@ -17,7 +17,7 @@ class FileItem extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: TFileServices.isSelected,
       builder: (context, isSelected, child) => isSelected ? TRoundedContainer(
-        height: 40.h,
+        height: 50.h,
         backgroundColor: dark ? TColors.dark : TColors.light,
         radius: 4,
         showBorder: isSelected == true ? true : false,
