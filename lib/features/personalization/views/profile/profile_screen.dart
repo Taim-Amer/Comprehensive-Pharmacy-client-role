@@ -16,7 +16,6 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(SigninController());
     return Scaffold(
       drawer: const GeneralDrawer(),
       appBar: const TAppBar(title: ProfileAppbar()),

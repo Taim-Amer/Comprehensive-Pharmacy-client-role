@@ -40,13 +40,4 @@ class SignupRepoImpl implements SignupRepo {
       'phone' : phone
     }).then((response) => ResendOtpModel.fromJson(response));
   }
-
-  @override
-  Future<CodeVerificationModel> verifyCode({required String phone, required String otp}) {
-    final dioHelper = TDioHelper();
-    return dioHelper.post(TApiConstants.verify, {
-      'phone' : phone,
-      'otp' : otp,
-    }).then((response) => CodeVerificationModel.fromJson(response));
-  }
 }

@@ -14,7 +14,5 @@ abstract class SignupRepo {
     required String fcmToken
   });
 
-  Future<CodeVerificationModel> verifyCode({required String phone, required String otp});
-
   Future<ResendOtpModel> resendOtp({required String phone});
 }
