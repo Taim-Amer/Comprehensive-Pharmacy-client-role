@@ -3,6 +3,7 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/repos
 import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/logging/logger.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/storage/cache_helper.dart';
 import 'package:flutter/cupertino.dart';
@@ -41,6 +42,7 @@ class ForgetPasswordController extends GetxController{
         THelperFunctions.updateApiStatus(target: forgetPasswordApiStatus, value: RequestState.error);
       }
     }).catchError((error){
+      TLoggerHelper.error(error.toString());
       THelperFunctions.updateApiStatus(target: forgetPasswordApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });
@@ -60,6 +62,7 @@ class ForgetPasswordController extends GetxController{
         showSnackBar(response.message ?? '', AlertState.error);
       }
     }).catchError((error){
+      TLoggerHelper.error(error.toString());
       THelperFunctions.updateApiStatus(target: forgetVerifyApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });
@@ -78,12 +81,13 @@ class ForgetPasswordController extends GetxController{
     ).then((response) {
       if(response.status == true){
         THelperFunctions.updateApiStatus(target: newPasswordApiStatus, value: RequestState.success);
-        Get.offAllNamed(AppRoutes.passwordConfirm);
+        Get.offAllNamed(AppRoutes.signin);
       } else{
         THelperFunctions.updateApiStatus(target: newPasswordApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.error);
       }
     }).catchError((error){
+      TLoggerHelper.error(error.toString());
       THelperFunctions.updateApiStatus(target: newPasswordApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });

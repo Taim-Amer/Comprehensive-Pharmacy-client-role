@@ -52,7 +52,7 @@ class User {
   String? lat;
   String? lng;
   String? role;
-  Null? fcmToken;
+  String? fcmToken;
   String? createdAt;
   String? updatedAt;
 
