@@ -1,14 +1,18 @@
 class AllOrdersModel {
   bool? status;
   String? message;
-  Data? data;
+  dynamic data; // تعديل نوع الحقل إلى ديناميكي
 
   AllOrdersModel({this.status, this.message, this.data});
 
   AllOrdersModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+    if (json['data'] is List) {
+      data = []; // قائمة فارغة مباشرة
+    } else if (json['data'] is Map) {
+      data = PaginationData.fromJson(json['data']);
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -16,48 +20,53 @@ class AllOrdersModel {
     data['status'] = status;
     data['message'] = message;
     if (this.data != null) {
-      data['data'] = this.data!.toJson();
+      if (this.data is PaginationData) {
+        data['data'] = (this.data as PaginationData).toJson();
+      } else {
+        data['data'] = this.data; // قائمة فارغة مباشرة
+      }
     }
     return data;
   }
 }
 
-class Data {
+class PaginationData {
   int? currentPage;
-  List<Data>? data;
+  List<OrderDetails>? data; // Renamed reference to the renamed class
   String? firstPageUrl;
   int? from;
   int? lastPage;
   String? lastPageUrl;
   List<Links>? links;
-  Null nextPageUrl;
+  Null? nextPageUrl;
   String? path;
   int? perPage;
-  Null prevPageUrl;
+  Null? prevPageUrl;
   int? to;
   int? total;
 
-  Data(
-      {this.currentPage,
-      this.data,
-      this.firstPageUrl,
-      this.from,
-      this.lastPage,
-      this.lastPageUrl,
-      this.links,
-      this.nextPageUrl,
-      this.path,
-      this.perPage,
-      this.prevPageUrl,
-      this.to,
-      this.total});
+  PaginationData({
+    this.currentPage,
+    this.data,
+    this.firstPageUrl,
+    this.from,
+    this.lastPage,
+    this.lastPageUrl,
+    this.links,
+    this.nextPageUrl,
+    this.path,
+    this.perPage,
+    this.prevPageUrl,
+    this.to,
+    this.total,
+  });
 
-  Data.fromJson(Map<String, dynamic> json) {
+  PaginationData.fromJson(Map<String, dynamic> json) {
     currentPage = json['current_page'];
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <OrderDetails>[]; // Updated reference
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        data!.add(OrderDetails.fromJson(v));
       });
     }
     firstPageUrl = json['first_page_url'];
@@ -101,7 +110,7 @@ class Data {
   }
 }
 
-class Dataa {
+class OrderDetails { // Renamed from `Data`
   int? id;
   int? customerId;
   int? pharmacistId;
@@ -114,20 +123,21 @@ class Dataa {
   Pharmacist? pharmacist;
   Customer? customer;
 
-  Dataa(
-      {this.id,
-      this.customerId,
-      this.pharmacistId,
-      this.driverId,
-      this.status,
-      this.description,
-      this.price,
-      this.createdAt,
-      this.updatedAt,
-      this.pharmacist,
-      this.customer});
+  OrderDetails({
+    this.id,
+    this.customerId,
+    this.pharmacistId,
+    this.driverId,
+    this.status,
+    this.description,
+    this.price,
+    this.createdAt,
+    this.updatedAt,
+    this.pharmacist,
+    this.customer,
+  });
 
-  Dataa.fromJson(Map<String, dynamic> json) {
+  OrderDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     customerId = json['customer_id'];
     pharmacistId = json['pharmacist_id'];
@@ -140,8 +150,9 @@ class Dataa {
     pharmacist = json['pharmacist'] != null
         ? Pharmacist.fromJson(json['pharmacist'])
         : null;
-    customer =
-        json['customer'] != null ? Customer.fromJson(json['customer']) : null;
+    customer = json['customer'] != null
+        ? Customer.fromJson(json['customer'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -165,6 +176,7 @@ class Dataa {
   }
 }
 
+
 class Pharmacist {
   int? id;
   String? name;
@@ -179,18 +191,19 @@ class Pharmacist {
     name = json['name'];
     phone = json['phone'];
     email = json['email'];
-    pharmacy =
-        json['pharmacy'] != null ? Pharmacy.fromJson(json['pharmacy']) : null;
+    pharmacy = json['pharmacy'] != null
+        ? new Pharmacy.fromJson(json['pharmacy'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = name;
-    data['phone'] = phone;
-    data['email'] = email;
-    if (pharmacy != null) {
-      data['pharmacy'] = pharmacy!.toJson();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['phone'] = this.phone;
+    data['email'] = this.email;
+    if (this.pharmacy != null) {
+      data['pharmacy'] = this.pharmacy!.toJson();
     }
     return data;
   }
@@ -210,10 +223,10 @@ class Pharmacy {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['user_id'] = userId;
-    data['pharmacy_name'] = pharmacyName;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['user_id'] = this.userId;
+    data['pharmacy_name'] = this.pharmacyName;
     return data;
   }
 }
@@ -232,10 +245,10 @@ class Customer {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = name;
-    data['phone'] = phone;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['phone'] = this.phone;
     return data;
   }
 }
@@ -254,10 +267,10 @@ class Links {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['url'] = url;
-    data['label'] = label;
-    data['active'] = active;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['url'] = this.url;
+    data['label'] = this.label;
+    data['active'] = this.active;
     return data;
   }
 }

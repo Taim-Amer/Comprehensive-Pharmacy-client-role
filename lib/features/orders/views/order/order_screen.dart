@@ -2,11 +2,13 @@ import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/tabbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/completed_list.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/empty_order_form.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_drawer.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/order_floating_action_button.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/order_status_chip.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/orders_header.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,7 +19,6 @@ class OrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Get.put(OrdersController());
     return DefaultTabController(
       length: 4,
       child: Builder(
@@ -29,7 +30,10 @@ class OrderScreen extends StatelessWidget {
             appBar: const TAppBar(
               title: GeneralAppbar(),
             ),
-            body: NestedScrollView(
+            body: Obx(() => OrdersController.instance.getMyOrdersApiStatus.value == RequestState.noData ? const Padding(
+              padding: EdgeInsets.all(TSizes.defaultSpace),
+              child: EmptyOrderForm(),
+            ) : NestedScrollView(
               headerSliverBuilder: (_, innerBoxIsScrolled) => [
                 SliverAppBar(
                   pinned: true,
@@ -57,7 +61,7 @@ class OrderScreen extends StatelessWidget {
                   CompletedList(),
                 ],
               ),
-            ),
+            )),
           );
         },
       ),

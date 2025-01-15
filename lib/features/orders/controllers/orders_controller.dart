@@ -40,6 +40,14 @@ class OrdersController extends GetxController {
     TEnglishTexts.rejected,
   ].obs;
 
+  @override
+  void onReady() async{
+    await getMyOrders(status: 'canceled');
+    super.onReady();
+  }
+
+  //['pending', 'Processing', 'on_the_way', 'completed', 'canceled','rejected']
+
   void toggleChipSelection(int index, bool isSelected) {
     selectedChips[index] = isSelected;
   }
@@ -57,6 +65,9 @@ class OrdersController extends GetxController {
       if(response.status == true){
         THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.success);
         myOrdersModel.value = response;
+        if (myOrdersModel.value.data is List && (myOrdersModel.value.data as List).isEmpty) {
+          THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.noData);
+        }
       } else{
         THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.error);
