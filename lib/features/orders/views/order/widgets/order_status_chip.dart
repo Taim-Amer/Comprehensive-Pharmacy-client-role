@@ -14,7 +14,9 @@ class OrderStatusChip extends StatefulWidget {
   const OrderStatusChip({
     super.key,
     required this.index,
-    required this.tabController, required this.text, required this.onTap,
+    required this.tabController,
+    required this.text,
+    required this.onTap,
   });
 
   @override
@@ -45,10 +47,21 @@ class _OrderStatusChipState extends State<OrderStatusChip> {
     final dark = THelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: widget.onTap,
+      onTap: () {
+        widget.tabController.animateTo(widget.index);
+        widget.onTap();
+      },
+      onHorizontalDragUpdate: (details) {
+        if (details.primaryDelta != 0) {
+          int newIndex = widget.tabController.index + (details.primaryDelta! > 0 ? -1 : 1);
+          if (newIndex >= 0 && newIndex < widget.tabController.length) {
+            widget.tabController.animateTo(newIndex);
+            widget.onTap();
+          }
+        }
+      },
       child: TRoundedContainer(
         width: 89.w,
-        // height: 28.h,
         radius: 6.r,
         backgroundColor: isSelected ? TColors.primary : const Color(0xFFF5F5F5),
         borderColor: isSelected ? TColors.primary : const Color(0xFFF5F5F5),

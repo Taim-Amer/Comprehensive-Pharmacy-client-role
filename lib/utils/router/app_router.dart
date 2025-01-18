@@ -12,6 +12,7 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/views
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/signin_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/signup_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/home_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/searching_pharmacy_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/order_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/pharmacies_screen.dart';
 import 'package:get/get.dart';
@@ -27,6 +28,7 @@ class AppRoutes {
   static const passwordConfirm = '/passwordConfirm';
   static const home = '/home';
   static const pharmacy = '/pharmacy';
+  // static const pharmacySearch = '/pharmacySearch';
 
   static List<GetPage> routes = [
 
@@ -98,5 +100,12 @@ class AppRoutes {
         transition: Transition.rightToLeft,
         binding: PharmacyBinding()
     ),
+
+    // GetPage(
+    //     name: pharmacySearch,
+    //     page: () => const SearchingPharmacyScreen(),
+    //     transition: Transition.rightToLeft,
+    //     binding: PharmacyBinding()
+    // ),
   ];
 }

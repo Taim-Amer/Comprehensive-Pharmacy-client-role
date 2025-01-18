@@ -9,10 +9,10 @@ class GeneralBindings extends Bindings{
   void dependencies() {
     final String? token = TCacheHelper.getData(key: 'token');
     if (token != null) {
-      // Get.offAllNamed(AppRoutes.home);
+      Get.offAllNamed(AppRoutes.home);
       Get.put<OrderBinding>(OrderBinding());
     } else {
-      // Get.offAllNamed(AppRoutes.signin);
+      Get.offAllNamed(AppRoutes.signin);
       Get.put<SigninBinding>(SigninBinding());
     }
   }

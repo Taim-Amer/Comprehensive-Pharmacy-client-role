@@ -9,7 +9,7 @@ class OrderFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () => Get.toNamed(AppRoutes.home),
+      onPressed: () => Get.toNamed(AppRoutes.pharmacy),
       child: const Icon(Icons.add, size: 30,),
     );
   }
