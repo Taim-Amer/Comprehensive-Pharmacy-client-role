@@ -8,7 +8,6 @@ import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class LanguageChangingContainer extends StatelessWidget {
   LanguageChangingContainer({super.key});
@@ -31,7 +30,13 @@ class LanguageChangingContainer extends StatelessWidget {
               language: Language.english,
               languageName: TranslationKey.kEnglish,
               valueNotifier: selectedLanguageNotifier,
-              onChanged: (language) => SettingsController.instance.setSelectedRadio(language!),
+              onChanged: (language){
+                SettingsController.instance.setSelectedRadio(language!);
+                print(language);
+                print(language);
+                print(language);
+                print(language);
+              },
             ),
           ),
           40.verticalSpace,
@@ -40,7 +45,12 @@ class LanguageChangingContainer extends StatelessWidget {
               language: Language.arabic,
               languageName: TranslationKey.kArabic,
               valueNotifier: selectedLanguageNotifier,
-              onChanged: (language) => SettingsController.instance.setSelectedRadio(language!),
+              onChanged: (language){
+                SettingsController.instance.setSelectedRadio(language!);
+                print(language);
+                print(language);
+                print(language);
+              },
             ),
           ),
         ],

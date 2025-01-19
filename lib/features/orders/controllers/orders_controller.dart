@@ -138,7 +138,7 @@ class OrdersController extends GetxController {
       if(response.status = true){
         showSnackBar(response.message ?? '', AlertState.success);
         THelperFunctions.updateApiStatus(target: cancelOrderApiStatus, value: RequestState.success);
-        Get.offAllNamed(AppRoutes.order);
+        // Get.offAllNamed(AppRoutes.order);
       } else{
         THelperFunctions.updateApiStatus(target: cancelOrderApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);
