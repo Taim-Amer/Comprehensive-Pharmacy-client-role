@@ -52,7 +52,7 @@ class OrdersController extends GetxController {
     getMyOrders(status: TEnglishTexts.completed);
     getMyOrders(status: TEnglishTexts.pending);
     getMyOrders(status: TEnglishTexts.canceled);
-    // getMyOrders(status: TEnglishTexts.rejected);
+    getMyOrders(status: TEnglishTexts.rejected);
     getMyOrders(status: TEnglishTexts.processing);
     getMyOrders(status: TEnglishTexts.onTheWay);
     super.onReady();
