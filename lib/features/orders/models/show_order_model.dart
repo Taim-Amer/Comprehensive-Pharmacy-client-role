@@ -26,7 +26,7 @@ class Data {
   int? id;
   int? customerId;
   int? pharmacistId;
-  String? driverId;
+  int? driverId;
   String? status;
   String? description;
   String? price;
@@ -35,23 +35,20 @@ class Data {
   Pharmacist? pharmacist;
   Customer? customer;
   List<Files>? files;
-  // Null? driver;
 
   Data(
       {this.id,
-        this.customerId,
-        this.pharmacistId,
-        this.driverId,
-        this.status,
-        this.description,
-        this.price,
-        this.createdAt,
-        this.updatedAt,
-        this.pharmacist,
-        this.customer,
-        this.files,
-        // this.driver,
-      });
+      this.customerId,
+      this.pharmacistId,
+      this.driverId,
+      this.status,
+      this.description,
+      this.price,
+      this.createdAt,
+      this.updatedAt,
+      this.pharmacist,
+      this.customer,
+      this.files});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -66,16 +63,14 @@ class Data {
     pharmacist = json['pharmacist'] != null
         ? Pharmacist.fromJson(json['pharmacist'])
         : null;
-    customer = json['customer'] != null
-        ? Customer.fromJson(json['customer'])
-        : null;
+    customer =
+        json['customer'] != null ? Customer.fromJson(json['customer']) : null;
     if (json['files'] != null) {
       files = <Files>[];
       json['files'].forEach((v) {
         files!.add(Files.fromJson(v));
       });
     }
-    // driver = json['driver'];
   }
 
   Map<String, dynamic> toJson() {
@@ -98,7 +93,6 @@ class Data {
     if (files != null) {
       data['files'] = files!.map((v) => v.toJson()).toList();
     }
-    // data['driver'] = driver;
     return data;
   }
 }
@@ -108,29 +102,17 @@ class Pharmacist {
   String? name;
   String? phone;
   String? email;
-  String? lat;
-  String? lng;
   Pharmacy? pharmacy;
 
-  Pharmacist(
-      {this.id,
-        this.name,
-        this.phone,
-        this.email,
-        this.lat,
-        this.lng,
-        this.pharmacy});
+  Pharmacist({this.id, this.name, this.phone, this.email, this.pharmacy});
 
   Pharmacist.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     phone = json['phone'];
     email = json['email'];
-    lat = json['lat'];
-    lng = json['lng'];
-    pharmacy = json['pharmacy'] != null
-        ? Pharmacy.fromJson(json['pharmacy'])
-        : null;
+    pharmacy =
+        json['pharmacy'] != null ? Pharmacy.fromJson(json['pharmacy']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -139,8 +121,6 @@ class Pharmacist {
     data['name'] = name;
     data['phone'] = phone;
     data['email'] = email;
-    data['lat'] = lat;
-    data['lng'] = lng;
     if (pharmacy != null) {
       data['pharmacy'] = pharmacy!.toJson();
     }
@@ -158,11 +138,11 @@ class Pharmacy {
 
   Pharmacy(
       {this.id,
-        this.userId,
-        this.pharmacyName,
-        this.status,
-        this.createdAt,
-        this.updatedAt});
+      this.userId,
+      this.pharmacyName,
+      this.status,
+      this.createdAt,
+      this.updatedAt});
 
   Pharmacy.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -190,18 +170,14 @@ class Customer {
   String? name;
   String? phone;
   String? email;
-  String? lat;
-  String? lng;
 
-  Customer({this.id, this.name, this.phone, this.email, this.lat, this.lng});
+  Customer({this.id, this.name, this.phone, this.email});
 
   Customer.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     phone = json['phone'];
     email = json['email'];
-    lat = json['lat'];
-    lng = json['lng'];
   }
 
   Map<String, dynamic> toJson() {
@@ -210,8 +186,6 @@ class Customer {
     data['name'] = name;
     data['phone'] = phone;
     data['email'] = email;
-    data['lat'] = lat;
-    data['lng'] = lng;
     return data;
   }
 }

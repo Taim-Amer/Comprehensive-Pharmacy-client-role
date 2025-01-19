@@ -1,5 +1,4 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/order_description_column.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/order_details_page_view.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/page_view_indicator.dart';

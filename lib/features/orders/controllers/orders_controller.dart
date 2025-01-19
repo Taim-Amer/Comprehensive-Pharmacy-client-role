@@ -97,7 +97,6 @@ class OrdersController extends GetxController {
       if(response.status == true){
         THelperFunctions.updateApiStatus(target: showOrderApiStatus, value: RequestState.success);
         showOrderModel.value = response;
-        Get.toNamed(AppRoutes.orderDetails);
       } else{
         THelperFunctions.updateApiStatus(target: showOrderApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);
