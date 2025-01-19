@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
@@ -23,8 +24,8 @@ class OrdersHeader extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(TEnglishTexts.myOrders, style: Theme.of(context).textTheme.bodyLarge),
-                Text(TEnglishTexts.previousOrders, style: Theme.of(context).textTheme.labelLarge),
+                Text(TranslationKey.kMyOrders, style: Theme.of(context).textTheme.bodyLarge),
+                Text(TranslationKey.kPreviousOrders, style: Theme.of(context).textTheme.labelLarge),
               ],
             )
           ],

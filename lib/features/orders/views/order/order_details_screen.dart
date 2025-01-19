@@ -3,8 +3,8 @@ import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/w
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/order_details_navbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/order_details_page_view.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/page_view_indicator.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +17,7 @@ class OrderDetailsScreen extends StatelessWidget {
       bottomNavigationBar: const OrderDetailsNavbar(),
       appBar: TAppBar(
         showBackArrow: true,
-        title: Text(TEnglishTexts.orderDetails, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 20),),
+        title: Text(TranslationKey.kOrderDetails, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 20),),
       ),
       body: Column(
         children: [

@@ -8,11 +8,13 @@ class LanguageRadioTile extends StatelessWidget {
     required this.language,
     required this.languageName,
     required this.valueNotifier,
+    this.onChanged,
   });
 
   final Language language;
   final String languageName;
   final ValueNotifier<Language?> valueNotifier;
+  final void Function(Language?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class LanguageRadioTile extends StatelessWidget {
         TRadioButton(
           enumValue: language,
           valueNotifier: valueNotifier,
+          onChanged: onChanged, // تمرير onChanged هنا
         ),
       ],
     );

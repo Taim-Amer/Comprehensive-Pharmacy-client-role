@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
@@ -49,7 +50,7 @@ class OrderDescriptionColumn extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(TEnglishTexts.orderID, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 20, fontWeight: FontWeight.w500)),
+            Text("${TranslationKey.kOrderID} #[${orderDetails.data!.id}]", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 20, fontWeight: FontWeight.w500)),
             TRoundedContainer(
               backgroundColor: getContainerColor(),
               radius: 100.r,
@@ -61,7 +62,7 @@ class OrderDescriptionColumn extends StatelessWidget {
         ),
         Text(orderDetails.data?.createdAt ?? "", style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 16)),
         TSizes.spaceBtwSections.verticalSpace,
-        Text(TEnglishTexts.pharmacyName, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 20, fontWeight: FontWeight.w500)),
+        Text(TranslationKey.kPharmacyName, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 20, fontWeight: FontWeight.w500)),
         Text(orderDetails.data?.pharmacist?.pharmacy?.pharmacyName ?? "", style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 16)),
       ],
     );

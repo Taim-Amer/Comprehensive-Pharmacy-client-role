@@ -18,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
         padding: TSpacingStyle.paddingWithAppBarHeight,
         child: Column(
           children: [
-            SelectLanguagesContainer(),
+            LanguageChangingContainer(),
             TSizes.spaceBtwSections.verticalSpace,
             const SettingsSaveButton()
           ],

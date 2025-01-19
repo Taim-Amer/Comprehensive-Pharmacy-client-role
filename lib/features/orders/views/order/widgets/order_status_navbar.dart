@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/searching_pharmacy_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class OrderStatusNavbar extends StatelessWidget {
         height: 50.h,
         child: ElevatedButton(
           onPressed: (){},
-          child: Text(TEnglishTexts.confirmDelivery)),
+          child: Text(TranslationKey.kConfirmDelivery)),
       ),
     );
   }

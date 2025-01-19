@@ -1,5 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/dependencies/general_bindings.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/pharmacies_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/personalization/controllers/settings_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/localization/translations.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
@@ -14,23 +14,26 @@ class ClientApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put<SettingsController>(SettingsController());
     String? token = TCacheHelper.getData(key: "token");
     String initialRoute = token != null ? AppRoutes.order : AppRoutes.signin;
+    String? language = TCacheHelper.getData(key: "locale");
     return ScreenUtilInit(
       designSize: Size(THelperFunctions.screenWidth(context), THelperFunctions.screenHeight(context)),
-      builder: (_, child) =>  GetMaterialApp(
+      builder: (_, child) =>  Obx(() => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        themeMode: ThemeMode.system,
+        // themeMode: ThemeMode.system,
+        themeMode: SettingsController.instance.themeMode.value,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme,
         initialRoute: initialRoute,
         getPages: AppRoutes.routes,
         translations: TAppTranslations(),
-        locale: const Locale('en'),
+        locale: Locale(language ?? 'en'),
         fallbackLocale: const Locale('en'),
         initialBinding: GeneralBindings(),
         // home: const PharmaciesScreen(),
-      ),
+      )),
     );
   }
 }

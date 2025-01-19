@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/forget_password_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
@@ -22,7 +23,7 @@ class NewPasswordForm extends StatelessWidget {
             enableInteractiveSelection: false,
             cursorColor: TColors.primary,
             decoration: InputDecoration(
-                hintText: TEnglishTexts.password,
+                hintText: TranslationKey.kPassword,
                 prefixIcon: const Icon(Iconsax.lock),
                 suffixIcon: const Icon(Iconsax.eye_slash, size: 22,)
             ),
@@ -34,7 +35,7 @@ class NewPasswordForm extends StatelessWidget {
             enableInteractiveSelection: false,
             cursorColor: TColors.primary,
             decoration: InputDecoration(
-                hintText: TEnglishTexts.confirmPassword,
+                hintText: TranslationKey.kConfirmPassword,
                 prefixIcon: const Icon(Iconsax.location),
                 suffixIcon: const Icon(Iconsax.eye_slash, size: 22,)
             ),

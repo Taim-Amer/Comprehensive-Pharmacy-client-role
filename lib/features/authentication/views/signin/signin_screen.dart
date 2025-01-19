@@ -4,6 +4,7 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/views
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/signin_footer.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/signin_form.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/signin_header.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
@@ -33,7 +34,7 @@ class SigninScreen extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () => Get.toNamed(AppRoutes.phoneVerify),
-                    child: Text(TEnglishTexts.forgetPassword),
+                    child: Text(TranslationKey.kForgetPassword),
                   )
                 ],
               ),

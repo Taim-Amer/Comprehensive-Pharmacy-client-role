@@ -1,6 +1,7 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/loaders/loading_widget.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/otp_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/signup_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class OtpButton extends StatelessWidget {
       height: 50.h,
       child: ElevatedButton(
         onPressed: () => OtpController.instance.verify(),
-        child: Text(TEnglishTexts.verifyCode),
+        child: Text(TranslationKey.kVerifyCode),
       ),
     ));
   }

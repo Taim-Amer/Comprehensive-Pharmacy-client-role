@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
@@ -32,7 +33,7 @@ class HomeNavbar extends StatelessWidget {
               disabledBackgroundColor: Theme.of(context).primaryColor.withOpacity(0.5),
             ),
             child: Text(
-              TEnglishTexts.createYourOrder,
+              TranslationKey.kCreateYourOrder,
               style: TextStyle(
                 color: isEnabled ? Colors.white : Colors.white.withOpacity(0.7),
               ),

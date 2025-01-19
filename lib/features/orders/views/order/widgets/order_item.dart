@@ -1,8 +1,8 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -64,7 +64,7 @@ class OrderItem extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("${TEnglishTexts.orderID}$orderID", style: Theme.of(context).textTheme.titleLarge),
+                  Text("${TranslationKey.kOrderID}$orderID", style: Theme.of(context).textTheme.titleLarge),
                   TRoundedContainer(
                     backgroundColor: getContainerColor(),
                     radius: 100.r,
@@ -81,7 +81,7 @@ class OrderItem extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(TEnglishTexts.pharmacyName, style: Theme.of(context).textTheme.labelMedium),
+                      Text(TranslationKey.kPharmacyName, style: Theme.of(context).textTheme.labelMedium),
                       Text(pharmacyName.toString(), style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 12)),
                     ],
                   ),
@@ -92,7 +92,7 @@ class OrderItem extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(TEnglishTexts.orderDate, style: Theme.of(context).textTheme.labelMedium),
+                      Text(TranslationKey.kOrderDate, style: Theme.of(context).textTheme.labelMedium),
                       Text(orderDate.toString(), style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 12)),
                     ],
                   ),

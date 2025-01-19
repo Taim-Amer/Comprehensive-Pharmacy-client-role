@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -27,7 +28,7 @@ class UploadFilesContainer extends StatelessWidget {
           SvgPicture.asset(TImages.uploadIcon),
           TSizes.md.verticalSpace,
           Text(
-            TEnglishTexts.uploadFile,
+            TranslationKey.kUploadFile,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w500,
@@ -36,7 +37,7 @@ class UploadFilesContainer extends StatelessWidget {
           ),
           TSizes.sm.verticalSpace,
           Text(
-            TEnglishTexts.supportedFiles,
+            TranslationKey.kSupportedFiles,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 12),
           ),
@@ -45,7 +46,7 @@ class UploadFilesContainer extends StatelessWidget {
             height: 40.h,
             child: OrdersController.instance.createOrderApiStatus.value == RequestState.loading ? const SizedBox() : ElevatedButton(
               onPressed: () => TFileServices.pickMultipleFiles(),
-              child: Text(TEnglishTexts.browse),
+              child: Text(TranslationKey.kBrowse),
             ),
           )),
         ],

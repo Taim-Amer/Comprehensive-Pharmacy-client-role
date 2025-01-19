@@ -7,89 +7,89 @@ class TArabicTexts {
   static String get errorMessage => 'حدث خطأ، يرجى المحاولة مرة أخرى';
 
   // Authentication Form Text
-  static String get loginTitle => '';
-  static String get loginSubTitle => '';
-  static String get passwordEnter => '';
-  static String get forgetPassword => '';
-  static String get login => '';
-  static String get signupQuastion => '';
-  static String get register => '';
-  static String get phoneNumber => '';
-  static String get registerTitle => '';
-  static String get registerSubTitle => '';
-  static String get userName => '';
-  static String get emailAddress => '';
-  static String get password => '';
-  static String get confirmPassword => '';
-  static String get location => '';
-  static String get signinQuastion => '';
-  static String get otpTitle => '';
-  static String get otpSubTitle => '';
-  static String get otpQuastion => '';
-  static String get resend => '';
-  static String get verifyCode => '';
-  static String get forgetPasswordSubTitle => '';
-  static String get checkPhone => '';
-  static String get checkPhoneSubTitle => '';
-  static String get checkPhoneQuastion => '';
-  static String get setNewPasswordTitle => '';
-  static String get setNewPasswordSubTitle => '';
-  static String get updatePassword => '';
-  static String get resetSuccess => '';
-  static String get resetSuccessSubTitle => '';
+  static String get loginTitle => 'تسجيل الدخول';
+  static String get loginSubTitle => 'يرجى إدخال اسم المستخدم وكلمة المرور';
+  static String get passwordEnter => 'أدخل كلمة المرور';
+  static String get forgetPassword => 'نسيت كلمة المرور؟';
+  static String get login => 'تسجيل الدخول';
+  static String get signupQuastion => 'ليس لديك حساب؟';
+  static String get register => 'إنشاء حساب';
+  static String get phoneNumber => 'رقم الهاتف';
+  static String get registerTitle => 'إنشاء حساب';
+  static String get registerSubTitle => 'يرجى تقديم المعلومات التالية لإنشاء حسابك';
+  static String get userName => 'اسم المستخدم';
+  static String get emailAddress => 'البريد الإلكتروني';
+  static String get password => 'كلمة المرور';
+  static String get confirmPassword => 'تأكيد كلمة المرور';
+  static String get location => 'الموقع';
+  static String get signinQuastion => 'هل لديك حساب بالفعل؟';
+  static String get otpTitle => 'رمز التحقق';
+  static String get otpSubTitle => 'لقد أرسلنا رمز تحقق مكون من 5 أرقام إلى هذا الرقم +964-555-5666';
+  static String get otpQuastion => 'لم يصلك رمز التحقق بعد؟';
+  static String get resend => 'إعادة إرسال الرمز';
+  static String get verifyCode => 'تحقق من الرمز';
+  static String get forgetPasswordSubTitle => 'أدخل رقم هاتفك للحصول على رمز تحقق لإعادة تعيين كلمة المرور';
+  static String get checkPhone => 'تحقق من هاتفك';
+  static String get checkPhoneSubTitle => 'لقد أرسلنا رمز تحقق مكون من 5 أرقام إلى هذا الرقم +964-555-5666';
+  static String get checkPhoneQuastion => 'لم يصلك رمز التحقق بعد؟';
+  static String get setNewPasswordTitle => 'إنشاء كلمة مرور جديدة';
+  static String get setNewPasswordSubTitle => 'قم بإنشاء كلمة مرور جديدة. تأكد أن تختلف عن السابقة';
+  static String get updatePassword => 'تحديث كلمة المرور';
+  static String get resetSuccess => 'تمت إعادة تعيين كلمة المرور بنجاح!';
+  static String get resetSuccessSubTitle => 'كلمة المرور الجديدة جاهزة للاستخدام. قم بتسجيل الدخول لاستعادة الوصول إلى حسابك بسهولة.';
 
   // Orders
-  static String get myOrders => '';
-  static String get previousOrders => '';
-  static String get emptyOrders => '';
-  static String get emptyOrdersSubTitle => '';
-  static String get createOrder => '';
-  static String get home => '';
-  static String get languages => '';
-  static String get privacy => '';
-  static String get signOut => '';
-  static String get completed => '';
-  static String get pending => '';
-  static String get canceled => '';
-  static String get rejected => '';
-  static String get orderID => '';
-  static String get pharmacyName => '';
-  static String get orderDate => '';
-  static String get orderDetails => '';
-  static String get prescriptionPhoto => '';
+  static String get myOrders => 'طلباتي';
+  static String get previousOrders => 'عرض الطلبات السابقة';
+  static String get emptyOrders => 'قائمة الطلبات فارغة!';
+  static String get emptyOrdersSubTitle => 'يبدو أنك لم تضف أي شيء إلى قائمة الطلبات.';
+  static String get createOrder => 'إنشاء طلب';
+  static String get home => 'الرئيسية';
+  static String get languages => 'اللغات';
+  static String get privacy => 'سياسة الخصوصية';
+  static String get signOut => 'تسجيل الخروج';
+  static String get completed => 'مكتمل';
+  static String get pending => 'معلق';
+  static String get canceled => 'ملغي';
+  static String get rejected => 'مرفوض';
+  static String get processing => 'جاري المعالجة';
+  static String get onTheWay => 'في الطريق';
+  static String get orderID => 'معرّف الطلب: ';
+  static String get pharmacyName => 'اسم الصيدلية';
+  static String get orderDate => 'تاريخ الطلب';
+  static String get orderDetails => 'تفاصيل الطلب';
+  static String get prescriptionPhoto => 'صورة الوصفة الطبية';
 
   // Home
-  static String get homeTitle => '';
-  static String get homeSubTitle => '';
-  static String get uploadFile => '';
-  static String get supportedFiles => '';
-  static String get browse => '';
-  static String get writeNote => '';
-  static String get createYourOrder => '';
-  static String get searchingTitle => '';
-  static String get searchingSubTitle => '';
-  static String get cancelOrder => '';
+  static String get homeTitle => 'قم برفع الوصفة الطبية';
+  static String get homeSubTitle => 'قم بإنشاء طلبك برفع الوصفة الطبية. إضافة الملاحظات اختياري.';
+  static String get uploadFile => 'قم برفع صورتك أو ملفك';
+  static String get supportedFiles => 'الملفات المدعومة: JPEG أو PDF';
+  static String get browse => 'تصفح';
+  static String get writeNote => 'اترك ملاحظة (اختياري)...';
+  static String get createYourOrder => 'إنشاء طلبك';
+  static String get searchingTitle => 'طلبك في انتظار الموافقة...';
+  static String get searchingSubTitle => 'قد يستغرق بعض الوقت، يرجى التحلي بالصبر';
+  static String get cancelOrder => 'إلغاء الطلب';
 
-  // settings
-  static String get dataEdit => '';
-  static String get languageSelect => '';
-  static String get profile => '';
-  static String get save => '';
+  // Settings
+  static String get dataEdit => 'تحرير معلوماتك الشخصية والموقع';
+  static String get languageSelect => 'اختر اللغة المفضلة';
+  static String get profile => 'الملف الشخصي';
+  static String get save => 'حفظ';
 
   // Notifications
-  static String get notifications => 'الإشعارات';
-  static String get notificationsEmptyTitle => '';
-  static String get notificationsEmptySubTitle => '';
+  static String get notificationsEmptyTitle => 'لا توجد إشعارات!';
+  static String get notificationsEmptySubTitle => 'قائمة الإشعارات فارغة.';
 
-  // Order status
-  static String get processingTitle => '';
-  static String get processingSubTitle => '';
-  static String get onWaySubTitle => '';
-  static String get onWayTitle => '';
-  static String get deliveredTitle => '';
-  static String get deliveredSubTitle => '';
-  static String get confirmDelivery => '';
-
+  // Order Status
+  static String get processingTitle => 'جاري المعالجة';
+  static String get processingSubTitle => 'طلبك قيد المعالجة من قبل الصيدلي';
+  static String get onWaySubTitle => 'طلبك يتم توصيله بواسطة فريقنا';
+  static String get onWayTitle => 'في الطريق';
+  static String get deliveredTitle => 'تم التوصيل';
+  static String get deliveredSubTitle => 'تم توصيل طلبك. نتمنى لك الشفاء العاجل';
+  static String get confirmDelivery => 'تأكيد التوصيل';
 
   // Settings
   static String get settings => 'الإعدادات';

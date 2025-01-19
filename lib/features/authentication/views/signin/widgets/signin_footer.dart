@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,10 @@ class SigninFooter extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(TEnglishTexts.signupQuastion),
+        Text(TranslationKey.kSignupQuestion),
         TextButton(
           onPressed: () => Get.toNamed(AppRoutes.signup),
-          child: Text(TEnglishTexts.register),
+          child: Text(TranslationKey.kRegister),
         )
       ],
     );

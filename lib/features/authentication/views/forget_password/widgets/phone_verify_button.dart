@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/loaders/loading_widget.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/forget_password_controller.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/device/device_utility.dart';
@@ -20,7 +21,7 @@ class PhoneVerifyButton extends StatelessWidget {
           TDeviceUtils.hideKeyboard(context);
           ForgetPasswordController.instance.forgetPassword();
         },
-        child: Text(TEnglishTexts.tcontinue),
+        child: Text(TranslationKey.kTcontinue),
       ),
     ));
   }

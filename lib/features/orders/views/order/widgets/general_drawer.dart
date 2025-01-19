@@ -1,6 +1,7 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/list_tiles/setting_menu_tile.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/drawer_header.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
@@ -22,32 +23,32 @@ class GeneralDrawer extends StatelessWidget {
             padding: EdgeInsets.all(TSizes.md),
             child: TDrawerHeader(),
           ),
-          TSettingMenuTile(icon: Iconsax.home, title: TEnglishTexts.home,),
+          TSettingMenuTile(icon: Iconsax.home, title: TranslationKey.kHome,),
           TRoundedContainer(
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),
           ),
-          TSettingMenuTile(icon: Iconsax.task, title: TEnglishTexts.myOrders,),
+          TSettingMenuTile(icon: Iconsax.task, title: TranslationKey.kMyOrders,),
           TRoundedContainer(
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),
           ),
-          TSettingMenuTile(icon: Iconsax.language_circle, title: TEnglishTexts.languages,),
+          TSettingMenuTile(icon: Iconsax.language_circle, title: TranslationKey.kLanguages,),
           TRoundedContainer(
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),
           ),
-          TSettingMenuTile(icon: Iconsax.information, title: TEnglishTexts.privacy,),
+          TSettingMenuTile(icon: Iconsax.information, title: TranslationKey.kPrivacy,),
           TRoundedContainer(
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),
           ),
-          TSettingMenuTile(icon: Iconsax.message_question, title: TEnglishTexts.about,),
+          TSettingMenuTile(icon: Iconsax.message_question, title: TranslationKey.kAbout,),
           TRoundedContainer(
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),
           ),
-          TSettingMenuTile(icon: Iconsax.login, title: TEnglishTexts.signOut,),
+          TSettingMenuTile(icon: Iconsax.login, title: TranslationKey.kSignOut,),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
@@ -22,16 +23,16 @@ class SearchingPharmacyScreen extends StatelessWidget {
           children: [
             SvgPicture.asset(TImages.searchLoading),
             TSizes.spaceBtwSections.verticalSpace,
-            Text(TEnglishTexts.searchingTitle, style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),
+            Text(TranslationKey.kSearchingTitle, style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),
             TSizes.spaceBtwItems.verticalSpace,
-            Text(TEnglishTexts.searchingSubTitle, style: Theme.of(context).textTheme.labelLarge, textAlign: TextAlign.center,),
+            Text(TranslationKey.kSearchingSubTitle, style: Theme.of(context).textTheme.labelLarge, textAlign: TextAlign.center,),
             TSizes.spaceBtwSections.verticalSpace,
             SizedBox(
               height: 50.h,
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text(TEnglishTexts.cancelOrder),
+                child: Text(TranslationKey.kCancelOrder),
               ),
             )
           ],

@@ -56,15 +56,15 @@ class OrderScreen extends StatelessWidget {
               body: PageView(
                 onPageChanged: (index){
                   tabController.animateTo(index);
-                  OrdersController.instance.getMyOrders(status: OrdersController.instance.orderStatusChipList[index]);
+                  OrdersController.instance.getMyOrders(status: OrdersController.instance.orderStatusChipList2[index]);
                 },
                 children: [
-                  OrdersList(status: OrdersController.instance.orderStatusChipList[0]),
-                  OrdersList(status: OrdersController.instance.orderStatusChipList[1]),
-                  OrdersList(status: OrdersController.instance.orderStatusChipList[2]),
-                  OrdersList(status: OrdersController.instance.orderStatusChipList[3]),
-                  OrdersList(status: OrdersController.instance.orderStatusChipList[4]),
-                  OrdersList(status: OrdersController.instance.orderStatusChipList[5]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList2[0]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList2[1]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList2[2]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList2[3]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList2[4]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList2[5]),
                   // CompletedList(status: 'pending',),
                   // CompletedList(status: 'canceled',),
                   // CompletedList(status: 'rejected',),

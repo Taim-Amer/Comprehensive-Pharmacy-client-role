@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/signup_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/phone_country_code.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
@@ -19,11 +20,11 @@ class SignupForm extends StatelessWidget {
         children: [
           TextFormField(
             controller: SignupController.instance.usernameController,
-            validator: (value) => TValidator.validateEmptyText(" ${TEnglishTexts.userName}", value),
+            validator: (value) => TValidator.validateEmptyText(" ${TranslationKey.kUserName}", value),
             enableInteractiveSelection: false,
             cursorColor: TColors.primary,
             decoration: InputDecoration(
-                hintText: TEnglishTexts.userName,
+                hintText: TranslationKey.kUserName,
                 prefixIcon: const Icon(Iconsax.user),
             ),
           ),
@@ -37,7 +38,7 @@ class SignupForm extends StatelessWidget {
             keyboardType: TextInputType.emailAddress,
             cursorColor: TColors.primary,
             decoration: InputDecoration(
-                hintText: TEnglishTexts.emailAddress,
+                hintText: TranslationKey.kEmailAddress,
                 prefixIcon: const Icon(Iconsax.message),
             ),
           ),
@@ -48,7 +49,7 @@ class SignupForm extends StatelessWidget {
             enableInteractiveSelection: false,
             cursorColor: TColors.primary,
             decoration: InputDecoration(
-                hintText: TEnglishTexts.password,
+                hintText: TranslationKey.kPassword,
                 prefixIcon: const Icon(Iconsax.lock),
                 suffixIcon: const Icon(Iconsax.eye_slash)
             ),
@@ -60,7 +61,7 @@ class SignupForm extends StatelessWidget {
             enableInteractiveSelection: false,
             cursorColor: TColors.primary,
             decoration: InputDecoration(
-                hintText: TEnglishTexts.confirmPassword,
+                hintText: TranslationKey.kConfirmPassword,
                 prefixIcon: const Icon(Iconsax.lock),
                 suffixIcon: const Icon(Iconsax.eye_slash)
             ),

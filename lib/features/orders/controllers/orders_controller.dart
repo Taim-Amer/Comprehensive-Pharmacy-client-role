@@ -8,7 +8,6 @@ import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/se
 import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/services/file_services.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/logging/logger.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
@@ -38,23 +37,32 @@ class OrdersController extends GetxController {
 
   var selectedChips = <bool>[true, false, false, false].obs;
   var orderStatusChipList = <String>[
-    TEnglishTexts.completed,
-    TEnglishTexts.pending,
-    TEnglishTexts.canceled,
-    TEnglishTexts.rejected,
-    TEnglishTexts.processing,
-    TEnglishTexts.onTheWay,
+    TranslationKey.kCompleted,
+    TranslationKey.kPending,
+    TranslationKey.kCanceled,
+    TranslationKey.kRejected,
+    TranslationKey.kProcessing,
+    TranslationKey.kOnTheWay,
+  ].obs;
+
+  var orderStatusChipList2 = <String>[
+    "completed",
+    "pending",
+    "canceled",
+    "rejected",
+    "processing",
+    "on the way",
   ].obs;
 
   @override
   void onReady() async{
     await getMyOrders();
-    getMyOrders(status: TEnglishTexts.completed);
-    getMyOrders(status: TEnglishTexts.pending);
-    getMyOrders(status: TEnglishTexts.canceled);
-    getMyOrders(status: TEnglishTexts.rejected);
-    getMyOrders(status: TEnglishTexts.processing);
-    getMyOrders(status: TEnglishTexts.onTheWay);
+    getMyOrders(status: "completed");
+    getMyOrders(status: "pending");
+    getMyOrders(status: "canceled");
+    getMyOrders(status: "rejected");
+    getMyOrders(status: "processing");
+    getMyOrders(status: "on the way");
     super.onReady();
   }
 

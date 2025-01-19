@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
@@ -20,16 +21,16 @@ class PasswordConfirmedScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(TImages.passwordConfirmed),
-            Text(TEnglishTexts.resetSuccess, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18)),
+            Text(TranslationKey.kResetSuccess, style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontSize: 18)),
             TSizes.sm.verticalSpace,
-            Text(TEnglishTexts.resetSuccessSubTitle, textAlign: TextAlign.center, style: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF989898))),
+            Text(TranslationKey.kResetSuccessSubTitle, textAlign: TextAlign.center, style: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF989898))),
             TSizes.spaceBtwItems.verticalSpace,
             SizedBox(
               width: double.infinity,
               height: 50.h,
               child: ElevatedButton(
                 onPressed: () => Get.toNamed(AppRoutes.signin),
-                child: Text(TEnglishTexts.login),
+                child: Text(TranslationKey.kLogin),
               ),
             )
           ],
