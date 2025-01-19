@@ -1,4 +1,6 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
+import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:comprehensive_pharmacy_client_role/features/notifications/views/widgets/notification_item.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_drawer.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
@@ -13,21 +15,10 @@ class NotificationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const TAppBar(title: GeneralAppbar(showDrawer: false,)),
-      drawer: const GeneralDrawer(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(TImages.notificationEmpty),
-            TSizes.spaceBtwSections.verticalSpace,
-            Text(TEnglishTexts.notificationsEmptyTitle, style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),
-            TSizes.spaceBtwItems.verticalSpace,
-            Text(TEnglishTexts.notificationsEmptySubTitle, style: Theme.of(context).textTheme.labelLarge, textAlign: TextAlign.center,),
-          ],
-        ),
-      ),
+    return const Scaffold(
+      appBar: TAppBar(title: GeneralAppbar(showDrawer: false,)),
+      drawer: GeneralDrawer(),
+      body: NotificationItem(),
     );
   }
 }

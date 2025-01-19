@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:comprehensive_pharmacy_client_role/common/widgets/images/rounded_image.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
@@ -32,6 +33,7 @@ class OrderDetailsPageView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  TRoundedImage(imageUrl: OrdersController.instance.showOrderModel.value.data?.files?[index].filePath ?? TImages.emptyOrders),
                   SvgPicture.asset(TImages.camera),
                   TSizes.md.verticalSpace,
                   Text(TEnglishTexts.prescriptionPhoto, style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white))

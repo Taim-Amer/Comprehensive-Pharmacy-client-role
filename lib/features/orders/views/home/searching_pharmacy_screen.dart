@@ -1,5 +1,4 @@
 import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
@@ -31,7 +30,6 @@ class SearchingPharmacyScreen extends StatelessWidget {
               height: 50.h,
               width: double.infinity,
               child: ElevatedButton(
-                // onPressed: () => OrdersController.instance.cancelOrder(orderID: orderID),
                 onPressed: () {},
                 child: Text(TEnglishTexts.cancelOrder),
               ),

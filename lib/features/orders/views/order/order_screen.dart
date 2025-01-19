@@ -1,7 +1,7 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/tabbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/completed_list.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/orders_list.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/empty_order_form.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_appbar.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_drawer.dart';
@@ -59,12 +59,12 @@ class OrderScreen extends StatelessWidget {
                   OrdersController.instance.getMyOrders(status: OrdersController.instance.orderStatusChipList[index]);
                 },
                 children: [
-                  CompletedList(status: OrdersController.instance.orderStatusChipList[0]),
-                  CompletedList(status: OrdersController.instance.orderStatusChipList[1]),
-                  CompletedList(status: OrdersController.instance.orderStatusChipList[2]),
-                  CompletedList(status: OrdersController.instance.orderStatusChipList[3]),
-                  CompletedList(status: OrdersController.instance.orderStatusChipList[4]),
-                  CompletedList(status: OrdersController.instance.orderStatusChipList[5]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList[0]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList[1]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList[2]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList[3]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList[4]),
+                  OrdersList(status: OrdersController.instance.orderStatusChipList[5]),
                   // CompletedList(status: 'pending',),
                   // CompletedList(status: 'canceled',),
                   // CompletedList(status: 'rejected',),

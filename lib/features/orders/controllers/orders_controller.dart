@@ -128,7 +128,9 @@ class OrdersController extends GetxController {
     THelperFunctions.updateApiStatus(target: cancelOrderApiStatus, value: RequestState.loading);
     await OrderRepoImpl.instance.cancelOrder(orderID: orderID).then((response){
       if(response.status = true){
+        showSnackBar(response.message ?? '', AlertState.success);
         THelperFunctions.updateApiStatus(target: cancelOrderApiStatus, value: RequestState.success);
+        Get.offAllNamed(AppRoutes.order);
       } else{
         THelperFunctions.updateApiStatus(target: cancelOrderApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);
@@ -148,9 +150,9 @@ class OrdersController extends GetxController {
       description: orderDescriptionController.text.toString(),
     ).then((response) {
       if(response.status == true){
-        THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.success);
         showSnackBar(response.message ?? '', AlertState.success);
-        Get.offAllNamed(AppRoutes.home);
+        THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.success);
+        Get.toNamed(AppRoutes.home);
       } else{
         THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);

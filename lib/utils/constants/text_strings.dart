@@ -173,7 +173,7 @@ class TEnglishTexts {
   static String get canceled => 'canceled';
   static String get rejected => 'rejected';
   static String get processing => 'processing';
-  static String get onTheWay => 'on_the_way';
+  static String get onTheWay => 'on the way';
   static String get orderID => 'Order ID : ';
   static String get pharmacyName => 'Pharmacy name';
   static String get orderDate => 'Order date';
