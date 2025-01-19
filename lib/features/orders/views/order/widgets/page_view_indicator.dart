@@ -10,7 +10,7 @@ class PageViewIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SmoothPageIndicator(
-      count: 5,
+      count: OrdersController.instance.showOrderModel.value.data?.files?.length ?? 0,
       controller: OrdersController.instance.pageController,
       onDotClicked: OrdersController.instance.dotNavigationClick,
       effect: ExpandingDotsEffect(
