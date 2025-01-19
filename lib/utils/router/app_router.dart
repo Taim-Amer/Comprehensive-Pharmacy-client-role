@@ -13,6 +13,7 @@ import 'package:comprehensive_pharmacy_client_role/features/authentication/views
 import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/signup_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/home_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/searching_pharmacy_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/order_details_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/order_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/pharmacies_screen.dart';
 import 'package:get/get.dart';
@@ -28,6 +29,7 @@ class AppRoutes {
   static const passwordConfirm = '/passwordConfirm';
   static const home = '/home';
   static const pharmacy = '/pharmacy';
+  static const orderDetails = '/orderDetails';
   // static const pharmacySearch = '/pharmacySearch';
 
   static List<GetPage> routes = [
@@ -99,6 +101,13 @@ class AppRoutes {
         page: () => const PharmaciesScreen(),
         transition: Transition.rightToLeft,
         binding: PharmacyBinding()
+    ),
+
+    GetPage(
+        name: orderDetails,
+        page: () => const OrderDetailsScreen(),
+        transition: Transition.rightToLeft,
+        binding: OrderBinding()
     ),
 
     // GetPage(

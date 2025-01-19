@@ -10,6 +10,8 @@ import 'package:comprehensive_pharmacy_client_role/services/file_services.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/logging/logger.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/storage/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,15 +42,19 @@ class OrdersController extends GetxController {
     TEnglishTexts.pending,
     TEnglishTexts.canceled,
     TEnglishTexts.rejected,
+    TEnglishTexts.processing,
+    TEnglishTexts.onTheWay,
   ].obs;
 
   @override
   void onReady() async{
-    // await getMyOrders();
-    getMyOrders(status: 'completed');
-    getMyOrders(status: 'pending');
-    getMyOrders(status: 'canceled');
-    getMyOrders(status: 'rejected');
+    await getMyOrders();
+    getMyOrders(status: TEnglishTexts.completed);
+    getMyOrders(status: TEnglishTexts.pending);
+    getMyOrders(status: TEnglishTexts.canceled);
+    // getMyOrders(status: TEnglishTexts.rejected);
+    getMyOrders(status: TEnglishTexts.processing);
+    getMyOrders(status: TEnglishTexts.onTheWay);
     super.onReady();
   }
 
@@ -65,18 +71,19 @@ class OrdersController extends GetxController {
     pageController.jumpTo(index);
   }
 
+
   Future<void> getMyOrders({String? status}) async{
     THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.loading);
     await OrderRepoImpl.instance.getMyOrders(status).then((response){
       if(response.status == true){
-        THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.success);
         myOrdersModel.value = response;
         if (myOrdersModel.value.data is List && (myOrdersModel.value.data as List).isEmpty) {
           THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.noData);
         }
+        THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.success);
       } else{
         THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.error);
-        showSnackBar(response.message ?? '', AlertState.error);
+        showSnackBar(response.message ?? '', AlertState.warning);
       }
     }).catchError((error){
       THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.error);
@@ -90,11 +97,13 @@ class OrdersController extends GetxController {
       if(response.status == true){
         THelperFunctions.updateApiStatus(target: showOrderApiStatus, value: RequestState.success);
         showOrderModel.value = response;
+        Get.toNamed(AppRoutes.orderDetails);
       } else{
         THelperFunctions.updateApiStatus(target: showOrderApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);
       }
     }).catchError((error){
+      TLoggerHelper.error(error.toString());
       THelperFunctions.updateApiStatus(target: showOrderApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });
@@ -108,7 +117,7 @@ class OrdersController extends GetxController {
         orderStatusModel.value = response;
       } else{
         THelperFunctions.updateApiStatus(target: orderStatusApiStatus, value: RequestState.error);
-        showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+        showSnackBar(TranslationKey.kErrorMessage, AlertState.warning);
       }
     }).catchError((error){
       THelperFunctions.updateApiStatus(target: orderStatusApiStatus, value: RequestState.error);
@@ -142,16 +151,16 @@ class OrdersController extends GetxController {
       if(response.status == true){
         THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.success);
         showSnackBar(response.message ?? '', AlertState.success);
-        Get.back();
+        Get.offAllNamed(AppRoutes.home);
       } else{
         THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);
-        Get.back();
+        Get.offAllNamed(AppRoutes.home);
       }
     }).catchError((error){
       THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
-
+      Get.offAllNamed(AppRoutes.home);
     });
   }
 }

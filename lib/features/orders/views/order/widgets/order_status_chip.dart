@@ -9,14 +9,15 @@ class OrderStatusChip extends StatefulWidget {
   final int index;
   final TabController tabController;
   final String text;
-  final VoidCallback onTap;
+  // final VoidCallback onTap;
+  final String status;
 
   const OrderStatusChip({
     super.key,
     required this.index,
     required this.tabController,
     required this.text,
-    required this.onTap,
+    required this.status,
   });
 
   @override
@@ -48,20 +49,13 @@ class _OrderStatusChipState extends State<OrderStatusChip> {
 
     return GestureDetector(
       onTap: () {
-        widget.tabController.animateTo(widget.index);
-        widget.onTap();
-      },
-      onHorizontalDragUpdate: (details) {
-        if (details.primaryDelta != 0) {
-          int newIndex = widget.tabController.index + (details.primaryDelta! > 0 ? -1 : 1);
-          if (newIndex >= 0 && newIndex < widget.tabController.length) {
-            widget.tabController.animateTo(newIndex);
-            widget.onTap();
-          }
-        }
+        // widget.tabController.animateTo(widget.index);
+        // // widget.onTap();
+        // print(widget.index);
+        // OrdersController.instance.getMyOrders(status: widget.status);
       },
       child: TRoundedContainer(
-        width: 89.w,
+        // width: 89.w,
         radius: 6.r,
         backgroundColor: isSelected ? TColors.primary : const Color(0xFFF5F5F5),
         borderColor: isSelected ? TColors.primary : const Color(0xFFF5F5F5),

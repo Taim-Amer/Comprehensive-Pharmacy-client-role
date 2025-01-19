@@ -39,9 +39,9 @@ class OrderRepoImpl implements OrderRepo{
   @override
   Future<ShowOrderModel> showOrder({required int orderID}) async{
     final dioHelper = TDioHelper();
-    return await dioHelper.get(
+    return await dioHelper.post(
       TApiConstants.showOrder,
-      queryParameters: {'order_id': orderID},
+      {'order_id': orderID},
       token: token,
     ).then((response) => ShowOrderModel.fromJson(response));
   }

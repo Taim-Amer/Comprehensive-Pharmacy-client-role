@@ -1,16 +1,15 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/order_details_screen.dart';
+import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class OrderItem extends StatelessWidget {
   const OrderItem({super.key, required this.orderID, required this.pharmacyName, required this.orderDate, required this.orderStatus});
 
-  final String orderID;
+  final int orderID;
   final String pharmacyName;
   final String orderDate;
   final String orderStatus;
@@ -46,7 +45,7 @@ class OrderItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.to(const OrderDetailsScreen()),
+      onTap: () => OrdersController.instance.showOrder(orderID: orderID),
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: TSizes.defaultSpace.w,

@@ -20,7 +20,7 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 6,
       child: Builder(
         builder: (BuildContext context) {
           final tabController = DefaultTabController.of(context);
@@ -28,7 +28,7 @@ class OrderScreen extends StatelessWidget {
             floatingActionButton: Obx(() => OrdersController.instance.getMyOrdersApiStatus.value == RequestState.noData ? const SizedBox() : const OrderFloatingActionButton()),
             drawer: const GeneralDrawer(),
             appBar: const TAppBar(
-              title: GeneralAppbar(),
+              title: GeneralAppbar(showDrawer: true,),
             ),
             body: Obx(() => OrdersController.instance.getMyOrdersApiStatus.value == RequestState.noData ? const Padding(
               padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
@@ -44,23 +44,30 @@ class OrderScreen extends StatelessWidget {
                     child: const OrdersHeader(),
                   ),
                   bottom: TTabBar(
-                    tabs: List.generate(4, (index) => OrderStatusChip(
+                    tabs: List.generate(6, (index) => OrderStatusChip(
                       index: index,
                       tabController: tabController,
                       text: OrdersController.instance.orderStatusChipList[index],
-                      onTap: () {
-                        print("===================================================");
-                      },
+                      status: OrdersController.instance.orderStatusChipList[index],
                     )),
                   ),
                 )
               ],
-              body: const TabBarView(
+              body: PageView(
+                onPageChanged: (index){
+                  tabController.animateTo(index);
+                  OrdersController.instance.getMyOrders(status: OrdersController.instance.orderStatusChipList[index]);
+                },
                 children: [
-                  CompletedList(),
-                  CompletedList(),
-                  CompletedList(),
-                  CompletedList(),
+                  CompletedList(status: OrdersController.instance.orderStatusChipList[0]),
+                  CompletedList(status: OrdersController.instance.orderStatusChipList[1]),
+                  CompletedList(status: OrdersController.instance.orderStatusChipList[2]),
+                  CompletedList(status: OrdersController.instance.orderStatusChipList[3]),
+                  CompletedList(status: OrdersController.instance.orderStatusChipList[4]),
+                  CompletedList(status: OrdersController.instance.orderStatusChipList[5]),
+                  // CompletedList(status: 'pending',),
+                  // CompletedList(status: 'canceled',),
+                  // CompletedList(status: 'rejected',),
                 ],
               ),
             )),

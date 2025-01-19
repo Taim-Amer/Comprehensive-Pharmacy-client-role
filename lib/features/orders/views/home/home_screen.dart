@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: const HomeNavbar(),
       drawer: const GeneralDrawer(),
       appBar: const TAppBar(
-        title: GeneralAppbar(),
+        title: GeneralAppbar(showDrawer: false,),
       ),
       body: SingleChildScrollView(
         child: Padding(
