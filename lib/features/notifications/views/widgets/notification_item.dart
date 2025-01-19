@@ -44,6 +44,7 @@ class NotificationItem extends StatelessWidget {
               Row(
                 children: [
                   SvgPicture.asset(TImages.onTheWay),
+                  TSizes.xs.horizontalSpace,
                   Text("On the way", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600, fontSize: 14, color: TColors.primary)),
                 ],
               ),

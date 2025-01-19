@@ -18,7 +18,7 @@ class NotificationsScreen extends StatelessWidget {
     return const Scaffold(
       appBar: TAppBar(title: GeneralAppbar(showDrawer: false,)),
       drawer: GeneralDrawer(),
-      body: NotificationItem(),
+      body: ,
     );
   }
 }
