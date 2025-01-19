@@ -22,10 +22,10 @@ class LanguageRadioTile extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(languageName),
-        TRadioButton(
+        TRadioButton<Language>(
           enumValue: language,
           valueNotifier: valueNotifier,
-          onChanged: onChanged, // تمرير onChanged هنا
+          onChanged: onChanged,
         ),
       ],
     );

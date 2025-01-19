@@ -3,10 +3,10 @@ import 'package:comprehensive_pharmacy_client_role/utils/storage/cache_helper.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SettingsController extends GetxController{
+class SettingsController extends GetxController {
   static SettingsController get instance => Get.find();
 
-  RxInt selectedLanguage = 2.obs;
+  Rx<Language> selectedLanguage = Language.english.obs;
   Rx<Locale> locale = const Locale("en").obs;
   var logoutApiStatus = RequestState.begin.obs;
   var themeMode = ThemeMode.system.obs;
@@ -34,15 +34,14 @@ class SettingsController extends GetxController{
     logoutApiStatus.value = value;
   }
 
-  void setSelectedRadio(value){
-    selectedLanguage.value = value;
-    if(value == 1){
+  void setSelectedRadio(Language language) {
+    selectedLanguage.value = language;
+    if (language == Language.arabic) {
       locale.value = const Locale('ar');
       TCacheHelper.saveData(key: "locale", value: "ar");
       Get.updateLocale(locale.value);
-
-    }else if(value == 2){
-      locale.value =  const Locale('en');
+    } else if (language == Language.english) {
+      locale.value = const Locale('en');
       TCacheHelper.saveData(key: "locale", value: "en");
       Get.updateLocale(locale.value);
     }

@@ -31,9 +31,7 @@ class LanguageChangingContainer extends StatelessWidget {
               language: Language.english,
               languageName: TranslationKey.kEnglish,
               valueNotifier: selectedLanguageNotifier,
-              onChanged: (value) {
-                SettingsController.instance.setSelectedRadio(1);
-              },
+              onChanged: (language) => SettingsController.instance.setSelectedRadio(language!),
             ),
           ),
           40.verticalSpace,
@@ -42,9 +40,7 @@ class LanguageChangingContainer extends StatelessWidget {
               language: Language.arabic,
               languageName: TranslationKey.kArabic,
               valueNotifier: selectedLanguageNotifier,
-              onChanged: (value) {
-                SettingsController.instance.setSelectedRadio(2);
-              },
+              onChanged: (language) => SettingsController.instance.setSelectedRadio(language!),
             ),
           ),
         ],

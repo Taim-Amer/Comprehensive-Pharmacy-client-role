@@ -16,13 +16,7 @@ class SettingsScreen extends StatelessWidget {
       appBar: const TAppBar(title: SettingsAppbar()),
       body: Padding(
         padding: TSpacingStyle.paddingWithAppBarHeight,
-        child: Column(
-          children: [
-            LanguageChangingContainer(),
-            TSizes.spaceBtwSections.verticalSpace,
-            const SettingsSaveButton()
-          ],
-        ),
+        child: LanguageChangingContainer(),
       ),
     );
   }

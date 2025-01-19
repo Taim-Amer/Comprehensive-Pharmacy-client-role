@@ -1,12 +1,14 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_client_role/common/widgets/list_tiles/setting_menu_tile.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/drawer_header.dart';
+import 'package:comprehensive_pharmacy_client_role/features/personalization/views/settings/settings_screen.dart';
 import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class GeneralDrawer extends StatelessWidget {
@@ -33,7 +35,11 @@ class GeneralDrawer extends StatelessWidget {
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),
           ),
-          TSettingMenuTile(icon: Iconsax.language_circle, title: TranslationKey.kLanguages,),
+          TSettingMenuTile(
+            icon: Iconsax.language_circle,
+            title: TranslationKey.kLanguages,
+            onTap: () => Get.to(() => const SettingsScreen()),
+          ),
           TRoundedContainer(
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),

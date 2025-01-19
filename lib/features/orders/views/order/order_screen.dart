@@ -48,7 +48,7 @@ class OrderScreen extends StatelessWidget {
                       index: index,
                       tabController: tabController,
                       text: OrdersController.instance.orderStatusChipList[index],
-                      status: OrdersController.instance.orderStatusChipList[index],
+                      status: OrdersController.instance.orderStatusChipList2[index],
                     )),
                   ),
                 )
