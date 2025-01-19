@@ -30,15 +30,7 @@ class OrderDetailsPageView extends StatelessWidget {
               width: 382.w,
               height: 265.h,
               backgroundColor: dark ? TColors.darkContainer : TColors.borderPrimary,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TRoundedImage(imageUrl: OrdersController.instance.showOrderModel.value.data?.files?[index].filePath ?? TImages.emptyOrders),
-                  SvgPicture.asset(TImages.camera),
-                  TSizes.md.verticalSpace,
-                  Text(TEnglishTexts.prescriptionPhoto, style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white))
-                ],
-              ),
+              child: TRoundedImage(imageUrl: "https://pharmacy.technoplus.dev/storage/${OrdersController.instance.showOrderModel.value.data?.files?[index].filePath}", isNetworkImage: true),
             ),
           ),
         ),

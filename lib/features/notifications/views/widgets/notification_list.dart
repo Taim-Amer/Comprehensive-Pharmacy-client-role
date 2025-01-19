@@ -1,4 +1,3 @@
-import 'package:comprehensive_pharmacy_client_role/app.dart';
 import 'package:comprehensive_pharmacy_client_role/features/notifications/views/widgets/notification_item.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +8,13 @@ class NotificationList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      itemCount: 12,
-      itemBuilder: (context, index) => const NotificationItem(),
-      separatorBuilder: (context, _) => TSizes.spaceBtwItems.verticalSpace,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
+      child: ListView.separated(
+        itemCount: 12,
+        itemBuilder: (context, index) => const NotificationItem(),
+        separatorBuilder: (context, _) => TSizes.spaceBtwItems.verticalSpace,
+      ),
     );
   }
 }
