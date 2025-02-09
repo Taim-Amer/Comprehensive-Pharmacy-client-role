@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_client_role/common/widgets/alerts/snackbar.dart';
+import 'package:comprehensive_pharmacy_client_role/common/widgets/forms/empty_form.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/models/all_orders_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/models/create_order_model.dart';
 import 'package:comprehensive_pharmacy_client_role/features/orders/models/order_status_model.dart';
@@ -8,6 +9,8 @@ import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/se
 import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/services/file_services.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/logging/logger.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
@@ -67,6 +70,23 @@ class OrdersController extends GetxController {
   }
 
   //['pending', 'Processing', 'on_the_way', 'completed', 'canceled','rejected']
+
+  Widget emptyForm(String status){
+    Widget empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
+    if(status == orderStatusChipList2[0]){
+      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
+    } else if(status == orderStatusChipList2[1]){
+      empty = TEmptyForm(image: TImages.finishedOrderEmpty, title: TEnglishTexts.finishedOrdersEmptyTitle, subTitle: TEnglishTexts.finishedOrdersEmptySubTitle);
+    } else if(status == orderStatusChipList2[2]){
+      empty = TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.rejectedOrdersEmptyTitle, subTitle: TEnglishTexts.rejectedOrdersEmptySubTitle);
+    } else if(status == orderStatusChipList2[3]){
+      empty = TEmptyForm(image: TImages.currentOrderEmpty, title: TEnglishTexts.currentOrdersEmptyTitle, subTitle: TEnglishTexts.currentOrdersEmptySubTitle);
+    } else if(status == orderStatusChipList2[4]){
+      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.onTheWayOrdersEmptyTitle, subTitle: TEnglishTexts.onTheWayOrdersEmptySubTitle);
+    }
+    return empty;
+  }
+
 
   void toggleChipSelection(int index, bool isSelected) {
     selectedChips[index] = isSelected;
@@ -151,7 +171,7 @@ class OrdersController extends GetxController {
 
   Future<void> createOrder() async{
     THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.loading);
-    Get.offAll(() => const SearchingPharmacyScreen());
+    Get.to(() => const SearchingPharmacyScreen());
     await OrderRepoImpl.instance.createOrder(
       pharmacistID: TCacheHelper.getData(key: 'pharmacist_id'),
       filesList: TFileServices.selectedFiles.value,
@@ -168,6 +188,7 @@ class OrdersController extends GetxController {
       }
     }).catchError((error){
       THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.error);
+      TLoggerHelper.warning(error.toString());
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
       Get.offAllNamed(AppRoutes.home);
     });

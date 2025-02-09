@@ -36,6 +36,7 @@ class TArabicTexts {
   static String get setNewPasswordSubTitle => 'قم بإنشاء كلمة مرور جديدة. تأكد أن تختلف عن السابقة';
   static String get updatePassword => 'تحديث كلمة المرور';
   static String get resetSuccess => 'تمت إعادة تعيين كلمة المرور بنجاح!';
+  static String get addressEnter => 'ادخل العنوان الخاص بك';
   static String get resetSuccessSubTitle => 'كلمة المرور الجديدة جاهزة للاستخدام. قم بتسجيل الدخول لاستعادة الوصول إلى حسابك بسهولة.';
 
   // Orders
@@ -59,6 +60,17 @@ class TArabicTexts {
   static String get orderDate => 'تاريخ الطلب';
   static String get orderDetails => 'تفاصيل الطلب';
   static String get prescriptionPhoto => 'صورة الوصفة الطبية';
+
+  static String get newOrdersEmptyTitle => 'There are no new orders currently';
+  static String get newOrdersEmptySubTitle => 'Make sure you are available to be able to receive requests';
+  static String get currentOrdersEmptySubTitle => 'All orders that are still in progress appear here';
+  static String get currentOrdersEmptyTitle => 'There are no ongoing requests currently';
+  static String get rejectedOrdersEmptyTitle => 'There are no rejected requests';
+  static String get rejectedOrdersEmptySubTitle => 'Any request that is rejected by you will appear here';
+  static String get finishedOrdersEmptySubTitle => 'All orders completed by the customer will appear here';
+  static String get finishedOrdersEmptyTitle => 'There are no completed orders';
+  static String get onTheWayOrdersEmptySubTitle => 'All orders on the way will appear here';
+  static String get onTheWayOrdersEmptyTitle => 'There are no on the way orders';
 
   // Home
   static String get homeTitle => 'قم برفع الوصفة الطبية';
@@ -156,6 +168,7 @@ class TEnglishTexts {
   static String get setNewPasswordSubTitle => 'Create a new password.Ensure it differs form the previous one';
   static String get updatePassword => 'Update password';
   static String get resetSuccess => 'Password reset successful!';
+  static String get addressEnter => 'Enter Your Address';
   static String get resetSuccessSubTitle => 'Your new password is ready to use. Log in and regain access to your account seamlessly!';
 
   // Orders
@@ -179,6 +192,17 @@ class TEnglishTexts {
   static String get orderDate => 'Order date';
   static String get orderDetails => 'Order Details';
   static String get prescriptionPhoto => 'Prescription photo';
+
+  static String get newOrdersEmptyTitle => 'There are no new orders currently';
+  static String get newOrdersEmptySubTitle => 'Make sure you are available to be able to receive requests';
+  static String get currentOrdersEmptySubTitle => 'All orders that are still in progress appear here';
+  static String get currentOrdersEmptyTitle => 'There are no ongoing requests currently';
+  static String get rejectedOrdersEmptyTitle => 'There are no rejected requests';
+  static String get rejectedOrdersEmptySubTitle => 'Any request that is rejected by you will appear here';
+  static String get finishedOrdersEmptySubTitle => 'All orders completed by the customer will appear here';
+  static String get finishedOrdersEmptyTitle => 'There are no completed orders';
+  static String get onTheWayOrdersEmptySubTitle => 'All orders on the way will appear here';
+  static String get onTheWayOrdersEmptyTitle => 'There are no on the way orders';
 
   // Home
   static String get homeTitle => 'Upload your prescription';

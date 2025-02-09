@@ -19,7 +19,8 @@ class PharmaciesScreen extends StatelessWidget {
       body: Obx(() => PharmacyController.instance.getPharmaciesApiStatus.value == RequestState.loading ? const PharmaciesShimmer() : Padding(
         padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
         child: ListView.separated(
-          itemCount: PharmacyController.instance.getPharmaciesModel.value.pharmacies?.length ?? 0,
+          itemCount: 1,
+          // itemCount: PharmacyController.instance.getPharmaciesModel.value.pharmacies?.length ?? 0,
           itemBuilder: (context, index) => PharmacyItem(
             pharmacyStatus: PharmacyController.instance.getPharmaciesModel.value.pharmacies?[index].status ?? 0,
             pharmacyName: PharmacyController.instance.getPharmaciesModel.value.pharmacies?[index].pharmacyName ?? '',

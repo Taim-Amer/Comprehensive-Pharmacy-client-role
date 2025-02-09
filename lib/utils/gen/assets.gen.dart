@@ -33,6 +33,9 @@ class $AssetsIconsGen {
   /// Directory path: assets/icons/flags
   $AssetsIconsFlagsGen get flags => const $AssetsIconsFlagsGen();
 
+  /// File path: assets/icons/noun-pin-608665 1.svg
+  String get nounPin6086651 => 'assets/icons/noun-pin-608665 1.svg';
+
   /// File path: assets/icons/trash.svg
   String get trash => 'assets/icons/trash.svg';
 
@@ -47,6 +50,7 @@ class $AssetsIconsGen {
         clipboardTick,
         edit,
         f7CameraFill,
+        nounPin6086651,
         trash,
         truckFast
       ];
@@ -73,6 +77,15 @@ class $AssetsImagesGen {
   /// File path: assets/images/clipboard-close.svg
   String get clipboardClose => 'assets/images/clipboard-close.svg';
 
+  /// File path: assets/images/clipboard-close2.svg
+  String get clipboardClose2 => 'assets/images/clipboard-close2.svg';
+
+  /// File path: assets/images/clipboard-export.svg
+  String get clipboardExport => 'assets/images/clipboard-export.svg';
+
+  /// File path: assets/images/clipboard-tick.svg
+  String get clipboardTick => 'assets/images/clipboard-tick.svg';
+
   /// File path: assets/images/f7_camera-fill.svg
   String get f7CameraFill => 'assets/images/f7_camera-fill.svg';
 
@@ -88,6 +101,9 @@ class $AssetsImagesGen {
         group39446,
         rectangle5,
         clipboardClose,
+        clipboardClose2,
+        clipboardExport,
+        clipboardTick,
         f7CameraFill,
         icons8Marker50
       ];

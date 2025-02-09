@@ -11,17 +11,17 @@ class PharmaciesModel {
     if (json['pharmacies'] != null) {
       pharmacies = <Pharmacies>[];
       json['pharmacies'].forEach((v) {
-        pharmacies!.add(Pharmacies.fromJson(v));
+        pharmacies!.add(new Pharmacies.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['status'] = status;
-    data['message'] = message;
-    if (pharmacies != null) {
-      data['pharmacies'] = pharmacies!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['status'] = this.status;
+    data['message'] = this.message;
+    if (this.pharmacies != null) {
+      data['pharmacies'] = this.pharmacies!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -34,7 +34,7 @@ class Pharmacies {
   int? status;
   String? createdAt;
   String? updatedAt;
-  int? distance;
+  double? distance;
   Pharmacist? pharmacist;
 
   Pharmacies(
@@ -56,21 +56,21 @@ class Pharmacies {
     updatedAt = json['updated_at'];
     distance = json['distance'];
     pharmacist = json['pharmacist'] != null
-        ? Pharmacist.fromJson(json['pharmacist'])
+        ? new Pharmacist.fromJson(json['pharmacist'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['user_id'] = userId;
-    data['pharmacy_name'] = pharmacyName;
-    data['status'] = status;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
-    data['distance'] = distance;
-    if (pharmacist != null) {
-      data['pharmacist'] = pharmacist!.toJson();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['user_id'] = this.userId;
+    data['pharmacy_name'] = this.pharmacyName;
+    data['status'] = this.status;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    data['distance'] = this.distance;
+    if (this.pharmacist != null) {
+      data['pharmacist'] = this.pharmacist!.toJson();
     }
     return data;
   }
@@ -96,13 +96,13 @@ class Pharmacist {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = name;
-    data['email'] = email;
-    data['phone'] = phone;
-    data['lat'] = lat;
-    data['lng'] = lng;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['phone'] = this.phone;
+    data['lat'] = this.lat;
+    data['lng'] = this.lng;
     return data;
   }
 }

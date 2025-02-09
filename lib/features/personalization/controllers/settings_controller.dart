@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 class SettingsController extends GetxController {
   static SettingsController get instance => Get.find();
 
+  final ValueNotifier<Language?> selectedLanguageNotifier = ValueNotifier<Language?>(Language.english);
+
   Rx<Language> selectedLanguage = Language.english.obs;
   Rx<Locale> locale = const Locale("en").obs;
   var logoutApiStatus = RequestState.begin.obs;
@@ -45,5 +47,6 @@ class SettingsController extends GetxController {
       TCacheHelper.saveData(key: "locale", value: "en");
       Get.updateLocale(locale.value);
     }
+    selectedLanguageNotifier.value = language; // التأكد من تحديث ValueNotifier
   }
 }

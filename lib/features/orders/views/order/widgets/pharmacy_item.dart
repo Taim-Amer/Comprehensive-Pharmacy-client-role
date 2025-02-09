@@ -13,7 +13,7 @@ class PharmacyItem extends StatelessWidget {
 
   final int pharmacyStatus;
   final String pharmacyName;
-  final int distance;
+  final double distance;
   final int pharmacistID;
 
   String getText(){
@@ -75,7 +75,8 @@ class PharmacyItem extends StatelessWidget {
                 Icons.arrow_forward_ios_rounded,
                 size: 20,
                 color: dark ? TColors.softGrey : const Color(0xFF383838),
-              )),
+              ),
+          ),
         ],
       ),
     );

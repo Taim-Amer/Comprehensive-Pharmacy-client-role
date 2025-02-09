@@ -12,7 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class LanguageChangingContainer extends StatelessWidget {
   LanguageChangingContainer({super.key});
 
-  final ValueNotifier<Language?> selectedLanguageNotifier = ValueNotifier<Language?>(Language.english);
+  // final ValueNotifier<Language?> selectedLanguageNotifier = ValueNotifier<Language?>(Language.english);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class LanguageChangingContainer extends StatelessWidget {
             child: LanguageRadioTile(
               language: Language.english,
               languageName: TranslationKey.kEnglish,
-              valueNotifier: selectedLanguageNotifier,
+              valueNotifier: SettingsController.instance.selectedLanguageNotifier,
               onChanged: (language){
                 SettingsController.instance.setSelectedRadio(language!);
                 print(language);
@@ -44,7 +44,7 @@ class LanguageChangingContainer extends StatelessWidget {
             child: LanguageRadioTile(
               language: Language.arabic,
               languageName: TranslationKey.kArabic,
-              valueNotifier: selectedLanguageNotifier,
+              valueNotifier: SettingsController.instance.selectedLanguageNotifier,
               onChanged: (language){
                 SettingsController.instance.setSelectedRadio(language!);
                 print(language);
@@ -58,12 +58,6 @@ class LanguageChangingContainer extends StatelessWidget {
     );
   }
 }
-
-
-
-// value: 1,
-//               groupValue: SettingsController.instance.selectedLanguage.value ?? 2,
-//               onChanged: (value) => SettingsController.instance.setSelectedRadio(1),
 
 
 

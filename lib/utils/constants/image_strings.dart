@@ -21,6 +21,10 @@ class TImages {
   static const String delivery = 'assets/icons/box-tick.svg';
   static const String processing = 'assets/icons/box-time.svg';
   static const String onTheWay = 'assets/icons/truck-fast.svg';
+  static const String newOrderEmpty = 'assets/images/clipboard-export.svg';
+  static const String currentOrderEmpty = 'assets/images/clipboard-export.svg';
+  static const String rejectedOrderEmpty = 'assets/images/clipboard-close2.svg';
+  static const String finishedOrderEmpty = 'assets/images/clipboard-tick.svg';
 
   // Home
   static const String uploadIcon = 'assets/icons/Upload icon.svg';
@@ -52,6 +56,7 @@ class TImages {
   static const String weakReminder = "assets/icons/global/calendar-simple-7-svgrepo-com 1.svg";
   static const String monthReminder = "assets/icons/global/calendar-simple-31-svgrepo-com 2.svg";
   static const String customizeReminder = "assets/icons/global/calendar-simple-31-svgrepo-com 1.svg";
+  static const String searchIcon = "assets/icons/noun-pin-608665 1.svg";
 
   // Settings
   static const String translate = "assets/icons/global/Combined-Shape.svg";
