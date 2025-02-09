@@ -74,18 +74,29 @@ class OrdersController extends GetxController {
   Widget emptyForm(String status){
     Widget empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
     if(status == orderStatusChipList2[0]){
-      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
-    } else if(status == orderStatusChipList2[1]){
       empty = TEmptyForm(image: TImages.finishedOrderEmpty, title: TEnglishTexts.finishedOrdersEmptyTitle, subTitle: TEnglishTexts.finishedOrdersEmptySubTitle);
+    } else if(status == orderStatusChipList2[1]){
+      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
     } else if(status == orderStatusChipList2[2]){
-      empty = TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.rejectedOrdersEmptyTitle, subTitle: TEnglishTexts.rejectedOrdersEmptySubTitle);
+      empty = TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.canceledOrdersEmptyTitle, subTitle: TEnglishTexts.canceledOrdersEmptySubTitle);
     } else if(status == orderStatusChipList2[3]){
-      empty = TEmptyForm(image: TImages.currentOrderEmpty, title: TEnglishTexts.currentOrdersEmptyTitle, subTitle: TEnglishTexts.currentOrdersEmptySubTitle);
+      empty = TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.rejectedOrdersEmptyTitle, subTitle: TEnglishTexts.rejectedOrdersEmptySubTitle);
     } else if(status == orderStatusChipList2[4]){
-      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.onTheWayOrdersEmptyTitle, subTitle: TEnglishTexts.onTheWayOrdersEmptySubTitle);
+      empty = TEmptyForm(image: TImages.processing, title: TEnglishTexts.processingTitle, subTitle: TEnglishTexts.processingSubTitle);
     }
     return empty;
   }
+
+  List<TEmptyForm>emptyForms=[
+  TEmptyForm(image: TImages.finishedOrderEmpty, title: TEnglishTexts.finishedOrdersEmptyTitle, subTitle: TEnglishTexts.finishedOrdersEmptySubTitle),
+  TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle),
+  TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.canceledOrdersEmptyTitle, subTitle: TEnglishTexts.canceledOrdersEmptySubTitle),
+  TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.rejectedOrdersEmptyTitle, subTitle: TEnglishTexts.rejectedOrdersEmptySubTitle),
+  TEmptyForm(image: TImages.processing, title: TEnglishTexts.processingTitle, subTitle: TEnglishTexts.processingSubTitle),
+  TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.onTheWayOrdersEmptyTitle, subTitle: TEnglishTexts.onTheWayOrdersEmptySubTitle),
+];
+
+  Widget emptyFormTest(int index)=> emptyForms[index];
 
 
   void toggleChipSelection(int index, bool isSelected) {

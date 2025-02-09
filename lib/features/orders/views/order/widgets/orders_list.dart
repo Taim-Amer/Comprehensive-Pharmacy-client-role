@@ -13,46 +13,54 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class OrdersList extends StatelessWidget {
-  const OrdersList({super.key, required this.status});
+  const OrdersList({super.key, required this.index, required this.status});
 
   final String status;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
-    var paginationData = OrdersController.instance.myOrdersModel.value.data;
-    if (paginationData is PaginationData && paginationData.data != null) {
-      var orderList = paginationData.data!;
-      return Obx(() => OrdersController.instance.getMyOrdersApiStatus.value == RequestState.loading ? const OrderShimmer() : RefreshIndicator(
-        color: TColors.primary,
-        backgroundColor: dark ? TColors.dark : TColors.light,
-        onRefresh: () async => await OrdersController.instance.getMyOrders(status: status),
-        child: ListView.builder(
-          itemCount: orderList.length,
-          physics: const BouncingScrollPhysics(
-            parent: AlwaysScrollableScrollPhysics(),
-          ),
-          itemBuilder: (context, index) {
-            var order = orderList[index];
-            int? orderID = int.tryParse(order.id.toString());
-            return OrderItem(
-              orderID: orderID!,
-              pharmacyName: order.pharmacist?.pharmacy?.pharmacyName ?? 'Unknown',
-              orderDate: order.createdAt ?? 'Unknown Date',
-              orderStatus: status ?? 'Unknown Status',
-            );
-          },
-        ),
-      ));
-    } else {
-      return Obx(() => Center(
-        child: RefreshIndicator(
+
+    return Obx(() {
+      if (OrdersController.instance.getMyOrdersApiStatus.value == RequestState.loading) {
+        return const OrderShimmer();
+      }
+
+      var paginationData = OrdersController.instance.myOrdersModel.value.data;
+      if (paginationData is PaginationData && paginationData.data != null) {
+        var orderList = paginationData.data!;
+        return RefreshIndicator(
           color: TColors.primary,
           backgroundColor: dark ? TColors.dark : TColors.light,
           onRefresh: () async => await OrdersController.instance.getMyOrders(status: status),
-          child: OrdersController.instance.emptyForm(status),
-        ),
-      ));
-    }
+          child: ListView.builder(
+            itemCount: orderList.length,
+            physics: const BouncingScrollPhysics(
+              parent: AlwaysScrollableScrollPhysics(),
+            ),
+            itemBuilder: (context, index) {
+              var order = orderList[index];
+              int? orderID = int.tryParse(order.id.toString());
+              return OrderItem(
+                orderID: orderID!,
+                pharmacyName: order.pharmacist?.pharmacy?.pharmacyName ?? 'Unknown',
+                orderDate: order.createdAt ?? 'Unknown Date',
+                orderStatus: status ?? 'Unknown Status',
+              );
+            },
+          ),
+        );
+      } else {
+        return Center(
+          child: RefreshIndicator(
+            color: TColors.primary,
+            backgroundColor: dark ? TColors.dark : TColors.light,
+            onRefresh: () async => await OrdersController.instance.getMyOrders(status: status),
+            child: OrdersController.instance.emptyFormTest(index),
+          ),
+        );
+      }
+    });
   }
 }
