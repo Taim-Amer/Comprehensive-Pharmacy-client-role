@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
@@ -16,9 +17,9 @@ class NotificationEmptyState extends StatelessWidget {
         children: [
           SvgPicture.asset(TImages.notificationEmpty),
           TSizes.spaceBtwSections.verticalSpace,
-          Text(TEnglishTexts.notificationsEmptyTitle, style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),
+          Text(TranslationKey.kNotificationsEmptyTitle, style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),
           TSizes.spaceBtwItems.verticalSpace,
-          Text(TEnglishTexts.notificationsEmptySubTitle, style: Theme.of(context).textTheme.labelLarge, textAlign: TextAlign.center,),
+          Text(TranslationKey.kNotificationsEmptySubTitle, style: Theme.of(context).textTheme.labelLarge, textAlign: TextAlign.center,),
         ],
       ),
     );

@@ -61,18 +61,18 @@ class TArabicTexts {
   static String get orderDetails => 'تفاصيل الطلب';
   static String get prescriptionPhoto => 'صورة الوصفة الطبية';
 
-  static String get newOrdersEmptyTitle => 'There are no new orders currently';
-  static String get newOrdersEmptySubTitle => 'Make sure you are available to be able to receive requests';
-  static String get currentOrdersEmptySubTitle => 'All orders that are still in progress appear here';
-  static String get currentOrdersEmptyTitle => 'There are no ongoing requests currently';
-  static String get rejectedOrdersEmptyTitle => 'There are no rejected requests';
-  static String get rejectedOrdersEmptySubTitle => 'Any request that is rejected by you will appear here';
-  static String get finishedOrdersEmptySubTitle => 'All orders completed by the customer will appear here';
-  static String get finishedOrdersEmptyTitle => 'There are no completed orders';
-  static String get onTheWayOrdersEmptySubTitle => 'All orders on the way will appear here';
-  static String get onTheWayOrdersEmptyTitle => 'There are no on the way orders';
-  static String get canceledOrdersEmptyTitle => 'There are no canceled requests';
-  static String get canceledOrdersEmptySubTitle => 'Any request that is canceled by you will appear here';
+  static String get newOrdersEmptyTitle => 'لا توجد طلبات جديدة حاليًا';
+  static String get newOrdersEmptySubTitle => 'تأكد من أنك متاح لتتمكن من تلقي الطلبات';
+  static String get currentOrdersEmptySubTitle => 'جميع الطلبات التي ما زالت قيد التنفيذ ستظهر هنا';
+  static String get currentOrdersEmptyTitle => 'لا توجد طلبات جارية حاليًا';
+  static String get rejectedOrdersEmptyTitle => 'لا توجد طلبات مرفوضة';
+  static String get rejectedOrdersEmptySubTitle => 'أي طلب يتم رفضه من قِبلك سيظهر هنا';
+  static String get finishedOrdersEmptySubTitle => 'جميع الطلبات التي اكتمل تنفيذها من قبل العميل ستظهر هنا';
+  static String get finishedOrdersEmptyTitle => 'لا توجد طلبات مكتملة';
+  static String get onTheWayOrdersEmptySubTitle => 'جميع الطلبات التي في الطريق ستظهر هنا';
+  static String get onTheWayOrdersEmptyTitle => 'لا توجد طلبات قيد التوصيل';
+  static String get canceledOrdersEmptyTitle => 'لا توجد طلبات ملغاة';
+  static String get canceledOrdersEmptySubTitle => 'أي طلب يتم إلغاؤه من قِبلك سيظهر هنا';
 
   // Home
   static String get homeTitle => 'قم برفع الوصفة الطبية';

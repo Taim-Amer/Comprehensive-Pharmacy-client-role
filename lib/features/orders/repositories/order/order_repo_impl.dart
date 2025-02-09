@@ -7,6 +7,7 @@ import 'package:comprehensive_pharmacy_client_role/features/orders/models/show_o
 import 'package:comprehensive_pharmacy_client_role/features/orders/repositories/order/order_repo.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/api/dio_helper.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/api_constants.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/logging/logger.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/storage/cache_helper.dart';
 import 'package:get/get.dart' as ins;
 import 'package:dio/dio.dart';
@@ -79,7 +80,9 @@ class OrderRepoImpl implements OrderRepo{
     }
 
     return await dioHelper.post(TApiConstants.create, formData, token: token,
-    ).then((response) => CreateOrderModel.fromJson(response));
+    ).then((response) => CreateOrderModel.fromJson(response)).catchError((error){
+      TLoggerHelper.info(error.toString());
+    });
   }
 
 }

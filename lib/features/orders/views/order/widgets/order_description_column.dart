@@ -4,6 +4,7 @@ import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/formatters/formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -60,7 +61,7 @@ class OrderDescriptionColumn extends StatelessWidget {
             )
           ],
         ),
-        Text(orderDetails.data?.createdAt ?? "", style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 16)),
+        Text(TFormatter.formatDate(orderDetails.data?.createdAt ?? ""), style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 16)),
         TSizes.spaceBtwSections.verticalSpace,
         Text(TranslationKey.kPharmacyName, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 20, fontWeight: FontWeight.w500)),
         Text(orderDetails.data?.pharmacist?.pharmacy?.pharmacyName ?? "", style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 16)),

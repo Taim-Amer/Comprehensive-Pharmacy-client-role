@@ -3,6 +3,7 @@ import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/o
 import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
+import 'package:comprehensive_pharmacy_client_role/utils/formatters/formatter.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -64,7 +65,7 @@ class OrderItem extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("${TranslationKey.kOrderID}$orderID", style: Theme.of(context).textTheme.titleLarge),
+                  Text("${TranslationKey.kOrderID} #[$orderID]", style: Theme.of(context).textTheme.titleLarge),
                   TRoundedContainer(
                     backgroundColor: getContainerColor(),
                     radius: 100.r,
@@ -93,7 +94,7 @@ class OrderItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(TranslationKey.kOrderDate, style: Theme.of(context).textTheme.labelMedium),
-                      Text(orderDate.toString(), style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 12)),
+                      Text(TFormatter.formatDate(orderDate.toString()), style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 12)),
                     ],
                   ),
                 ],

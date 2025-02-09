@@ -47,7 +47,7 @@ class OrderScreen extends StatelessWidget {
                     tabs: List.generate(6, (index) => OrderStatusChip(
                       index: index,
                       tabController: tabController,
-                      text: OrdersController.instance.orderStatusChipList[index],
+                      text: OrdersController.instance.orderStatusChipList[index].tr,
                       status: OrdersController.instance.orderStatusChipList2[index],
                     )),
                   ),
@@ -59,17 +59,6 @@ class OrderScreen extends StatelessWidget {
                   OrdersController.instance.getMyOrders(status: OrdersController.instance.orderStatusChipList2[index]);
                 },
                 children: List.generate(OrdersController.instance.emptyForms.length,(index)=> OrdersList(index:index, status:OrdersController.instance.orderStatusChipList2[index],)),
-                // [
-                  // OrdersList(status: OrdersController.instance.orderStatusChipList2[0]),
-                  // OrdersList(status: OrdersController.instance.orderStatusChipList2[1]),
-                  // OrdersList(status: OrdersController.instance.orderStatusChipList2[2]),
-                  // OrdersList(status: OrdersController.instance.orderStatusChipList2[3]),
-                  // OrdersList(status: OrdersController.instance.orderStatusChipList2[4]),
-                  // OrdersList(status: OrdersController.instance.orderStatusChipList2[5]),
-                  // CompletedList(status: 'pending',),
-                  // CompletedList(status: 'canceled',),
-                  // CompletedList(status: 'rejected',),
-                // ],
               ),
             )),
           );

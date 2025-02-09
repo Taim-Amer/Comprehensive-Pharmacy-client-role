@@ -69,34 +69,41 @@ class OrdersController extends GetxController {
     super.onReady();
   }
 
-  //['pending', 'Processing', 'on_the_way', 'completed', 'canceled','rejected']
+  List<TEmptyForm> emptyForms = [
+    TEmptyForm(
+      image: TImages.finishedOrderEmpty,
+      title: TranslationKey.kFinishedOrdersEmptyTitle,
+      subTitle: TranslationKey.kFinishedOrdersEmptySubTitle,
+    ),
+    TEmptyForm(
+      image: TImages.newOrderEmpty,
+      title: TranslationKey.kNewOrdersEmptyTitle,
+      subTitle: TranslationKey.kNewOrdersEmptySubTitle,
+    ),
+    TEmptyForm(
+      image: TImages.rejectedOrderEmpty,
+      title: TranslationKey.kCanceledOrdersEmptyTitle,
+      subTitle: TranslationKey.kCanceledOrdersEmptySubTitle,
+    ),
+    TEmptyForm(
+      image: TImages.rejectedOrderEmpty,
+      title: TranslationKey.kRejectedOrdersEmptyTitle,
+      subTitle: TranslationKey.kRejectedOrdersEmptySubTitle,
+    ),
+    TEmptyForm(
+      image: TImages.processing,
+      title: TranslationKey.kProcessingTitle,
+      subTitle: TranslationKey.kProcessingSubTitle,
+    ),
+    TEmptyForm(
+      image: TImages.newOrderEmpty,
+      title: TranslationKey.kOnTheWayOrdersEmptyTitle,
+      subTitle: TranslationKey.kOnTheWayOrdersEmptySubTitle,
+    ),
+  ];
 
-  Widget emptyForm(String status){
-    Widget empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
-    if(status == orderStatusChipList2[0]){
-      empty = TEmptyForm(image: TImages.finishedOrderEmpty, title: TEnglishTexts.finishedOrdersEmptyTitle, subTitle: TEnglishTexts.finishedOrdersEmptySubTitle);
-    } else if(status == orderStatusChipList2[1]){
-      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
-    } else if(status == orderStatusChipList2[2]){
-      empty = TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.canceledOrdersEmptyTitle, subTitle: TEnglishTexts.canceledOrdersEmptySubTitle);
-    } else if(status == orderStatusChipList2[3]){
-      empty = TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.rejectedOrdersEmptyTitle, subTitle: TEnglishTexts.rejectedOrdersEmptySubTitle);
-    } else if(status == orderStatusChipList2[4]){
-      empty = TEmptyForm(image: TImages.processing, title: TEnglishTexts.processingTitle, subTitle: TEnglishTexts.processingSubTitle);
-    }
-    return empty;
-  }
+  Widget emptyFormTest(int index) => emptyForms[index];
 
-  List<TEmptyForm>emptyForms=[
-  TEmptyForm(image: TImages.finishedOrderEmpty, title: TEnglishTexts.finishedOrdersEmptyTitle, subTitle: TEnglishTexts.finishedOrdersEmptySubTitle),
-  TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle),
-  TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.canceledOrdersEmptyTitle, subTitle: TEnglishTexts.canceledOrdersEmptySubTitle),
-  TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.rejectedOrdersEmptyTitle, subTitle: TEnglishTexts.rejectedOrdersEmptySubTitle),
-  TEmptyForm(image: TImages.processing, title: TEnglishTexts.processingTitle, subTitle: TEnglishTexts.processingSubTitle),
-  TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.onTheWayOrdersEmptyTitle, subTitle: TEnglishTexts.onTheWayOrdersEmptySubTitle),
-];
-
-  Widget emptyFormTest(int index)=> emptyForms[index];
 
 
   void toggleChipSelection(int index, bool isSelected) {
@@ -191,7 +198,7 @@ class OrdersController extends GetxController {
       if(response.status == true){
         showSnackBar(response.message ?? '', AlertState.success);
         THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.success);
-        Get.toNamed(AppRoutes.home);
+        Get.offNamed(AppRoutes.home);
       } else{
         THelperFunctions.updateApiStatus(target: createOrderApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);

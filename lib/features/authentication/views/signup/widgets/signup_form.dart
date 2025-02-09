@@ -75,7 +75,7 @@ class SignupForm extends StatelessWidget {
             onTap: () => Get.to(() => const LocationMap(), transition: Transition.rightToLeft),
             cursorColor: TColors.primary,
             decoration: InputDecoration(
-                hintText: TEnglishTexts.location,
+                hintText: TranslationKey.kLocation,
                 prefixIcon: const Icon(Iconsax.location),
                 suffixIcon: const Icon(Icons.keyboard_arrow_right_outlined, size: 22,)
             ),
