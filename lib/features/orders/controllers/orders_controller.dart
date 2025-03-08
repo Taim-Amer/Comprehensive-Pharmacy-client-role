@@ -210,7 +210,4 @@ class OrdersController extends GetxController {
       Get.offAllNamed(AppRoutes.home);
     });
   }
-
-
-
 }
