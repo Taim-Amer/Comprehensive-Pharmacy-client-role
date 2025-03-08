@@ -69,7 +69,7 @@ class PharmacyItem extends StatelessWidget {
           IconButton(
               onPressed: () async{
                 await TCacheHelper.saveData(key: 'pharmacist_id', value: pharmacistID);
-                Get.toNamed(AppRoutes.home);
+                Get.offNamed(AppRoutes.home);
               },
               icon: Icon(
                 Icons.arrow_forward_ios_rounded,

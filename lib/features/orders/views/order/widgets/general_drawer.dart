@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class GeneralDrawer extends StatelessWidget {
-  const GeneralDrawer({super.key});
+  const   GeneralDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +25,12 @@ class GeneralDrawer extends StatelessWidget {
             padding: EdgeInsets.all(TSizes.md),
             child: TDrawerHeader(),
           ),
-          TSettingMenuTile(icon: Iconsax.home, title: TranslationKey.kHome,),
-          TRoundedContainer(
-            height: 1,
-            backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),
-          ),
-          TSettingMenuTile(icon: Iconsax.task, title: TranslationKey.kMyOrders,),
+          // TSettingMenuTile(icon: Iconsax.home, title: TranslationKey.kHome,),
+          // TRoundedContainer(
+          //   height: 1,
+          //   backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),
+          // ),
+          TSettingMenuTile(icon: Iconsax.task, title: TranslationKey.kMyOrders, onTap: () => Get.back(),),
           TRoundedContainer(
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),
@@ -44,7 +44,7 @@ class GeneralDrawer extends StatelessWidget {
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),
           ),
-          TSettingMenuTile(icon: Iconsax.information, title: TranslationKey.kPrivacy,),
+          TSettingMenuTile(icon: Iconsax.information, title: TranslationKey.kPrivacyPolicy,),
           TRoundedContainer(
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),

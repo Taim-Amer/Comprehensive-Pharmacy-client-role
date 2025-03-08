@@ -10,7 +10,6 @@ import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_client_role/services/file_services.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/logging/logger.dart';
 import 'package:comprehensive_pharmacy_client_role/utils/router/app_router.dart';
@@ -97,8 +96,8 @@ class OrdersController extends GetxController {
     ),
     TEmptyForm(
       image: TImages.newOrderEmpty,
-      title: TranslationKey.kOnTheWayOrdersEmptyTitle,
-      subTitle: TranslationKey.kOnTheWayOrdersEmptySubTitle,
+      title: TranslationKey.kOnTheWayOrdersEmptyTitle.tr,
+      subTitle: TranslationKey.kOnTheWayOrdersEmptySubTitle.tr,
     ),
   ];
 
@@ -211,4 +210,5 @@ class OrdersController extends GetxController {
       Get.offAllNamed(AppRoutes.home);
     });
   }
+
 }

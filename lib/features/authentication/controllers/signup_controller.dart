@@ -36,13 +36,11 @@ class SignupController extends GetxController{
       phone: phoneController.text.trim(),
       password: passwordController.text.trim(),
       passwordConfirm: confirmPasswordController.text.trim(),
-      lat: 30.7333,
-      lng: 30.7333,
+      lat: TCacheHelper.getData(key: 'userLat'),
+      lng: TCacheHelper.getData(key: 'userLng'),
       fcmToken: "fcmToken",
     ).then((response) async{
       if(response.status == true){
-        await TCacheHelper.saveData(key: 'phone', value: response.user?.phone.toString() ?? '');
-        print(TCacheHelper.saveData(key: 'phone', value: response.user?.phone.toString() ?? ''));
         showSnackBar(response.message ?? "", AlertState.success);
         THelperFunctions.updateApiStatus(target: signupApiStatus, value: RequestState.success);
         Get.toNamed(AppRoutes.otp);

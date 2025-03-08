@@ -49,10 +49,10 @@ class TArabicTexts {
   static String get languages => 'اللغات';
   static String get privacy => 'سياسة الخصوصية';
   static String get signOut => 'تسجيل الخروج';
-  static String get completed => 'مكتمل';
-  static String get pending => 'معلق';
-  static String get canceled => 'ملغي';
-  static String get rejected => 'مرفوض';
+  static String get completed => 'طلبات مكتملة';
+  static String get pending => 'طلبات معلقة';
+  static String get canceled => 'طلبات ملغية ';
+  static String get rejected => 'طلبات مرفوضة';
   static String get processing => 'جاري المعالجة';
   static String get onTheWay => 'في الطريق';
   static String get orderID => 'معرّف الطلب: ';
